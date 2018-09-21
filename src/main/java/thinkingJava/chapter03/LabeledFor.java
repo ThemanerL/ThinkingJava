@@ -1,6 +1,10 @@
 package thinkingJava.chapter03;
 
-public class LabledFor {
+/**
+ * 这里注意 continue outer和break inner 的作用基本一致。
+ * @author 李重辰
+ */
+public class LabeledFor {
     public static void main(String[] args){
         int i = 0;
         outer:
