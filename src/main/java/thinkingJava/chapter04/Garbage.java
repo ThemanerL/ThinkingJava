@@ -1,8 +1,9 @@
 package thinkingJava.chapter04;
 
-
-import java.sql.SQLOutput;
-
+/**
+ * System.gc()是把占了内存但是没有利用，同时没有被垃圾回收机制处理的对象尽可能的处理掉。
+ * System.runFinalization()是强制垃圾回收机制尽可能的回收没有被利用的对象，以释放出其占用的内存。
+ */
 public class Garbage {
     public static void main(String[] args){
         if (args.length==0) {
