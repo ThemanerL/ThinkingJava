@@ -1,6 +1,8 @@
 package thinkingjava.chapter03;
-
-public class If_else_Return {
+/**
+ * @author  李重辰
+ */
+public class IfElseReturn {
     static int test(int testval, int target){
         int result = 0;
         if (testval>target) {
