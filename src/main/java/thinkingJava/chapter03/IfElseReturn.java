@@ -1,22 +1,27 @@
-package thinkingJava.chapter03;
-
-public class If_else_Return {
+package thinkingjava.chapter03;
+/**
+ * @author  李重辰
+ */
+public class IfElseReturn {
     static int test(int testval, int target){
         int result = 0;
-        if (testval>target)
+        if (testval>target) {
             result = -1;
-        else if (testval<target)
+        } else if (testval<target) {
             result = 1;
-        else
+        } else {
             result = 0;
+        }
         return result;
     }
 
     static int test2(int testval, int target){
-        if (testval>target)
+        if (testval>target) {
             return -1;
-        if (testval<target)
+        }
+        if (testval<target) {
             return 1;
+        }
         return 0;
     }
 

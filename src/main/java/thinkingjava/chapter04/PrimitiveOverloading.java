@@ -1,5 +1,8 @@
-package thinkingJava.chapter04;
-
+package thinkingjava.chapter04;
+/**
+ * @author 李重辰
+ * @date 2018/9/20
+ */
 public class PrimitiveOverloading {
     static void prt(String s) {
         System.out.println(s);

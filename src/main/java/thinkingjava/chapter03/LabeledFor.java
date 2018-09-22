@@ -1,4 +1,4 @@
-package thinkingJava.chapter03;
+package thinkingjava.chapter03;
 
 /**
  * 这里注意 continue outer和break inner 的作用基本一致。

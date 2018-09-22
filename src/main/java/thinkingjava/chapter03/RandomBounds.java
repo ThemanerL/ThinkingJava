@@ -1,4 +1,4 @@
-package thinkingJava.chapter03;
+package thinkingjava.chapter03;
 /**
  * Does Math.random() produce 0.0 and 1,0?
  * 此代码不可直接运行main，需要在点击un下的Edit Configurations选项传入Program arguments
@@ -12,14 +12,21 @@ public class RandomBounds {
         System.exit(1);
     }
     public static void main(String[] args){
-        if (args.length!=1) usage();
-        if (args[0].equals("lower")) {
-            while (Math.random() != 0.0) ;
-            System.out.println("Produced 0.01");
-        } else if (args[0].equals("upper")){
-            while(Math.random()!=1.0);
-            System.out.println("Produced 1.0!");
-        } else
+        if (args.length!=1) {
             usage();
+        }
+        if ("lower".equals(args[0])) {
+            while (Math.random() != 0.0) {
+                ;
+            }
+            System.out.println("Produced 0.01");
+        } else if ("upper".equals(args[0])){
+            while(Math.random()!=1.0) {
+                ;
+            }
+            System.out.println("Produced 1.0!");
+        } else {
+            usage();
+        }
     }
 }

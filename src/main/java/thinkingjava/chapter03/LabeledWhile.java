@@ -1,5 +1,7 @@
-package thinkingJava.chapter03;
-
+package thinkingjava.chapter03;
+/**
+ * @author  李重辰
+ */
 public class LabeledWhile {
     public static void main(String[] args){
         int i = 0;

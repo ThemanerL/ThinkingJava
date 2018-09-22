@@ -1,14 +1,11 @@
-package thinkingJava.chapter03;
-
-class Letter{
-    char c;
-}
+package thinkingjava.chapter03;
+/**
+ * @author  李重辰
+ */
 public class PassObject {
-
     private static void f(Letter y){
         y.c = 'z';
     }
-
     public static void main (String[] args){
         Letter x = new Letter();
         x.c = 'a';
@@ -18,4 +15,7 @@ public class PassObject {
         f(z);
         System.out.println("2:z.c: "+z.c);
     }
+}
+class Letter{
+    char c;
 }

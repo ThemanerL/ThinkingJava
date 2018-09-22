@@ -1,4 +1,4 @@
-package thinkingJava.chapter03;
+package thinkingjava.chapter03;
 
 public class Practice3_4_1 {
     public static void main(String[] args){
@@ -13,9 +13,11 @@ public class Practice3_4_1 {
                 case 4:
                     System.out.println(i);
                     break;
+                default:
             }
-            if (i==47)
+            if (i==47) {
                 return;
+            }
 
         }
     }
