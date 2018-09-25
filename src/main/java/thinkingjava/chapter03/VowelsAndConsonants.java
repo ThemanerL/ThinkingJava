@@ -1,5 +1,7 @@
-package thinkingJava.chapter03;
-
+package thinkingjava.chapter03;
+/**
+ * @author  李重辰
+ */
 public class VowelsAndConsonants {
     public static void main(String[] args){
         for (int i=0; i<100; i++) {

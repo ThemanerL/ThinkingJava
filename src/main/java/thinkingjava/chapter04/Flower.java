@@ -1,5 +1,9 @@
-package thinkingJava.chapter04;
+package thinkingjava.chapter04;
 
+/**
+ * @author  李重辰
+ * @date 2018/9/22
+ */
 public class Flower {
     private int petalCount = 0;
     private String s = new String("null");

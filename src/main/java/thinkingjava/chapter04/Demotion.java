@@ -1,4 +1,4 @@
-package thinkingJava.chapter04;
+package thinkingjava.chapter04;
 
 /**
  * 如果我们美哟是设置任何构造器，编译程序会说：“你看起来似乎需要一个构造器，所以让我们给你制造一个。”

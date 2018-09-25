@@ -1,9 +1,9 @@
-package thinkingJava.chapter03;
+package thinkingjava.chapter03;
 
 /**
- * Test of unsigned right shift
+ * @author  李重辰
  */
-public class URShift {
+public class UrShift {
     public static void main(String[] args){
         int i = -1;
         i >>>= 10;

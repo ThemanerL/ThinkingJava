@@ -1,7 +1,9 @@
-package thinkingJava.chapter03;
+package thinkingjava.chapter03;
 
 import java.util.Random;
-
+/**
+ * @author  李重辰
+ */
 public class BitManipulation {
     public static void main(String[] args) {
         Random rand = new Random();
