@@ -4,10 +4,7 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9a2ecb5-1893-4599-bd87-9eef008a9273" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/thinkingJava/chapter03/Assignment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thinkingJava/chapter04/OrderOfInitialization.java" beforeDir="false" />
-    </list>
+    <list default="true" id="f9a2ecb5-1893-4599-bd87-9eef008a9273" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,7 +135,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="519" />
     <option name="y" value="-11" />
     <option name="width" value="518" />
@@ -179,23 +176,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ThinkingJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ThinkingJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="thinkingjava" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ThinkingJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ThinkingJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="thinkingjava" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter04" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -205,7 +185,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537859000242" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537859827262" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -327,7 +307,7 @@
       <updated>1537445748081</updated>
       <workItem from="1537445772125" duration="36474000" />
       <workItem from="1537607886244" duration="4117000" />
-      <workItem from="1537844294133" duration="2003000" />
+      <workItem from="1537844294133" duration="2476000" />
     </task>
     <task id="LOCAL-00001" summary="See class name">
       <created>1537497180465</created>
@@ -382,7 +362,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42594000" />
+    <option name="totallyTimeSpent" value="43067000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
