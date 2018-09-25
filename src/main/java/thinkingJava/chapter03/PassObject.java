@@ -4,11 +4,9 @@ class Letter{
     char c;
 }
 public class PassObject {
-
     private static void f(Letter y){
         y.c = 'z';
     }
-
     public static void main (String[] args){
         Letter x = new Letter();
         x.c = 'a';
