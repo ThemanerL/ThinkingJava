@@ -36,12 +36,12 @@ public class MultiDimArray {
         int[][][] a3 = new int[pRand(7)][][];
         for (int i = 0; i < a3.length; i++) {
             a3[i] = new int[pRand(5)][];
-            for (int j = 0; i < a3[i].length; j++) {
+            for (int j = 0; j < a3[i].length; j++) {
                 a3[i][j] = new int[pRand(5)];
             }
         }
         for (int i = 0; i < a3.length; i++) {
-            for (int j = 0; j < a3[i].length; i++) {
+            for (int j = 0; j < a3[i].length; j++) {
                 for (int k = 0; k < a3[i][j].length; k++) {
                     System.out.println("a3[" + i + "][" + j + "][" + k + "] = " + a3[i][j][k]);
                 }
