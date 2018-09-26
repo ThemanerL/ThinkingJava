@@ -31,7 +31,7 @@ public class Garbage {
         // Deprecated
         String after = "after";
         if (after.equals(args[0])) {
-//            System.runFinalizersOnExit(true);
+            System.runFinalizersOnExit(true);
         }
     }
 }
