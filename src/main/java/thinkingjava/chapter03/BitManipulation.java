@@ -1,8 +1,9 @@
 package thinkingjava.chapter03;
 
 import java.util.Random;
+
 /**
- * @author  李重辰
+ * @author 李重辰
  */
 public class BitManipulation {
     public static void main(String[] args) {
@@ -49,28 +50,30 @@ public class BitManipulation {
         pBinLong("l>>>5", l >>> 5);
         pBinLong("(~l)>>>5", (~l) >>> 5);
     }
-        private static void pBinInt(String s, int i){
-            System.out.println(s+",int:"+i+"  ,binary:");
-            System.out.print(" ");
-            for (int j = 31; j >=0; j--){
-                if (((1<<j)&i)!=0){
-                    System.out.print("1");
-                } else {
-                    System.out.print("0");
-                }
+
+    private static void pBinInt(String s, int i) {
+        System.out.println(s + ",int:" + i + "  ,binary:");
+        System.out.print(" ");
+        for (int j = 31; j >= 0; j--) {
+            if (((1 << j) & i) != 0) {
+                System.out.print("1");
+            } else {
+                System.out.print("0");
             }
-            System.out.println();
         }
-        private static void pBinLong(String s, long l){
-            System.out.println(s+",long:"+l+"  ,binary:");
-            System.out.print(" ");
-            for (int i = 63; i >=0; i--){
-                if(((1L<<i)&l)!=0){
-                    System.out.print("1");
-                } else {
-                    System.out.print("0");
-                }
+        System.out.println();
+    }
+
+    private static void pBinLong(String s, long l) {
+        System.out.println(s + ",long:" + l + "  ,binary:");
+        System.out.print(" ");
+        for (int i = 63; i >= 0; i--) {
+            if (((1L << i) & l) != 0) {
+                System.out.print("1");
+            } else {
+                System.out.print("0");
             }
-            System.out.println();
         }
+        System.out.println();
+    }
 }

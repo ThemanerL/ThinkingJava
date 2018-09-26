@@ -1,10 +1,10 @@
 package thinkingjava.chapter03;
 
 /**
- * @author  李重辰
+ * @author 李重辰
  */
 public class UrShift {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int i = -1;
         i >>>= 10;
         System.out.println(i);

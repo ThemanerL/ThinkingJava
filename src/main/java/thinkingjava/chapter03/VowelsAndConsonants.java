@@ -1,12 +1,13 @@
 package thinkingjava.chapter03;
+
 /**
- * @author  李重辰
+ * @author 李重辰
  */
 public class VowelsAndConsonants {
-    public static void main(String[] args){
-        for (int i=0; i<100; i++) {
-            char c = (char)(Math.random()*26+'a');
-            System.out.println(c+": ");
+    public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            char c = (char) (Math.random() * 26 + 'a');
+            System.out.println(c + ": ");
             switch (c) {
                 case 'a':
                 case 'e':
