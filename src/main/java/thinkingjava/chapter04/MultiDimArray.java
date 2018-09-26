@@ -20,7 +20,7 @@ public class MultiDimArray {
         };
         for (int i = 0; i < a1.length; i++) {
             for (int j = 0; j < a1[i].length; j++) {
-                prt("a1[" + i + "][" + j + "] = " + a1[i][j]);
+                System.out.println("a1[" + i + "][" + j + "] = " + a1[i][j]);
             }
         }
         // 3-D Array with fixed length:
@@ -28,7 +28,7 @@ public class MultiDimArray {
         for (int i = 0; i < a2.length; i++) {
             for (int j = 0; j < a2[i].length; j++) {
                 for (int k = 0; k < a2[i][j].length; k++) {
-                    prt("a2[" + i + "][" + j + "][" + k + "] = " + a2[i][j][k]);
+                    System.out.println("a2[" + i + "][" + j + "][" + k + "] = " + a2[i][j][k]);
                 }
             }
         }
@@ -43,7 +43,7 @@ public class MultiDimArray {
         for (int i = 0; i < a3.length; i++) {
             for (int j = 0; j < a3[i].length; i++) {
                 for (int k = 0; k < a3[i][j].length; k++) {
-                    prt("a3[" + i + "][" + j + "][" + k + "] = " + a3[i][j][k]);
+                    System.out.println("a3[" + i + "][" + j + "][" + k + "] = " + a3[i][j][k]);
                 }
             }
         }
@@ -55,7 +55,7 @@ public class MultiDimArray {
         };
         for (int i = 0; i < a4.length; i++) {
             for (int j = 0; j < a4[i].length; j++) {
-                prt("a4[" + i + "][" + j + "] = " + a4[i][j]);
+                System.out.println("a4[" + i + "][" + j + "] = " + a4[i][j]);
             }
         }
         Integer[][] a5;
@@ -66,13 +66,11 @@ public class MultiDimArray {
                 a5[i][j] = new Integer(i * j);
             }
         }
-        for (int i = 0; i < a5.length; i++)
+        for (int i = 0; i < a5.length; i++){
             for (int j = 0; j < a5[i].length; j++){
-                prt("a5["+i+"]["+j+"] = " + a5[i][j]);
+                System.out.println("a5["+i+"]["+j+"] = " + a5[i][j]);
             }
+        }
     }
 
-    static void prt(String s) {
-        System.out.println(s);
-    }
 }
