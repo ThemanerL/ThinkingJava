@@ -74,3 +74,40 @@ class Cleanser {
         x.print();
     }
 }
+
+/**
+ * 这个类的代理方法是使用IDEA自动生成的。
+ */
+class DetergentFromIdea{
+    private Cleanser cleanser;
+
+    public void append(String a) {
+        cleanser.append(a);
+    }
+
+    public void dilute() {
+        cleanser.dilute();
+    }
+
+    public void apply() {
+        cleanser.apply();
+    }
+
+    public void scrub() {
+        cleanser.scrub();
+    }
+
+    public void print() {
+        cleanser.print();
+    }
+
+    public static void main(String[] args) {
+        Detergent x = new Detergent();
+        x.foam();
+        x.dilute();
+        x.apply();
+        x.scrub();
+        x.print();
+        Cleanser.main(args);
+    }
+}

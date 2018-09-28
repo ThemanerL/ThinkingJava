@@ -3,10 +3,10 @@ package thinkingjava.chapter07;
 /**
  * 必须注意对基础类以及成员对象清楚方法的调用顺序（假如一个对象要以另一个为基础）
  * 首先完成与类有关的所有特殊工作（可能要求基础类元素仍然可见），然后调用基础类清除方法。
+ * "@Override"注解可以防止你在不想重载时意外的进行了重载
  * @author 李重辰
  * @date 2018/9/27 20:01
  */
-@SuppressWarnings("ALL")
 public class CADSystem extends Shape{
     private final static int LINE_LENGTH = 10;
     private Circle circle;
@@ -23,14 +23,14 @@ public class CADSystem extends Shape{
     }
 
     @Override
-    void cleanup(){
-        System.out.println("CADSystem.cleanup()");
-        triangle.cleanup();
-        circle.cleanup();
+    void dispose(){
+        System.out.println("CADSystem.dispose()");
+        triangle.dispose();
+        circle.dispose();
         for (int i = 0; i < lines.length; i++){
-            lines[i].cleanup();
+            lines[i].dispose();
         }
-        super.cleanup();
+        super.dispose();
     }
 
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class CADSystem extends Shape{
         try{
             // Code and excepting handling...
         } finally {
-            x.cleanup();
+            x.dispose();
         }
     }
 }
@@ -48,8 +48,8 @@ class Shape {
         System.out.println("Shape constructor");
     }
 
-    void cleanup() {
-        System.out.println("Shape of cleanup");
+    void dispose() {
+        System.out.println("Shape of dispose");
     }
 }
 
@@ -60,9 +60,9 @@ class Circle extends Shape {
     }
 
     @Override
-    void cleanup() {
+    void dispose() {
         System.out.println("Erasing a Circle");
-        super.cleanup();
+        super.dispose();
     }
 }
 
@@ -73,9 +73,9 @@ class Triangle extends Shape {
     }
 
     @Override
-    void cleanup() {
+    void dispose() {
         System.out.println("Erasing a Triangle");
-        super.cleanup();
+        super.dispose();
     }
 }
 
@@ -90,8 +90,8 @@ class Line extends Shape {
     }
 
     @Override
-    void cleanup() {
+    void dispose() {
         System.out.println("Erasing a Line: " + start + ", " + end);
-        super.cleanup();
+        super.dispose();
     }
 }
