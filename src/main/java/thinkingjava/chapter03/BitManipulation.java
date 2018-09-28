@@ -6,6 +6,7 @@ import java.util.Random;
  * @author 李重辰
  */
 public class BitManipulation {
+
     public static void main(String[] args) {
         Random rand = new Random();
         int i = rand.nextInt();
@@ -54,7 +55,8 @@ public class BitManipulation {
     private static void pBinInt(String s, int i) {
         System.out.println(s + ",int:" + i + "  ,binary:");
         System.out.print(" ");
-        for (int j = 31; j >= 0; j--) {
+        int intLength = 31;
+        for (int j = intLength; j >= 0; j--) {
             if (((1 << j) & i) != 0) {
                 System.out.print("1");
             } else {
@@ -67,7 +69,8 @@ public class BitManipulation {
     private static void pBinLong(String s, long l) {
         System.out.println(s + ",long:" + l + "  ,binary:");
         System.out.print(" ");
-        for (int i = 63; i >= 0; i--) {
+        int longLength = 63;
+        for (int i = longLength; i >= 0; i--) {
             if (((1L << i) & l) != 0) {
                 System.out.print("1");
             } else {

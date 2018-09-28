@@ -5,7 +5,8 @@ package thinkingjava.chapter03;
  */
 public class BreakAndContinue {
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
+        int i1  = 100;
+        for (int i = 0; i < i1; i++) {
             if (i == 74) {
                 break;
             }

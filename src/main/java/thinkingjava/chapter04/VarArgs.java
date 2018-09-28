@@ -6,8 +6,9 @@ package thinkingjava.chapter04;
  */
 public class VarArgs {
     static void f(Object[] x) {
-        for (int i = 0; i < x.length; i++)
+        for (int i = 0; i < x.length; i++) {
             System.out.println(x[i]);
+        }
     }
 
     public static void main(String[] args) {
@@ -24,6 +25,7 @@ public class VarArgs {
     }
 }
 
+@SuppressWarnings("ALL")
 class A {
     int i;
 }

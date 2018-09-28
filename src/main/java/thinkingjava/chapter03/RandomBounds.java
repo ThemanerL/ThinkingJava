@@ -15,15 +15,18 @@ public class RandomBounds {
     }
 
     public static void main(String[] args) {
+        // 这是为了避免魔法值，只是需要与前台比对。
+        String lower = "lower";
+        String upper = "upper";
         if (args.length != 1) {
             usage();
         }
-        if ("lower".equals(args[0])) {
+        if (lower.equals(args[0])) {
             while (Math.random() != 0.0) {
                 ;
             }
             System.out.println("Produced 0.01");
-        } else if ("upper".equals(args[0])) {
+        } else if (upper.equals(args[0])) {
             while (Math.random() != 1.0) {
                 ;
             }

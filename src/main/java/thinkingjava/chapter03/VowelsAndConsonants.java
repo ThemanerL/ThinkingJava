@@ -5,7 +5,8 @@ package thinkingjava.chapter03;
  */
 public class VowelsAndConsonants {
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
+        int loopLength = 100;
+        for (int i = 0; i < loopLength; i++) {
             char c = (char) (Math.random() * 26 + 'a');
             System.out.println(c + ": ");
             switch (c) {
