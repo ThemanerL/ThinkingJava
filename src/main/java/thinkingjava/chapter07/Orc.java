@@ -6,7 +6,7 @@ package thinkingjava.chapter07;
  */
 public class Orc extends Villain{
     private int orcNumber;
-    Orc(String name, int orcNumber){
+    public Orc(String name, int orcNumber){
         super(name);
         this.orcNumber = orcNumber;
     }
@@ -44,5 +44,19 @@ class Villain{
     @Override
     public String toString() {
         return "I'm a Villain and my name is " + name;
+    }
+}
+
+/**
+ * :练习7-15
+ */
+class OrcChild extends Orc{
+    OrcChild(String name, int age){
+        super(name, age);
+    }
+
+    public static void main(String[] args) {
+        OrcChild  OrcChild = new OrcChild("joey",23);
+        OrcChild.printName();
     }
 }
