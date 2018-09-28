@@ -1,4 +1,4 @@
-package thinkingjava.chapter06;
+package thinkingjava.chapter07;
 
 /**
  * 用与基础类完全一致的签名和返回类型来覆盖同名的方法，会使人迷惑。

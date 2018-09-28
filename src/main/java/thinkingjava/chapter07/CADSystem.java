@@ -1,4 +1,4 @@
-package thinkingjava.chapter06;
+package thinkingjava.chapter07;
 
 /**
  * 必须注意对基础类以及成员对象清楚方法的调用顺序（假如一个对象要以另一个为基础）

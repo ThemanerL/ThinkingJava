@@ -1,4 +1,4 @@
-package thinkingjava.chapter06;
+package thinkingjava.chapter07;
 
 /**
  * @author 李重辰

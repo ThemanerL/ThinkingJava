@@ -1,4 +1,4 @@
-package thinkingjava.chapter06;
+package thinkingjava.chapter07;
 
 /**
  * 编译器会强迫我们对基础类进行初始化，并要求我们在构建器最开头做这一工作，但它并不会监视我们是否正确初始化了成员对象。
