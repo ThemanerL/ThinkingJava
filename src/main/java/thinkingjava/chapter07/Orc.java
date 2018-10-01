@@ -56,7 +56,7 @@ class OrcChild extends Orc{
     }
 
     public static void main(String[] args) {
-        OrcChild  OrcChild = new OrcChild("joey",23);
-        OrcChild.printName();
+        OrcChild  orcChild = new OrcChild("joey",23);
+        orcChild.printName();
     }
 }
