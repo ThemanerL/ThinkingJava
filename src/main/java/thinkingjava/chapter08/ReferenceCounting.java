@@ -19,6 +19,7 @@ public class ReferenceCounting {
 }
 
 class Shared{
+    private static boolean gcrun = false;
     private int refcount = 0;
     private static long counter = 0;
     private final long id = counter++;
@@ -38,12 +39,24 @@ class Shared{
     void dispose(){
         if (--refcount == 0){
             System.out.println("Disposing " + this);
+            System.gc();
         }
     }
 
     @Override
     public String toString() {
         return "Shared{" + id + '}';
+    }
+
+    /**
+     * 这里可能有点问题
+     */
+    @Override
+    protected void finalize() {
+        if (!gcrun) {
+            gcrun = true;
+            System.out.println("Beginning to finalize after " + id + " Chairs have been created");
+        }
     }
 }
 

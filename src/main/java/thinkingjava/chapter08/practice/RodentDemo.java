@@ -9,6 +9,7 @@ public class RodentDemo{
         Rodent[] rodents = {new Mouse(), new Gerbil(), new Hamster()};
         for (Rodent s:rodents) {
             s.printSize();
+            System.out.println(s.getId());
         }
     }
 }
@@ -17,11 +18,23 @@ public class RodentDemo{
  * (啮齿动物)
  */
 class Rodent {
+
+    private static int orcount = 0;
+    /**
+     * 这代表被创建的Rodent对象数量
+     * 每创建一个Rodent对象就会将orcount的值赋给id并且将orcount++
+     */
+    private final int id = orcount++;
+
     private double size = 0.00;
     private double weight = 0.00;
 
     public double getSize() {
         return size;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setSize(double size) {
