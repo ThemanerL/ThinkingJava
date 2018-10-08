@@ -12,17 +12,17 @@ package thinkingjava.chapter08;
  * @author 李重辰
  * @date 2018/10/5 18:55
  */
-public class Transmogrify {
-    public static void main(String[] args) {
-        Stage stage = new Stage();
-        stage.performPlay();
-        stage.change();
-        stage.performPlay();
+    public class Transmogrify {
+        public static void main(String[] args) {
+            Stage stage = new Stage();
+            stage.performPlay();
+            stage.change();
+            stage.performPlay();
+        }
     }
-}
 
-class Stage{
-    private Actor actor = new HappyActor();
+    class Stage{
+        private Actor actor = new HappyActor();
     void change(){
         actor = new SadActor();
     }
