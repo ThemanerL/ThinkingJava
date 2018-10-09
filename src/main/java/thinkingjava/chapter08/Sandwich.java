@@ -8,7 +8,7 @@ package thinkingjava.chapter08;
  * @author 李重辰
  * @date 2018/10/4 11:01
  */
-public class Sandwich extends PortableLunch{
+public class Sandwich extends PortableLunch implements FastFood{
     private Bread bread = new Bread();
     private Cheese cheese = new Cheese();
     private Lettue lettue = new Lettue();
@@ -18,7 +18,11 @@ public class Sandwich extends PortableLunch{
     }
 
     public static void main(String[] args) {
-        new Sandwich();
+        new Sandwich().moreSugar();
+    }
+
+    public void moreSugar() {
+        System.out.println("Wow It's so sweet^_^ ");
     }
 }
 
@@ -56,4 +60,11 @@ class PortableLunch extends Lunch{
     public PortableLunch() {
         System.out.println("PortableLunch.PortableLunch");
     }
+}
+
+interface FastFood{
+    /**
+     * 可以为食物实现这个接口来加糖
+     */
+    void moreSugar();
 }
