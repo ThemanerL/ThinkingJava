@@ -10,6 +10,11 @@ import java.util.Arrays;
  * @date 2018/10/10 16:28
  */
 public class Apply {
+    /**
+     * 该方法由于与Process之间的耦合过紧，已经超出了所需要的程度，这使得应该复用Apply.process（)的代码时，复用被禁止
+     * @param p Processor
+     * @param s Object
+     */
     private static void process(Processor p, Object s) {
         System.out.println("Using Processor " + p.name());
         System.out.println(p.process(s));
