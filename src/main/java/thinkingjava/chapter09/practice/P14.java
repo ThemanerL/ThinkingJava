@@ -5,19 +5,22 @@ package thinkingjava.chapter09.practice;
  * @date 2018/10/12 12:02
  */
 public class P14 extends AbstractBirdService implements Bird{
-    void fly14(Flyable f){
+    private void fly14(Flyable f){
         f.highAltitudeFly();
+        f.lowAltitudeFly();
     }
 
-    void run14(Runnable r){
+    private void run14(Runnable r){
         r.walk();
+        r.run();
     }
 
-    void eat14(Eatable e){
+    private void eat14(Eatable e){
         e.eat();
+        e.drink();
     }
 
-    void bird14(Bird b){
+    private void bird14(Bird b){
         b.takeOff();
     }
 
