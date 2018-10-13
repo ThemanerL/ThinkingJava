@@ -1,6 +1,5 @@
 package thinkingjava.chapter09;
 
-import java.io.IOException;
 import java.nio.CharBuffer;
 import java.util.Random;
 import java.util.Scanner;
@@ -45,12 +44,27 @@ public class RandomWords implements Readable {
 
     /**
      * 这一块代码关于Scanner的详细调用顺序栈 留待第十三章仔细分析
+     * 在read()方法内部，将输入内容
      * @param args 控制台参数
      */
     public static void main(String[] args) {
         Scanner s = new Scanner(new RandomWords(10));
         while(s.hasNext()){
             System.out.println(s.next());
+        }
+    }
+}
+
+class RandomDoubles{
+    private static Random rand = new Random(System.currentTimeMillis());
+    private double next(){
+        return rand.nextDouble();
+    }
+
+    public static void main(String[] args) {
+        RandomDoubles rd = new RandomDoubles();
+        for (int i = 0; i < 7; i++) {
+            System.out.println(rd.next() + " ");
         }
     }
 }
