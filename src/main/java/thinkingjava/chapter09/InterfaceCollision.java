@@ -1,6 +1,7 @@
 package thinkingjava.chapter09;
 
 /**
+ * 重载方法仅通过返回类型是区分不开的。在打算组合的不同接口中使用相同的方法名通常会引起代码可读性的混乱，要尽量避免
  * @author 李重辰
  * @date 2018/10/12 12:34
  */
@@ -56,3 +57,22 @@ class C4 extends C1 implements I3{
         return 1;
     }
 }
+
+///**
+// * 重载方法仅通过返回类型是区分不开的。
+// * 在打算组合的不同接口中使用相同的方法名通常会引起代码可读性的混乱，要尽量避免
+// */
+//class C5 extends C1 implements I1{
+//    public void f() {
+//
+//    }
+//
+//    @Override
+//    public int f() {
+//
+//    }
+//}
+//
+//interface I4 extends I1,I3{
+//
+//}
