@@ -57,7 +57,7 @@ public class RandomWords implements Readable {
 
 class RandomDoubles{
     private static Random rand = new Random(System.currentTimeMillis());
-    private double next(){
+    double next(){
         return rand.nextDouble();
     }
 
