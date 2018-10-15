@@ -18,12 +18,12 @@ import java.util.Scanner;
  */
 public class RandomWords implements Readable {
     private static Random rand = new Random(System.currentTimeMillis());
-    private static final char[] CAPITALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public static final char[] CAPITALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private static final char[] LOWERS = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private static final char[] VOWELS = "aeiou".toCharArray();
     private int count;
 
-    private RandomWords (int count) {
+    protected RandomWords (int count) {
         this.count = count;
     }
 
