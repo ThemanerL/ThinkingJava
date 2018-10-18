@@ -1,4 +1,4 @@
-package thinkingjava.chapter09;
+package thinkingjava.chapter09.strategy;
 
 import java.util.Random;
 

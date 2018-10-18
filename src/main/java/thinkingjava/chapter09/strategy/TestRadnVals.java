@@ -1,4 +1,6 @@
-package thinkingjava.chapter09;
+package thinkingjava.chapter09.strategy;
+
+import thinkingjava.chapter09.strategy.RandVals;
 
 /**
  * @author 李重辰

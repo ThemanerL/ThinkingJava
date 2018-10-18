@@ -1,12 +1,13 @@
 package thinkingjava.chapter09.practice;
 
-import thinkingjava.chapter09.RandomWords;
+import thinkingjava.chapter09.strategy.RandomWords;
 
 import java.nio.CharBuffer;
 import java.util.Random;
 import java.util.Scanner;
 
 /**
+ * 策略模式练习
  * @author 李重辰
  * @date 2018/10/15 17:31
  */
