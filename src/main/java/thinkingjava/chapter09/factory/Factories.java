@@ -5,6 +5,9 @@ package thinkingjava.chapter09.factory;
  * 我们在工厂对象上调用的是创建方法，而该工厂对象将生成接口的某个实现的对象。
  * 理论上，通过这种方式，我们的代码将完全与接口的实现分离，这就使得我们可以
  * 透明地将某个实现替换为另一个实现。
+ *
+ * 如果不是用工厂方法，你的代码就必须在某处指定将要创建的Service的确切类型。
+ * 以便调用合适的构造器。
  * @author 李重辰
  * @date 2018/10/18 12:19
  */
@@ -22,11 +25,22 @@ public class Factories {
 }
 
 interface Service {
+    /**
+     * 接口方法必须Javadoc注释
+     */
     void method1();
+
+    /**
+     * 接口方法必须Javadoc注释
+     */
     void method2();
 }
 
 interface ServiceFactory {
+    /**
+     * 接口方法必须Javadoc注释
+     * @return 返回一个服务
+     */
     Service getService();
 }
 

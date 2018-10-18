@@ -15,8 +15,10 @@ public class P11 extends Filter {
      * @return 返回结果
      */
     private String reverseString (String s){
+        //一对互换。
+        int pair = 2;
         char[] a = s.toCharArray();
-        for(int i = 0; i < a.length-1; i=i+2){
+        for(int i = 0; i < a.length-1; i=i+pair){
             char temp = a[i];
             a[i] = a[i+1];
             a[i+1] = temp;

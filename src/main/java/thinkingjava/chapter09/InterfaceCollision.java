@@ -18,6 +18,8 @@ interface I1 {
 interface I2{
     /**
      * 接口内的方法必须要有javadoc声明
+     * @param i int参数
+     * @return 返回int型
      */
     int f (int i);
 }
@@ -25,6 +27,7 @@ interface I2{
 interface I3{
     /**
      * 接口内的方法必须要有javadoc声明
+     * @return 返回int
      */
     int f();
 }

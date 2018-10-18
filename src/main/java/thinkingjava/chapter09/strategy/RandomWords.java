@@ -28,12 +28,13 @@ public class RandomWords implements Readable {
     }
 
     public int read(CharBuffer cb) {
+        int casual = 4;
         if (count-- == 0){
             //Indicates end of input
             return -1;
         }
             cb.append(CAPITALS[rand.nextInt(CAPITALS.length)]);
-            for (int i = 0; i < 4; i++){
+            for (int i = 0; i < casual; i++){
                 cb.append(VOWELS[rand.nextInt(VOWELS.length)]);
                 cb.append(LOWERS[rand.nextInt(LOWERS.length)]);
         }
@@ -60,10 +61,10 @@ class RandomDoubles{
     double next(){
         return rand.nextDouble();
     }
-
     public static void main(String[] args) {
+        int casual = 7;
         RandomDoubles rd = new RandomDoubles();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < casual; i++) {
             System.out.println(rd.next() + " ");
         }
     }

@@ -5,107 +5,117 @@ package thinkingjava.chapter09;
  * @date 2018/10/16 20:05
  */
 public class NestingInterfaces {
-    public class BImp implements A.B {
+    public class Bimpl implements Aclass.Bable {
         public void f() { }
     }
 
-    class CImp implements A.C {
+    class Cimpl implements Aclass.Cable {
         public void f() { }
     }
 
 //    /**
 //     * 除了该接口的定义类之外，不能实现私有接口
 //     */
-//    class DImp implements A.D{
+//    class Dimpl implements Aclass.Dable{
 //        public void f(){};
 //    }
 
-    class EImp implements E {
+    class Eimpl implements Eable {
         public void g(){ }
     }
 
-    class EGImp implements E.G{
+    class EimplGimpl implements Eable.Gable{
         public void f(){ }
     }
 
-    class EImp2 implements E {
+    class Eimpl2 implements Eable {
         public void g(){ }
-        class EG implements E.G {
+        class EableGable implements Eable.Gable {
             public void f(){ }
         }
     }
 
     public static void main(String[] args) {
-        A a = new A();
-///     A.D ad = a.getD(); thinkingjava.chapter09.A.D' has private access in 'thinkingjava.chapter09.A'
-        // 可以通过这种方式newDImp2的对象，但是不能向上转为接口D，因为D是私有的。
-        A.DImp2 d2 = a.new A.DImp2();
+        Aclass a = new Aclass();
+///     Aclass.Dable ad = a.getDable(); thinkingjava.chapter09.Aclass.Dable' has private access in 'thinkingjava.chapter09.Aclass'
+        // 可以通过这两种方式newDimpl2的对象，但是不能向上转为接口Dable，因为Dable是私有的。
+        Aclass.Dimpl2 d2 = a.new Dimpl2();
+        Aclass.Dimpl2 d3 = new Aclass().new Dimpl2();
 
-///     A.DImp2 di2 = a.getD(); 这里出错是因为getD()返回的类型是接口D的。而Dimp2不能说是实现了D接口
-///     a.getD().f();  D是私有的
+///     Aclass.Dimpl2 di2 = a.getDable(); 这里出错是因为getDable()返回的类型是接口Dable的。而Dableimp2不能说是实现了Dable接口
+///     a.getDable().f();  Dable是私有的
 
-        ///这是因为只在类的内部调用私有的接口D，也就是讲返回值交给有权使用它的对象
-        A a2 = new A();
-        a2.receiveD(a.getD());
+        ///这是因为只在类的内部调用私有的接口Dable，也就是讲返回值交给有权使用它的对象
+        Aclass a2 = new Aclass();
+        a2.receiveDable(a.getDable());
     }
 
 }
 
-class A {
-    interface B {
+class Aclass {
+    interface Bable {
+        /**
+         * 抽象方法必须用javadoc注释
+         */
         void f();
     }
 
-    public class BImp implements B {
+    public class Bimpl implements Bable {
         public void f() {
         }
     }
 
-    public class BImp2 implements B {
+    public class Bimpl2 implements Bable {
         public void f() {
         }
     }
 
-    public interface C {
+    public interface Cable {
+        /**
+         * 抽象方法必须用javadoc注释
+         */
         void f();
     }
 
-    class CImp implements C {
+    class Cimpl implements Cable {
         public void f() {
         }
     }
 
-    private class CImp2 implements C {
+    private class Cimpl2 implements Cable {
         public void f() {
         }
     }
 
-    private interface D {
+    private interface Dable {
+        /**
+         * 抽象方法必须用javadoc注释
+         */
         void f();
     }
 
-    private class DImp implements D {
+    private class Dimpl implements Dable {
         public void f() {
         }
     }
 
     /**
      * 返回对private接口引用的public方法。
-     * A.DImp2只能被其自身所使用，你无法说它实现了一个private接口D
+     * Aclass.Dimpl2只能被其自身所使用，你无法说它实现了一个private接口Dable
      * 实现是个private接口只是一种方式，可以强制该接口中的方法定义不要添加任何类型信息（即，不允许向上转型）。
      */
-    public class DImp2 implements D {
+    public class Dimpl2 implements Dable {
         public void f() {
         }
     }
 
-    public D getD() {
-        return new DImp2();
+    public Dable getDable() {
+        return new Dimpl2();
     }
 
-    private D dRef;
+    private Dable dRef;
 
-    public void receiveD(D d) {
+    public void receiveDable(Dable d) {
         dRef = d;
         dRef.f();
     }
@@ -114,18 +124,27 @@ class A {
 /**
  * 接口中的所有元素都必须是public的，所以这里提示public定义冗余
  */
-interface E {
-    interface G {
+interface Eable {
+    interface Gable {
+        /**
+         * 抽象方法必须用javadoc注释
+         */
         void f();
     }
 
     /**
      * Redundant "public"
      */
-    public interface H {
+    public interface Hable {
+        /**
+         * 抽象方法必须用javadoc注释
+         */
         void f();
     }
 
+    /**
+     * 抽象方法必须用javadoc注释
+     */
     void g();
     /// 接口中不能定义私有
     //private interface I{}

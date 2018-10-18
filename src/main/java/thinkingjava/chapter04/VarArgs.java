@@ -20,12 +20,12 @@ public class VarArgs {
                 "one", "two", "three"
         });
         f(new Object[]{
-                new A(), new A(), new A()
+                new Aclass(), new Aclass(), new Aclass()
         });
     }
 }
 
-@SuppressWarnings("ALL")
-class A {
+@SuppressWarnings("AclassLL")
+class Aclass {
     int i;
 }

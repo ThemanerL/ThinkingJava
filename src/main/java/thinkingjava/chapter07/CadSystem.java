@@ -7,12 +7,12 @@ package thinkingjava.chapter07;
  * @author 李重辰
  * @date 2018/9/27 20:01
  */
-public class CADSystem extends Shape{
+public class CadSystem extends Shape{
     private final static int LINE_LENGTH = 10;
     private Circle circle;
     private Triangle triangle;
     private Line[] lines = new Line[LINE_LENGTH];
-    CADSystem(int i){
+    CadSystem(int i){
         super(i + 1);
         for (int j = 0; j < LINE_LENGTH; j++){
             lines[j] = new Line(j,j*j);
@@ -24,7 +24,7 @@ public class CADSystem extends Shape{
 
     @Override
     void dispose(){
-        System.out.println("CADSystem.dispose()");
+        System.out.println("CadSystem.dispose()");
         triangle.dispose();
         circle.dispose();
         for (int i = 0; i < lines.length; i++){
@@ -34,7 +34,7 @@ public class CADSystem extends Shape{
     }
 
     public static void main(String[] args) {
-        CADSystem x = new CADSystem(47);
+        CadSystem x = new CadSystem(47);
         try{
             // Code and excepting handling...
         } finally {
