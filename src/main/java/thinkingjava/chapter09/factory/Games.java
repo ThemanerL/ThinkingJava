@@ -20,10 +20,18 @@ public class Games {
 }
 
 interface Game {
+    /**
+     * 移动旗子
+     * @return boolean
+     */
     boolean move();
 }
 
 interface GameFactory {
+    /**
+     * 创建游戏实例
+     * @return 游戏
+     */
     Game getGame();
 }
 

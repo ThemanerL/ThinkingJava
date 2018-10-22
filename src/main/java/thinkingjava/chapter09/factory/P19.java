@@ -19,8 +19,10 @@ public class P19 {
 
 interface Gamb {
     Random RAND = new Random(System.currentTimeMillis());
+
     /**
      * 赌
+     * @return 赌博结果
      */
     String play();
 }

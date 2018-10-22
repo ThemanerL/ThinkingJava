@@ -39,6 +39,10 @@ class Tricycle implements Cycle{
 }
 
 interface Factory {
+    /**
+     * 创建Cycle实例
+     * @return Cycle
+     */
     Cycle getCycleInstance();
 }
 
