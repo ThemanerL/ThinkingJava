@@ -1,17 +1,18 @@
 package thinkingjava.chapter10.practice;
 
 /**
+ * 2018/10/29修改，这次使用匿名内部类
+ *
  * @author 李重辰
  * @date 2018/10/22 20:07
  */
 public class P9 {
     private P9interface getInstance (){
-        class P9Inner implements P9interface{
+        return new P9interface(){
             public void print() {
                 System.out.println("P9Inner.print");
             }
-        }
-        return new P9Inner();
+        };
     }
 
     public static void main(String[] args) {

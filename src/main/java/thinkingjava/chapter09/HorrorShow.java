@@ -1,6 +1,8 @@
 package thinkingjava.chapter09;
 
 /**
+ * 2018/10/29 修改使用匿名类实现DangerousMonster和Vampire
+ *
  * 一般情况下，只可以将extends用于单一类，但是可以引用多个基类接口，就像所看到的，只需用逗号将接口名一一分隔开即可。
  * @author 李重辰
  * @date 2018/10/12 11:39
@@ -20,10 +22,36 @@ public class HorrorShow {
     }
 
     public static void main(String[] args){
-        DangerousMonster barney = new DragonZilla();
+        DangerousMonster barney = new DragonZilla(){
+            @Override
+            public void menace() {
+                System.out.println("HorrorShow.menace");
+            }
+            @Override
+            public void destroy() {
+                System.out.println("HorrorShow.destroy");
+            }
+        };
         u(barney);
         v(barney);
-        Vampire vlad = new VeryBadVampire();
+        Vampire vlad = new VeryBadVampire(){
+            @Override
+            public void menace() {
+                System.out.println("HorrorShow.menace");
+            }
+            @Override
+            public void destroy() {
+                System.out.println("HorrorShow.destroy");
+            }
+            @Override
+            public void kill() {
+                System.out.println("HorrorShow.kill");
+            }
+            @Override
+            public void drinkBlood() {
+                System.out.println("HorrorShow.drinkBlood");
+            }
+        };
         u(vlad);
         u(vlad);
         u(vlad);
