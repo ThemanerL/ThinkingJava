@@ -27,8 +27,16 @@ public class AnonymousConstructor {
 }
 
 abstract class Base {
+    /**
+     * 抽象类的方法也必须使用javadoc注释
+     * @param i
+     */
     Base(int i) {
         System.out.println("Base constructor, i = " + i);
     }
+
+    /**
+     * 抽象类的方法也必须使用javadoc注释
+     */
     public abstract void f();
 }

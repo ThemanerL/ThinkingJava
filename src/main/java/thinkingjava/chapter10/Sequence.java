@@ -29,6 +29,30 @@ public class Sequence {
     }
 
     /**
+     * 练习22
+     * @return 一个反向遍历的Selector
+     */
+    Selector reverseSelector(){
+        return new Selector(){
+            private int i = 0;
+            public boolean end() {
+                return i == items.length;
+            }
+
+            public Object current() {
+                return items[i];
+            }
+
+            public void next() {
+                if (i < items.length) {
+                    i++;
+                }
+            }
+        };
+    }
+
+
+    /**
      * 这个类中用到了Object[] items，这是一个外部类的private引用。然而内部类可以访问其外围类的方法与字段，就像自己拥有它们似的。
      */
     private class SequenceSelector implements Selector {
@@ -48,7 +72,7 @@ public class Sequence {
             }
         }
 
-            public Sequence getSequence() {
+        private Sequence getSequence() {
                 return new Sequence(i);
         }
     }
@@ -78,6 +102,18 @@ public class Sequence {
         //必须使用外部类对象来创建内部类对象
         P2.Inner inner = p2.new Inner();
         System.out.println(inner);
+
+        System.out.println("--------practice22-------");
+        int sequence1Length = 3;
+        Sequence sequence1 = new Sequence(sequence1Length);
+        for (int i = 0; i < sequence1Length; i++) {
+            sequence1.add(Integer.toString(i));
+        }
+        Selector selector1 =  sequence1.reverseSelector();
+        while (!selector1.end()) {
+            System.out.println(selector1.current() + " ");
+            selector1.next();
+        }
     }
 }
 

@@ -9,6 +9,9 @@ package thinkingjava.chapter10;
  * @date 2018/10/30 21:19
  */
 public interface ClassInterface {
+    /**
+     * 接口中的方法必须使用javadoc注释
+     */
     void howdy();
 
     class Test implements ClassInterface{
