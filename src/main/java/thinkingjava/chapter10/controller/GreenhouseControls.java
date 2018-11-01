@@ -122,6 +122,40 @@ public class GreenhouseControls extends Controller {
         }
     }
 
+    private boolean roll = false;
+    public class BlowerOn extends AbstractEvent{
+        public BlowerOn(long delayTime) {
+            super(delayTime);
+        }
+
+        @Override
+        public void action() {
+            roll = true;
+        }
+
+        @Override
+        public String toString() {
+            return "The blower open";
+        }
+    }
+
+    public class BlowerOff extends AbstractEvent{
+        public BlowerOff(long delayTime) {
+            super(delayTime);
+        }
+
+        @Override
+        public void action() {
+            roll = false;
+        }
+
+        @Override
+        public String toString() {
+            return "The blower close";
+        }
+    }
+
+
     public class Restart extends AbstractEvent{
         private AbstractEvent[] abstractEvents;
 
