@@ -6,9 +6,10 @@ package thinkingjava.chapter10.practice;
  */
 public class P23 {
     public static void main(String[] args) {
-        InterfaceU.ClassA[] a = new InterfaceU.ClassA[5];
-        for ( InterfaceU.ClassA i: a) {
-            a[i] =
+        int aLength = 5;
+        InterfaceU.ClassA[] a = new InterfaceU.ClassA[aLength];
+        for (int i = 0; i < aLength; i++) {
+            a[i] = new InterfaceU.ClassA();
         }
         InterfaceU.ClassB b = new InterfaceU.ClassB();
         for (InterfaceU.ClassA i: a) {
@@ -16,6 +17,7 @@ public class P23 {
         }
         b.eachUS();
         b.toNull();
+        b.eachUS();
     }
 }
 
@@ -23,7 +25,12 @@ interface InterfaceU{
 
     class ClassA{
         InterfaceU getInstance(){
-            return new InterfaceU() {};
+            return new InterfaceU() {
+                @Override
+                public String toString() {
+                    return String.valueOf(this.hashCode());
+                }
+            };
         }
     }
 
