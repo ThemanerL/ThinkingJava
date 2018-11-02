@@ -54,7 +54,7 @@ class MyIncrement{
  * 完全不相关。所以如果Callee2继承了MyIncrement，就不能为了Incrementable的用途而覆盖increment()方法，于是只能使用内部类
  * 独立的实现Incrementable接口
  *
- * 第67行到74行实现了接口与接口的实现完全的独立。
+ * 第73行到81行实现了接口与接口的实现完全的独立。
  */
 class Callee2 extends MyIncrement{
     private int i = 0;
