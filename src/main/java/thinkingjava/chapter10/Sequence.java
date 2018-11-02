@@ -14,6 +14,7 @@ import thinkingjava.chapter10.practice.P2;
  * @date 2018/10/20 12:27
  */
 public class Sequence {
+
     private Object[] items;
     private int next = 0;
 
@@ -35,14 +36,15 @@ public class Sequence {
     Selector reverseSelector(){
         return new Selector(){
             private int i = 0;
+            @Override
             public boolean end() {
                 return i == items.length;
             }
-
+            @Override
             public Object current() {
                 return items[i];
             }
-
+            @Override
             public void next() {
                 if (i < items.length) {
                     i++;
@@ -57,15 +59,15 @@ public class Sequence {
      */
     private class SequenceSelector implements Selector {
         private int i = 0;
-
+        @Override
         public boolean end() {
             return i == items.length;
         }
-
+        @Override
         public Object current() {
             return items[i];
         }
-
+        @Override
         public void next() {
             if (i < items.length) {
                 i++;
