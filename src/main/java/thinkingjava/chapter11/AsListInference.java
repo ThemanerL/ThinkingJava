@@ -18,14 +18,15 @@ public class AsListInference {
         // 它的add/remove/clear方法会抛出UnsupportedOperationException异常。
         // 说明：asList的返回对象是一个Arrays内部类，并没有实现集合的修改方法。
         // Arrays.asList体现的市适配器模式，只是转换接口，后台的数据仍是数组。
-         //String[] str = new String[]{"you", "wu"};
-         //List list = Arrays.asList(str);
-         //str[0] = "gujin";    //那么list.get(0)也会随之修改
+        //String[] str = new String[]{"you", "wu"};
+        //List list = Arrays.asList(str);
+        //str[0] = "gujin";    //那么list.get(0)也会随之修改
         Collections.addAll(snowList,new Light(), new Heavy());
-        snowList.add(new Light());
+        ///snowList.add(new Light());
         List<Snow> snow3 = new ArrayList<Snow>();
         Collections.addAll(snow3, new Light(), new Heavy());
-
+        /// 可以在Arrays.asList中插入一条“线索”，以告诉编译器对于由Arrays.asList()产生的List类型，实际的目标类型应该是什么。
+        // 这称为显示类型参数说明
         List<Snow> snow4 = Arrays.<Snow>asList(new Light(), new Heavy());
     }
 }
