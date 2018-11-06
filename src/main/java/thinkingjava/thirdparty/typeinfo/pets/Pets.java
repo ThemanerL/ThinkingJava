@@ -9,7 +9,7 @@ import java.util.*;
  * @date 2018/11/6 20:01
  */
 public class Pets {
-  public static final PetCreator CREATOR =
+  public static final AbstractPetCreator CREATOR =
       new LiteralPetCreator();
 
   public static Pet randomPet() {

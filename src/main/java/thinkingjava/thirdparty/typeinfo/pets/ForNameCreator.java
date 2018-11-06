@@ -6,7 +6,7 @@ import java.util.*;
  * @author 李重辰
  * @date 2018/11/6 20:01
  */
-public class ForNameCreator extends PetCreator {
+public class ForNameCreator extends AbstractPetCreator {
   private static List<Class<? extends Pet>> types =
       new ArrayList<Class<? extends Pet>>();
   /**

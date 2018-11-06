@@ -8,7 +8,7 @@ import java.util.*;
  * @author 李重辰
  * @date 2018/11/6 20:01
  */
-public class LiteralPetCreator extends PetCreator {
+public class LiteralPetCreator extends AbstractPetCreator {
   /**
    * No try block needed.
    */
