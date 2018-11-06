@@ -9,19 +9,19 @@ package thinkingjava.chapter10;
  */
 public class Parcel8 {
 
-    private Wrapping wrapping(int x){
-        // 内部的这个类是没有名字的，即匿名类
-        return new Wrapping(x){
-            @Override
-            public int value() {
-                return  super.value() * 47;
-            }
-        };
-    }
+  private Wrapping wrapping(int x) {
+    // 内部的这个类是没有名字的，即匿名类
+    return new Wrapping(x) {
+      @Override
+      public int value() {
+        return super.value() * 47;
+      }
+    };
+  }
 
-    public static void main(String[] args) {
-        Parcel8 parcel8 = new Parcel8();
-        Wrapping wrapping =  parcel8.wrapping(88);
-        wrapping.value();
-    }
+  public static void main(String[] args) {
+    Parcel8 parcel8 = new Parcel8();
+    Wrapping wrapping = parcel8.wrapping(88);
+    wrapping.value();
+  }
 }

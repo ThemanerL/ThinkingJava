@@ -5,36 +5,36 @@ package thinkingjava.chapter07;
  * @date 2018/9/27 15:04
  */
 public class Detergent extends Cleanser {
-    /**
-     * Change a method:
-     */
-    @Override
-    public void scrub() {
-        append(" Detergent.scrub()");
-        // Call base-class version，此处如果只是点单的调用scrub()，会造成递归调用。
-        super.scrub();
-    }
+  /**
+   * Change a method:
+   */
+  @Override
+  public void scrub() {
+    append(" Detergent.scrub()");
+    // Call base-class version，此处如果只是点单的调用scrub()，会造成递归调用。
+    super.scrub();
+  }
 
-    /**
-     * Add methods to the interface:
-     */
-    public void foam() {
-        append(" foam()");
-    }
+  /**
+   * Add methods to the interface:
+   */
+  public void foam() {
+    append(" foam()");
+  }
 
-    /**
-     * Test the new class:
-     */
-    public static void main(String[] args) {
-        Detergent x = new Detergent();
-        x.dilute();
-        x.apply();
-        x.scrub();
-        x.foam();
-        x.print();
-        System.out.println("Testing base class:");
-        Cleanser.main(args);
-    }
+  /**
+   * Test the new class:
+   */
+  public static void main(String[] args) {
+    Detergent x = new Detergent();
+    x.dilute();
+    x.apply();
+    x.scrub();
+    x.foam();
+    x.print();
+    System.out.println("Testing base class:");
+    Cleanser.main(args);
+  }
 }
 
 /**
@@ -44,70 +44,70 @@ public class Detergent extends Cleanser {
  * 比较好的规则是，将所有的字段都设为private，并将所有的方法设为public（protected以后讨论）。在一些特殊场合这不是一个好的做法。
  */
 class Cleanser {
-    private String s = "Cleanser";
+  private String s = "Cleanser";
 
-    public void append(String a) {
-        s += a;
-    }
+  public void append(String a) {
+    s += a;
+  }
 
-    public void dilute() {
-        append(" dilute()");
-    }
+  public void dilute() {
+    append(" dilute()");
+  }
 
-    public void apply() {
-        append(" apply()");
-    }
+  public void apply() {
+    append(" apply()");
+  }
 
-    public void scrub() {
-        append(" scrub()");
-    }
+  public void scrub() {
+    append(" scrub()");
+  }
 
-    public void print() {
-        System.out.println(s);
-    }
+  public void print() {
+    System.out.println(s);
+  }
 
-    public static void main(String[] args) {
-        Cleanser x = new Cleanser();
-        x.dilute();
-        x.apply();
-        x.scrub();
-        x.print();
-    }
+  public static void main(String[] args) {
+    Cleanser x = new Cleanser();
+    x.dilute();
+    x.apply();
+    x.scrub();
+    x.print();
+  }
 }
 
 /**
  * 这个类的代理方法是使用IDEA自动生成的。
  */
-class DetergentFromIdea{
-    private Cleanser cleanser;
+class DetergentFromIdea {
+  private Cleanser cleanser;
 
-    public void append(String a) {
-        cleanser.append(a);
-    }
+  public void append(String a) {
+    cleanser.append(a);
+  }
 
-    public void dilute() {
-        cleanser.dilute();
-    }
+  public void dilute() {
+    cleanser.dilute();
+  }
 
-    public void apply() {
-        cleanser.apply();
-    }
+  public void apply() {
+    cleanser.apply();
+  }
 
-    public void scrub() {
-        cleanser.scrub();
-    }
+  public void scrub() {
+    cleanser.scrub();
+  }
 
-    public void print() {
-        cleanser.print();
-    }
+  public void print() {
+    cleanser.print();
+  }
 
-    public static void main(String[] args) {
-        Detergent x = new Detergent();
-        x.foam();
-        x.dilute();
-        x.apply();
-        x.scrub();
-        x.print();
-        Cleanser.main(args);
-    }
+  public static void main(String[] args) {
+    Detergent x = new Detergent();
+    x.foam();
+    x.dilute();
+    x.apply();
+    x.scrub();
+    x.print();
+    Cleanser.main(args);
+  }
 }

@@ -7,18 +7,18 @@ import sun.java2d.pipe.OutlineTextRenderer;
  * @date 2018/10/20 12:20
  */
 public class P1 {
-    public static void main(String[] args) {
-        Outer outer = new Outer();
-        Outer.Inner inner = outer.getInner();
-    }
+  public static void main(String[] args) {
+    Outer outer = new Outer();
+    Outer.Inner inner = outer.getInner();
+  }
 }
 
 class Outer {
-    class Inner {
+  class Inner {
 
-    }
+  }
 
-    Inner getInner() {
-        return new Inner();
-    }
+  Inner getInner() {
+    return new Inner();
+  }
 }

@@ -9,30 +9,30 @@ package thinkingjava.chapter03;
  * @author 李重辰
  */
 public class RandomBounds {
-    static void usage() {
-        System.err.println("Usage:\n\t" + "RandomBounds lower\n\t" + "RandomBounds upper");
-        System.exit(1);
-    }
+  static void usage() {
+    System.err.println("Usage:\n\t" + "RandomBounds lower\n\t" + "RandomBounds upper");
+    System.exit(1);
+  }
 
-    public static void main(String[] args) {
-        // 这是为了避免魔法值，只是需要与前台比对。
-        String lower = "lower";
-        String upper = "upper";
-        if (args.length != 1) {
-            usage();
-        }
-        if (lower.equals(args[0])) {
-            while (Math.random() != 0.0) {
-                ;
-            }
-            System.out.println("Produced 0.01");
-        } else if (upper.equals(args[0])) {
-            while (Math.random() != 1.0) {
-                ;
-            }
-            System.out.println("Produced 1.0!");
-        } else {
-            usage();
-        }
+  public static void main(String[] args) {
+    // 这是为了避免魔法值，只是需要与前台比对。
+    String lower = "lower";
+    String upper = "upper";
+    if (args.length != 1) {
+      usage();
     }
+    if (lower.equals(args[0])) {
+      while (Math.random() != 0.0) {
+        ;
+      }
+      System.out.println("Produced 0.01");
+    } else if (upper.equals(args[0])) {
+      while (Math.random() != 1.0) {
+        ;
+      }
+      System.out.println("Produced 1.0!");
+    } else {
+      usage();
+    }
+  }
 }

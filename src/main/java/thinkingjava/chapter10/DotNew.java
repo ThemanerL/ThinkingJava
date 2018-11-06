@@ -10,11 +10,12 @@ package thinkingjava.chapter10;
  * @date 2018/10/22 10:58
  */
 public class DotNew {
-    public class Inner {}
+  public class Inner {
+  }
 
-    public static void main(String[] args) {
-        DotNew dotNew = new DotNew();
-        DotNew.Inner dni = dotNew.new Inner();
-    }
+  public static void main(String[] args) {
+    DotNew dotNew = new DotNew();
+    DotNew.Inner dni = dotNew.new Inner();
+  }
 }
 

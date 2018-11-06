@@ -8,18 +8,19 @@ import thinkingjava.chapter10.practice.p6.p1.InterfaceOne;
  * 级别与类访问基本级别是相同的，所以报错。因为ClassSixThree不是Inner的子类且与ClassSixTwo不在同一个包内
  * 此时可以给Inner对象增加一个public的构造器
  * ClassSixTwo.Inner inner = classSixTwo.new Inner();
+ *
  * @author 李重辰
  * @date 2018/10/22 14:48
  */
 public class ClassSixThree extends ClassSixTwo {
-    private InterfaceOne getInterfaceOne() {
-        ClassSixTwo classSixTwo = new ClassSixTwo();
+  private InterfaceOne getInterfaceOne() {
+    ClassSixTwo classSixTwo = new ClassSixTwo();
 
-        return classSixTwo.getInstance();
-    }
+    return classSixTwo.getInstance();
+  }
 
-    public static void main(String[] args) {
-        ClassSixThree classSixThree = new ClassSixThree();
-        classSixThree.getInterfaceOne().printName();
-    }
+  public static void main(String[] args) {
+    ClassSixThree classSixThree = new ClassSixThree();
+    classSixThree.getInterfaceOne().printName();
+  }
 }

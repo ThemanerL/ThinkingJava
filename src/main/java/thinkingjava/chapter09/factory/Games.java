@@ -5,66 +5,72 @@ package thinkingjava.chapter09.factory;
  * @date 2018/10/18 17:26
  */
 public class Games {
-    private static void playGame(GameFactory factory) {
-        Game s = factory.getGame();
-        // 这是故意写的空while体
-        while (s.move()){
-            ;
-        }
+  private static void playGame(GameFactory factory) {
+    Game s = factory.getGame();
+    // 这是故意写的空while体
+    while (s.move()) {
+      ;
     }
+  }
 
-    public static void main(String[] args) {
-        playGame(new CheckersFactory());
-        playGame(new ChessFactory());
-    }
+  public static void main(String[] args) {
+    playGame(new CheckersFactory());
+    playGame(new ChessFactory());
+  }
 }
 
 interface Game {
-    /**
-     * 移动旗子
-     * @return boolean
-     */
-    boolean move();
+  /**
+   * 移动旗子
+   *
+   * @return boolean
+   */
+  boolean move();
 }
 
 interface GameFactory {
-    /**
-     * 创建游戏实例
-     * @return 游戏
-     */
-    Game getGame();
+  /**
+   * 创建游戏实例
+   *
+   * @return 游戏
+   */
+  Game getGame();
 }
 
 class Checkers implements Game {
-    private int moves = 0;
-    private static final int MOVES = 3;
+  private int moves = 0;
+  private static final int MOVES = 3;
 
-    public boolean move() {
-        System.out.println("Checkers move " + moves);
-        //先将moves的值进行自加再与表达式右边进行比较
-        return ++moves != MOVES;
-    }
+  @Override
+  public boolean move() {
+    System.out.println("Checkers move " + moves);
+    //先将moves的值进行自加再与表达式右边进行比较
+    return ++moves != MOVES;
+  }
 
 }
 
 class CheckersFactory implements GameFactory {
-    public Game getGame() {
-        return new Checkers();
-    }
+  @Override
+  public Game getGame() {
+    return new Checkers();
+  }
 }
 
 class Chess implements Game {
-    private int moves = 0;
-    private static final int MOVES = 4;
+  private int moves = 0;
+  private static final int MOVES = 4;
 
-    public boolean move() {
-        System.out.println("Chess move" + moves);
-        return ++moves != MOVES;
-    }
+  @Override
+  public boolean move() {
+    System.out.println("Chess move" + moves);
+    return ++moves != MOVES;
+  }
 }
 
 class ChessFactory implements GameFactory {
-    public Game getGame() {
-        return new Chess();
-    }
+  @Override
+  public Game getGame() {
+    return new Chess();
+  }
 }

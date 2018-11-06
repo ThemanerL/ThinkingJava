@@ -5,15 +5,15 @@ package thinkingjava.chapter09.filters;
  * @date 2018/10/10 21:57
  */
 public class BandPass extends Filter {
-    double lowCutoff,highCutoff;
+  double lowCutoff, highCutoff;
 
-    public BandPass(double lowCutoff, double highCutoff) {
-        lowCutoff = lowCutoff;
-        highCutoff = highCutoff;
-    }
+  public BandPass(double lowCutoff, double highCutoff) {
+    lowCutoff = lowCutoff;
+    highCutoff = highCutoff;
+  }
 
-    @Override
-    public WaveForm process(WaveForm input) {
-        return input;
-    }
+  @Override
+  public WaveForm process(WaveForm input) {
+    return input;
+  }
 }

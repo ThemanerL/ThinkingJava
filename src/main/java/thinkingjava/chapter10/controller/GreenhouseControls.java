@@ -7,196 +7,200 @@ package thinkingjava.chapter10.controller;
  * @date 2018/11/1 15:41
  */
 public class GreenhouseControls extends Controller {
-    private boolean light = false;
-    public class LightOn extends AbstractEvent{
-        public LightOn(long delayTime) {
-            super(delayTime);
-        }
+  private boolean light = false;
 
-        @Override
-        public void action() {
-            light = true;
-        }
-
-        @Override
-        public String toString() {
-            return "Light is on";
-        }
+  public class LightOn extends AbstractEvent {
+    public LightOn(long delayTime) {
+      super(delayTime);
     }
 
-    public class LightOff extends AbstractEvent{
-        public LightOff(long delayTime) {
-            super(delayTime);
-        }
-
-        @Override
-        public void action() {
-            light = false;
-        }
-
-        @Override
-        public String toString() {
-            return "Light if off";
-        }
+    @Override
+    public void action() {
+      light = true;
     }
 
-    private boolean water = false;
-    public class WaterOn extends AbstractEvent{
-        public WaterOn(long delayTime) {
-            super(delayTime);
-        }
+    @Override
+    public String toString() {
+      return "Light is on";
+    }
+  }
 
-        @Override
-        public void action() {
-            water = true;
-        }
-
-        @Override
-        public String toString() {
-            return "Greenhouse water is on "+water;
-        }
+  public class LightOff extends AbstractEvent {
+    public LightOff(long delayTime) {
+      super(delayTime);
     }
 
-    public class WaterOff extends AbstractEvent{
-        public WaterOff(long delayTime) {
-            super(delayTime);
-        }
-
-        @Override
-        public void action() {
-            water = false;
-        }
-
-        @Override
-        public String toString() {
-            return "Greenhouse water is off "+water;
-        }
+    @Override
+    public void action() {
+      light = false;
     }
 
-    private String thermostat = "Day";
-    public class ThermostatNight extends AbstractEvent{
-        public ThermostatNight(long delayTime) {
-            super(delayTime);
-        }
+    @Override
+    public String toString() {
+      return "Light if off";
+    }
+  }
 
-        @Override
-        public void action() {
-            thermostat = "Night";
-        }
+  private boolean water = false;
 
-        @Override
-        public String toString() {
-            return "Thermostat on night setting";
-        }
+  public class WaterOn extends AbstractEvent {
+    public WaterOn(long delayTime) {
+      super(delayTime);
     }
 
-    public class ThermostatDay extends AbstractEvent{
-        public ThermostatDay(long delayTime) {
-            super(delayTime);
-        }
-
-        @Override
-        public void action() {
-            thermostat = "Day";
-        }
-
-        @Override
-        public String toString() {
-            return "Thermostat on day setting";
-        }
+    @Override
+    public void action() {
+      water = true;
     }
 
-    public class Bell extends AbstractEvent{
-        public Bell(long delayTime) {
-            super(delayTime);
-        }
+    @Override
+    public String toString() {
+      return "Greenhouse water is on " + water;
+    }
+  }
 
-        @Override
-        public void action() {
-            addEvent(new Bell(delayTime));
-        }
-
-        @Override
-        public String toString() {
-            return "Bing！";
-        }
+  public class WaterOff extends AbstractEvent {
+    public WaterOff(long delayTime) {
+      super(delayTime);
     }
 
-    private boolean roll = false;
-    public class BlowerOn extends AbstractEvent{
-        public BlowerOn(long delayTime) {
-            super(delayTime);
-        }
-
-        @Override
-        public void action() {
-            roll = true;
-        }
-
-        @Override
-        public String toString() {
-            return "The blower open";
-        }
+    @Override
+    public void action() {
+      water = false;
     }
 
-    public class BlowerOff extends AbstractEvent{
-        public BlowerOff(long delayTime) {
-            super(delayTime);
-        }
+    @Override
+    public String toString() {
+      return "Greenhouse water is off " + water;
+    }
+  }
 
-        @Override
-        public void action() {
-            roll = false;
-        }
+  private String thermostat = "Day";
 
-        @Override
-        public String toString() {
-            return "The blower close";
-        }
+  public class ThermostatNight extends AbstractEvent {
+    public ThermostatNight(long delayTime) {
+      super(delayTime);
     }
 
-
-    public class Restart extends AbstractEvent{
-        private AbstractEvent[] abstractEvents;
-
-        public Restart(long delayTime, AbstractEvent[] abstractEvents1ist) {
-            super(delayTime);
-            this.abstractEvents = abstractEvents1ist;
-            for (AbstractEvent event:abstractEvents) {
-                addEvent(event);
-            }
-
-        }
-
-        @Override
-        public void action(){
-            for (AbstractEvent event:abstractEvents) {
-                event.start();
-                addEvent(event);
-            }
-            start();
-            addEvent(this);
-        }
-
-        @Override
-        public String toString() {
-            return "Restarting System";
-        }
+    @Override
+    public void action() {
+      thermostat = "Night";
     }
 
-    public static class Terminate extends AbstractEvent{
-        public Terminate(long delayTime) {
-            super(delayTime);
-        }
-
-        @Override
-        public void action() {
-            System.exit(0);
-        }
-
-        @Override
-        public String toString() {
-            return "Terminating";
-        }
+    @Override
+    public String toString() {
+      return "Thermostat on night setting";
     }
+  }
+
+  public class ThermostatDay extends AbstractEvent {
+    public ThermostatDay(long delayTime) {
+      super(delayTime);
+    }
+
+    @Override
+    public void action() {
+      thermostat = "Day";
+    }
+
+    @Override
+    public String toString() {
+      return "Thermostat on day setting";
+    }
+  }
+
+  public class Bell extends AbstractEvent {
+    public Bell(long delayTime) {
+      super(delayTime);
+    }
+
+    @Override
+    public void action() {
+      addEvent(new Bell(delayTime));
+    }
+
+    @Override
+    public String toString() {
+      return "Bing！";
+    }
+  }
+
+  private boolean roll = false;
+
+  public class BlowerOn extends AbstractEvent {
+    public BlowerOn(long delayTime) {
+      super(delayTime);
+    }
+
+    @Override
+    public void action() {
+      roll = true;
+    }
+
+    @Override
+    public String toString() {
+      return "The blower open";
+    }
+  }
+
+  public class BlowerOff extends AbstractEvent {
+    public BlowerOff(long delayTime) {
+      super(delayTime);
+    }
+
+    @Override
+    public void action() {
+      roll = false;
+    }
+
+    @Override
+    public String toString() {
+      return "The blower close";
+    }
+  }
+
+
+  public class Restart extends AbstractEvent {
+    private AbstractEvent[] abstractEvents;
+
+    public Restart(long delayTime, AbstractEvent[] abstractEvents1ist) {
+      super(delayTime);
+      this.abstractEvents = abstractEvents1ist;
+      for (AbstractEvent event : abstractEvents) {
+        addEvent(event);
+      }
+
+    }
+
+    @Override
+    public void action() {
+      for (AbstractEvent event : abstractEvents) {
+        event.start();
+        addEvent(event);
+      }
+      start();
+      addEvent(this);
+    }
+
+    @Override
+    public String toString() {
+      return "Restarting System";
+    }
+  }
+
+  public static class Terminate extends AbstractEvent {
+    public Terminate(long delayTime) {
+      super(delayTime);
+    }
+
+    @Override
+    public void action() {
+      System.exit(0);
+    }
+
+    @Override
+    public String toString() {
+      return "Terminating";
+    }
+  }
 }

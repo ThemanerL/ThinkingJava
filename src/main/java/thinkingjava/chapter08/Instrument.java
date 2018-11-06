@@ -5,86 +5,86 @@ package thinkingjava.chapter08;
  * @date 2018/10/1 10:15
  */
 class Instrument {
-    public void play(Note n) {
-        System.out.println("Instrument.play " + n);
-    }
+  public void play(Note n) {
+    System.out.println("Instrument.play " + n);
+  }
 
-    public String what(){
-        return  "Instrument.what ";
-    }
+  public String what() {
+    return "Instrument.what ";
+  }
 
-    public void adjust(){
-        System.out.println("Instrument.adjust ");
-    }
+  public void adjust() {
+    System.out.println("Instrument.adjust ");
+  }
 }
 
 /**
  * Wind 翻译为管乐器
  */
 class Wind extends Instrument {
-    @Override
-    public void play(Note n) {
-        System.out.println("Wind.play " + n);
-    }
+  @Override
+  public void play(Note n) {
+    System.out.println("Wind.play " + n);
+  }
 
-    @Override
-    public String what() {
-        return "Wind.what ";
-    }
+  @Override
+  public String what() {
+    return "Wind.what ";
+  }
 
-    @Override
-    public void adjust() {
-        System.out.println("Wind.adjust ");
-    }
+  @Override
+  public void adjust() {
+    System.out.println("Wind.adjust ");
+  }
 }
 
-class WoodWind extends  Wind{
-    @Override
-    public void play(Note n) {
-        System.out.println("WoodWind.play " + n);
-    }
+class WoodWind extends Wind {
+  @Override
+  public void play(Note n) {
+    System.out.println("WoodWind.play " + n);
+  }
 
-    @Override
-    public String what() {
-        return "WoodWind.what ";
-    }
+  @Override
+  public String what() {
+    return "WoodWind.what ";
+  }
 }
 
-class Percussion extends  Instrument{
-    @Override
-    public void play(Note n) {
-        System.out.println("Percussion.play " + n);
-    }
+class Percussion extends Instrument {
+  @Override
+  public void play(Note n) {
+    System.out.println("Percussion.play " + n);
+  }
 
-    @Override
-    public String what() {
-        return "Percussion.what ";
-    }
+  @Override
+  public String what() {
+    return "Percussion.what ";
+  }
 
-    @Override
-    public void adjust() {
-        System.out.println("Percussion.adjust ");
-    }
+  @Override
+  public void adjust() {
+    System.out.println("Percussion.adjust ");
+  }
 }
 
 /**
  * Stringed 翻译为弦乐
  */
 class Stringed extends Instrument {
-    @Override
-    public void play(Note n) {
-        System.out.println("Stringed.play " + n);
-    }
+  @Override
+  public void play(Note n) {
+    System.out.println("Stringed.play " + n);
+  }
 
-    @Override
-    public String what() {
-        return "Stringed,what ";
-    }
+  @Override
+  public String what() {
+    return "Stringed,what ";
+  }
 
-    @Override
-    public void adjust() {
-        System.out.println("Stringed.adjust ");
-    }
+  @Override
+  public void adjust() {
+    System.out.println("Stringed.adjust ");
+  }
 
 }
 
@@ -92,13 +92,13 @@ class Stringed extends Instrument {
  * Brass 翻译为铜管乐器
  */
 class Brass extends Wind {
-    @Override
-    public void play(Note n) {
-        System.out.println("Brass.play " + n);
-    }
+  @Override
+  public void play(Note n) {
+    System.out.println("Brass.play " + n);
+  }
 
-    @Override
-    public void adjust() {
-        System.out.println("Brass.adjust ");
-    }
+  @Override
+  public void adjust() {
+    System.out.println("Brass.adjust ");
+  }
 }

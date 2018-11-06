@@ -8,62 +8,62 @@ package thinkingjava.chapter04;
  * @date 2018/9/22
  */
 public class Garbage {
-    public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Usage: \n" + "java Garage before\n or:\n" + "java Garbage after");
-            return;
-        }
-        while (!Chair.f) {
-            new Chair();
-            new String("To take up space");
-        }
-        System.out.println("After all Chairs have been created:\n"
-                + "total created = " + Chair.created
-                + ", total finalized = " + Chair.finalized);
-        String before = "before";
-        if (before.equals(args[0])) {
-            System.out.println("gc():");
-            System.gc();
-            System.out.println("runFinalization():");
-            System.runFinalization();
-        }
-        System.out.println("bye!");
-        // Deprecated
-        String after = "after";
-        if (after.equals(args[0])) {
-        //    System.runFinalizersOnExit(true);
-        }
+  public static void main(String[] args) {
+    if (args.length == 0) {
+      System.out.println("Usage: \n" + "java Garage before\n or:\n" + "java Garbage after");
+      return;
     }
+    while (!Chair.f) {
+      new Chair();
+      new String("To take up space");
+    }
+    System.out.println("After all Chairs have been created:\n"
+        + "total created = " + Chair.created
+        + ", total finalized = " + Chair.finalized);
+    String before = "before";
+    if (before.equals(args[0])) {
+      System.out.println("gc():");
+      System.gc();
+      System.out.println("runFinalization():");
+      System.runFinalization();
+    }
+    System.out.println("bye!");
+    // Deprecated
+    String after = "after";
+    if (after.equals(args[0])) {
+      //    System.runFinalizersOnExit(true);
+    }
+  }
 }
 
 class Chair {
-    static boolean gcrun = false;
-    static boolean f = false;
-    static int created = 0;
-    static int finalized = 0;
-    final static int PRACTICE = 47;
-    int i;
+  static boolean gcrun = false;
+  static boolean f = false;
+  static int created = 0;
+  static int finalized = 0;
+  final static int PRACTICE = 47;
+  int i;
 
-    Chair() {
-        i = ++created;
-        if (created == PRACTICE) {
-            System.out.println("Created 47");
-        }
+  Chair() {
+    i = ++created;
+    if (created == PRACTICE) {
+      System.out.println("Created 47");
     }
+  }
 
-    @Override
-    protected void finalize() {
-        if (!gcrun) {
-            gcrun = true;
-            System.out.println("Beginning to finalize after " + created + " Chairs have been created");
-        }
-        if (i == PRACTICE) {
-            System.out.println("Finalizing Chair #47, " + "Setting flag to stop Chair creation");
-            f = true;
-        }
-        finalized++;
-        if (finalized >= created) {
-            System.out.println("All " + finalized + " finalized");
-        }
+  @Override
+  protected void finalize() {
+    if (!gcrun) {
+      gcrun = true;
+      System.out.println("Beginning to finalize after " + created + " Chairs have been created");
     }
+    if (i == PRACTICE) {
+      System.out.println("Finalizing Chair #47, " + "Setting flag to stop Chair creation");
+      f = true;
+    }
+    finalized++;
+    if (finalized >= created) {
+      System.out.println("All " + finalized + " finalized");
+    }
+  }
 }

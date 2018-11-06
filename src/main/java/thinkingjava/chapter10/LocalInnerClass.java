@@ -8,57 +8,58 @@ package thinkingjava.chapter10;
  * @date 2018/11/2 16:27
  */
 public class LocalInnerClass {
-    private int count = 0;
+  private int count = 0;
 
-    private Counter getCounter(final String name) {
-        class LocalCounter implements Counter {
-            private LocalCounter() {
-                System.out.println("LocalCounter()");
-            }
+  private Counter getCounter(final String name) {
+    class LocalCounter implements Counter {
+      private LocalCounter() {
+        System.out.println("LocalCounter()");
+      }
 
-            @Override
-            public int next() {
-                System.out.println(name);
-                return ++count;
-            }
-        }
-
-        return new LocalCounter();
+      @Override
+      public int next() {
+        System.out.println(name);
+        return ++count;
+      }
     }
 
-    private Counter getCounter2(final String name){
-        return new Counter() {
-            // 匿名内部类并不能有带有名字而构造器，只能使用构造代码块替代
-            {
-                System.out.println("Counter()");
-            }
+    return new LocalCounter();
+  }
 
-            @Override
-            public int next() {
-                System.out.print(name);
-                return ++count;
-            }
-        };
-    }
+  private Counter getCounter2(final String name) {
+    return new Counter() {
+      // 匿名内部类并不能有带有名字而构造器，只能使用构造代码块替代
+      {
+        System.out.println("Counter()");
+      }
 
-    public static void main(String[] args) {
-        LocalInnerClass localInnerClass = new LocalInnerClass();
-        Counter counter1 = localInnerClass.getCounter("类一");
-        Counter counter12 = localInnerClass.getCounter2("类二");
-        for (int i = 0; i < 5; i++) {
-            System.out.println(counter1.next());
-        }
-        for (int i = 0; i < 5; i++) {
-            System.out.println(counter12.next());
-        }
+      @Override
+      public int next() {
+        System.out.print(name);
+        return ++count;
+      }
+    };
+  }
+
+  public static void main(String[] args) {
+    LocalInnerClass localInnerClass = new LocalInnerClass();
+    Counter counter1 = localInnerClass.getCounter("类一");
+    Counter counter12 = localInnerClass.getCounter2("类二");
+    int j = 5;
+    for (int i = 0; i < j; i++) {
+      System.out.println(counter1.next());
     }
+    for (int i = 0; i < j; i++) {
+      System.out.println(counter12.next());
+    }
+  }
 }
 
 interface Counter {
-    /**
-     * 接口中的方法必须使用javadoc注释
-     *
-     * @return 返回下一个
-     */
-    int next();
+  /**
+   * 接口中的方法必须使用javadoc注释
+   *
+   * @return 返回下一个
+   */
+  int next();
 }

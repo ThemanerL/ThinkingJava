@@ -1,4 +1,5 @@
 package thinkingjava.chapter09;
+
 import thinkingjava.chapter08.Note;
 
 /**
@@ -6,89 +7,90 @@ import thinkingjava.chapter08.Note;
  * @date 2018/10/9 16:43
  */
 
-class Music5{
-    static void tune(Playable i){
-        i.play(Note.MIDDLE_C);
-    }
+class Music5 {
+  static void tune(Playable i) {
+    i.play(Note.MIDDLE_C);
+  }
 
-    static void tuneAll(Playable[] e){
-        for (Playable i:e) {
-            tune(i);
-        }
+  static void tuneAll(Playable[] e) {
+    for (Playable i : e) {
+      tune(i);
     }
+  }
 
-    public static void main(String[] args) {
-        Playable[] orchestra = {
-                new Wind(),
-                new Percussion(),
-                new Stringed(),
-                new Brass(),
-                new Woodwind()
-        };
-        tuneAll(orchestra);
-    }
+  public static void main(String[] args) {
+    Playable[] orchestra = {
+        new Wind(),
+        new Percussion(),
+        new Stringed(),
+        new Brass(),
+        new Woodwind()
+    };
+    tuneAll(orchestra);
+  }
 }
 
-interface Instrument{
-    /**
-     * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
-     */
-    void adjust();
+interface Instrument {
+  /**
+   * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
+   */
+  void adjust();
 }
 
-interface Playable{
-    /**
-     * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
-     * @param n 来自于枚举类
-     */
-    void play(Note n);
+interface Playable {
+  /**
+   * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
+   *
+   * @param n 来自于枚举类
+   */
+  void play(Note n);
 }
 
 /**
- *  此处包括二其上二者的定义
+ * 此处包括二其上二者的定义
  */
-abstract class AbstractPlayAndAdjust{
-    public void play(Note n) {
-        System.out.println(this + ".play" + n);
-    }
+abstract class AbstractPlayAndAdjust {
+  public void play(Note n) {
+    System.out.println(this + ".play" + n);
+  }
 
-    public void adjust() {
-        System.out.println(this + ".adjust");
-    }
+  public void adjust() {
+    System.out.println(this + ".adjust");
+  }
 }
 
-class Wind extends AbstractPlayAndAdjust implements Instrument,Playable{
-    @Override
-    public String toString() {
-        return "Wind";
-    }
+class Wind extends AbstractPlayAndAdjust implements Instrument, Playable {
+  @Override
+  public String toString() {
+    return "Wind";
+  }
 }
 
-class Percussion extends AbstractPlayAndAdjust implements Instrument,Playable{
-    @Override
-    public String toString() {
-        return "Percussion";
-    }
+class Percussion extends AbstractPlayAndAdjust implements Instrument, Playable {
+  @Override
+  public String toString() {
+    return "Percussion";
+  }
 }
 
-class Stringed extends AbstractPlayAndAdjust implements Instrument,Playable{
-    @Override
-    public String toString() {
-        return "Stringed";
-    }
+class Stringed extends AbstractPlayAndAdjust implements Instrument, Playable {
+  @Override
+  public String toString() {
+    return "Stringed";
+  }
 }
 
-class Brass extends Wind{
-    @Override
-    public String toString() {
-        return "Brass";
-    }
+class Brass extends Wind {
+  @Override
+  public String toString() {
+    return "Brass";
+  }
 }
 
-class Woodwind extends Wind{
-    @Override
-    public String toString() {
-        return "Woodwind";
-    }
+class Woodwind extends Wind {
+  @Override
+  public String toString() {
+    return "Woodwind";
+  }
 }
 

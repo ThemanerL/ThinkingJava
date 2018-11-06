@@ -5,14 +5,14 @@ package thinkingjava.chapter09.filters;
  * @date 2018/10/10 21:21
  */
 public class HighPass extends Filter {
-    double cutoff;
+  double cutoff;
 
-    public HighPass(double cutoff) {
-        this.cutoff = cutoff;
-    }
+  public HighPass(double cutoff) {
+    this.cutoff = cutoff;
+  }
 
-    @Override
-    public WaveForm process(WaveForm input) {
-        return input;
-    }
+  @Override
+  public WaveForm process(WaveForm input) {
+    return input;
+  }
 }

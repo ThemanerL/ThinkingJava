@@ -9,32 +9,32 @@ package thinkingjava.chapter04;
  * @date 2018/9/24
  */
 public class OrderOfInitialization {
-    public static void main(String[] args) {
-        Card t = new Card();
-        t.f();
-    }
+  public static void main(String[] args) {
+    Card t = new Card();
+    t.f();
+  }
 }
 
 class Tag {
-    Tag(int maker) {
-        System.out.println("Tag(" + maker + ")");
-    }
+  Tag(int maker) {
+    System.out.println("Tag(" + maker + ")");
+  }
 }
 
 class Card {
-    Tag t1 = new Tag(1);
+  Tag t1 = new Tag(1);
 
-    Card() {
-        int f = 3;
-        System.out.println("Card()");
-        t3 = new Tag(33);
-    }
+  Card() {
+    int f = 3;
+    System.out.println("Card()");
+    t3 = new Tag(33);
+  }
 
-    Tag r2 = new Tag(2);
+  Tag r2 = new Tag(2);
 
-    void f() {
-        System.out.println("f()");
-    }
+  void f() {
+    System.out.println("f()");
+  }
 
-    Tag t3 = new Tag(3);
+  Tag t3 = new Tag(3);
 }
