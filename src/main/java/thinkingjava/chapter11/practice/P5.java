@@ -1,57 +1,58 @@
-package thinkingjava.chapter11;
-
-import thinkingjava.thirdparty.typeinfo.pets.*;
+package thinkingjava.chapter11.practice;
 
 import java.util.*;
 
 /**
- * 这里使用了第14章中的类库。
- * 1、有一个Pet类，以及Pet的各种子类型；
- * 2、静态的Pets.arrayList()方法将返回一个填充了随机选取的Pet对象的ArrayList
  * @author 李重辰
- * @date 2018/11/6 21:38
+ * @date 2018/11/8 18:14
  */
-public class ListFeatures {
+public class P5 {
   public static void main(String[] args) {
     Random rand = new Random(System.currentTimeMillis());
-    List<Pet> pets = Pets.arrayList(7);
+    List<Integer> pets = new ArrayList<>();
+    int initPetsSize = 8;
+    for (int i = 1; i < initPetsSize; i++) {
+      pets.add(i);
+    }
     System.out.println("1: " + pets);
-    Hamster hamster = new Hamster();
+    Integer hamster = 8;
     pets.add(hamster);
     System.out.println("2: " + pets);
     System.out.println("3: " + pets.contains(hamster));
     pets.remove(hamster);
-    Pet pet = pets.get(2);
+    Integer pet = pets.get(2);
     System.out.println("4: " + pet + " " + pets.indexOf(pet));
-    Pet cymric = new Cymric();
+    Integer cymric = 9;
     System.out.println("5: " + pets.indexOf(cymric));
     System.out.println("6: " + pets.remove(cymric));
     System.out.println("7: " + pets.remove(pet));
     System.out.println("8: " + pets);
-    pets.add(3, new Mouse());
+    pets.add(3, 10);
     System.out.println("9: " + pets);
-    List<Pet> sub = pets.subList(1, 4);
+    List<Integer> sub = pets.subList(1, 4);
     System.out.println("subList: " + sub);
     System.out.println("10: " + pets.containsAll(sub));
     Collections.sort(sub);
     System.out.println("Sorted subList: " + sub);
+    // 顺序对于containsAll没有影响
     System.out.println("11 " + pets.containsAll(sub));
     //使用指定的随机源置换指定的列表
     Collections.shuffle(sub, rand);
     System.out.println("shuffled subList: " + sub);
     System.out.println("12: " + pets.containsAll(sub));
-    List<Pet> copy = new ArrayList<Pet>(pets);
+    List<Integer> copy = new ArrayList<>(pets);
     sub = Arrays.asList(pets.get(1),pets.get(4));
     System.out.println("sub: " + sub);
-    //删除所有不再sub中的元素
+    //从copy中删除所有不在sub中的元素
     copy.retainAll(sub);
     System.out.println("13: " + copy);
-    copy = new ArrayList<Pet>(pets);
+    copy = new ArrayList<>(pets);
+    System.out.println("13-1: " + copy);
     copy.remove(2);
     System.out.println("14: " + copy);
     copy.removeAll(sub);
     System.out.println("15: " + copy);
-    copy.set(1, new Mouse());
+    copy.set(1, 10);
     System.out.println("16: " + copy);
     copy.addAll(2,sub);
     System.out.println("17: " + copy);
@@ -64,11 +65,9 @@ public class ListFeatures {
     pets.clear();
     System.out.println("19: " + pets);
     System.out.println("20: " + pets.isEmpty());
-    pets.addAll(Pets.arrayList(4));
+    pets.addAll(Arrays.asList(1, 2, 3, 4));
     System.out.println("21: " + pets);
     Object[] o = pets.toArray();
     System.out.println("22: " + o[3]);
-    Pet[] pa = pets.toArray(new Pet[0]);
-    System.out.println("23: " + pa[3].id());
   }
 }

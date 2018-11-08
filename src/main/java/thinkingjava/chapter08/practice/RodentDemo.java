@@ -1,12 +1,24 @@
 package thinkingjava.chapter08.practice;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
 /**
+ * 李重辰2018/11/08修改：chapter11 practice10 使用ArrayList存放Rodents，并且使用Iterator来访问
  * @author 李重辰
  * @date 2018/10/3 0:28
  */
 public class RodentDemo {
   public static void main(String[] args) {
     Rodent[] rodents = {new Mouse(), new Gerbil(), new Hamster()};
+    ArrayList<Rodent> rodents1 = new ArrayList<>(Arrays.<Rodent>asList(rodents));
+    Iterator<Rodent> rodentIterator = rodents1.iterator();
+    while (rodentIterator.hasNext()){
+      System.out.println(rodentIterator.next().getId() + "  chapter11 practice 10");
+      rodentIterator.remove();
+    }
+
     for (Rodent s : rodents) {
       s.printSize();
       System.out.println(s.getId());
