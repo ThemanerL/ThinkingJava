@@ -22,6 +22,5 @@ public class P14 {
     for (int i :linkedList) {
       System.out.println(i);
     }
-
   }
 }

@@ -1,3 +1,3 @@
 1. 深刻理解游标与索引的概念
-   ![CursorImg](https://thinkingjava-md-1257967443.cos.ap-guangzhou.myqcloud.com/Cursor%E7%A4%BA%E4%BE%8B%E5%9B%BE.png?q-sign-algorithm=sha1&q-ak=AKID1gZmM5TuBk9QB2yOf0gVk40G6iP1aHjx&q-sign-time=1541837763;1541839563&q-key-time=1541837763;1541839563&q-header-list=&q-url-param-list=&q-signature=230c7434946b005dd421162054ae47f0adb04017&x-cos-security-token=6cfd6414c0708d208020c82efa1b8c758dd91acf10001&response-content-disposition=attachment)  
+   ![CursorImg](https://thinkingjava-md-1257967443.cos.ap-guangzhou.myqcloud.com/Cursor%E7%A4%BA%E4%BE%8B%E5%9B%BE.png)  
    注意：在Iterator.hasNext()的时候，游标指向0，此时index为-1;Iterator.next()指向索引“零”；在执行一次next()之后，游标向右移动一位，游标为1，next()指向索引“一”，此时previousIndex()即上一个索引“零”
