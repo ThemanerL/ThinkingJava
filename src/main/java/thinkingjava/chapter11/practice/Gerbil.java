@@ -1,4 +1,4 @@
-package thinkingjava.chapter11;
+package thinkingjava.chapter11.practice;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
