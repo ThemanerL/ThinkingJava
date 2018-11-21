@@ -18,33 +18,7 @@ public class ArraysIsNotIterable {
     test(Arrays.asList(1, 2, 3));
     String[] strings = {"A", "B", "C"};
     test(Arrays.asList(strings));
-    List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-    List<String> list2 = new ArrayList<>(Arrays.asList("a", "b", "c","d"));
-    List<Dictionary> d = new ArrayList<>();
-    for (Iterator<Integer> i = list1.iterator(); i.hasNext();){
-      for (Iterator<String> j = list2.iterator(); j.hasNext();){
-        d.add(new Dictionary(i.next(), j.next()));
-      }
-    }
-    System.out.println(d);
-
   }
 }
-class Dictionary{
-  private int index = 0;
-  private String c = null;
 
-  public Dictionary(int index, String c) {
-    this.index = index;
-    this.c = c;
-  }
-
-  @Override
-  public String toString() {
-    return "Dictionary{" +
-        "index=" + index +
-        ", c='" + c + '\'' +
-        '}';
-  }
-}
 

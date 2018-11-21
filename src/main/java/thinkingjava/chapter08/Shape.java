@@ -14,6 +14,16 @@ public class Shape {
   public void printName() {
     System.out.println("这个类被" + this.getClass().getSimpleName() + "继承了");
   }
+
+  @Override
+  public int hashCode() {
+    return super.hashCode();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    return super.equals(obj);
+  }
 }
 
 class Circle extends Shape {
