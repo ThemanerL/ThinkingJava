@@ -25,7 +25,8 @@ public class QueueDemo {
     }
     printQ(queue);
     Queue<Character> characters = new LinkedList<>();
-    for(char c: "My name is Li zhong chen".toCharArray()){
+    String str = "My name is Li zhong chen";
+    for(char c: str.toCharArray()){
       characters.offer(c);
     }
     printQ(characters);

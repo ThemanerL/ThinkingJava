@@ -23,11 +23,11 @@ public class AdapterMethodIdiom {
 }
 
 class ReversibleArrayList<T> extends ArrayList<T> {
-  public ReversibleArrayList(Collection<? extends T> c) {
+  ReversibleArrayList(Collection<? extends T> c) {
     super(c);
   }
 
-  public Iterable<T> reversed() {
+  Iterable<T> reversed() {
     return () -> new Iterator<T>() {
       int current = size() - 1;
 

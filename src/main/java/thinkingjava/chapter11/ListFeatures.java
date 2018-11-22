@@ -61,7 +61,7 @@ public class ListFeatures {
     // 而如果发生结构性修改的是原来的list（不包括由于返回的子list导致的改变），那么返回的子list语义上将会是undefined。
     // 在AbstractList（ArrayList的父类）中，undefined的具体表现形式是抛出一个ConcurrentModificationException。
     // 所以一定要特别注意对sublist的修改
-    pets.clear();
+    //pets.clear();
     System.out.println("19: " + pets);
     System.out.println("20: " + pets.isEmpty());
     pets.addAll(Pets.arrayList(4));

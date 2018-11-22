@@ -25,7 +25,8 @@ public class SimpleIteration {
     System.out.println();
 
     petIterator = pets.iterator();
-    for (int i = 0; i < 6; i++) {
+    int size = 6;
+    for (int i = 0; i < size; i++) {
       petIterator.next();
       System.out.println( petIterator.next());
       petIterator.remove();

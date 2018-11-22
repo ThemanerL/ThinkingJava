@@ -7,7 +7,7 @@ import java.util.Iterator;
  * @date 2018/11/21 12:08
  */
 public class IterableClass implements Iterable<String> {
-  private String[] words = ("And that is how " + "we know the Earth to be banana-shaped ").split(" ");
+  String[] words = ("And that is how " + "we know the Earth to be banana-shaped ").split(" ");
 
   @Override
   public Iterator<String> iterator() {

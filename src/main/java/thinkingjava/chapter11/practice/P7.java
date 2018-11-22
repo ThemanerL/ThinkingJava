@@ -1,6 +1,5 @@
 package thinkingjava.chapter11.practice;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,7 +23,8 @@ public class P7 {
 
   public static void main(String[] args) {
     P7[] p7s = new P7[10];
-    for (int i = 0; i < 10; i++) {
+    int size = 10;
+    for (int i = 0; i < size; i++) {
       p7s[i] = new P7(i);
     }
     ArrayList<P7> p7ArrayList = new ArrayList<>(Arrays.asList(p7s));
