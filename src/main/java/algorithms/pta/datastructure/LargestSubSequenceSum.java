@@ -1,4 +1,4 @@
-package pta.datastructure;
+package algorithms.pta.datastructure;
 
 import java.util.Scanner;
 
@@ -6,7 +6,8 @@ import java.util.Scanner;
  * @author 李重辰
  * @date 2019/4/14 22:32
  */
-public class LargestSubSequenceSum {
+
+public  class  LargestSubSequenceSum {
   private static int length;
   private int[] its;
 
