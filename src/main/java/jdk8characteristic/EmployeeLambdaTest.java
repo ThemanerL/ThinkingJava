@@ -67,9 +67,6 @@ public class EmployeeLambdaTest {
 
 }
 
-/**
-
- */
 interface Predicate<T>{
     /**
      * 返回条件筛选的结果
