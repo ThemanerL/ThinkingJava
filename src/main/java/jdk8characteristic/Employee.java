@@ -35,19 +35,33 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee(String name, int age, double salary) {
+
+    Employee() {
+    }
+
+    Employee(int age) {
+        this.age = age;
+    }
+
+    public Employee(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Employee(String name, int age, double salary) {
         this.name = name;
         this.age = age;
         this.salary = salary;
     }
 
-    public Employee() {
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Employee)) {
+            return false;
+        }
         Employee employee = (Employee) o;
         return getAge() == employee.getAge() &&
             Double.compare(employee.getSalary(), getSalary()) == 0 &&
