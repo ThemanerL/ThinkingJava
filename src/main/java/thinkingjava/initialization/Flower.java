@@ -6,7 +6,7 @@ package thinkingjava.initialization;
  */
 public class Flower {
   private int petalCount = 0;
-  private String s = new String("null");
+  private String s = "null";
 
   Flower(int petals) {
     petalCount = petals;
@@ -30,12 +30,12 @@ public class Flower {
     System.out.println("default constructor (no args)");
   }
 
-  void print() {
-    System.out.println("petalCount = " + petalCount + "s = " + s);
-  }
-
   public static void main(String[] args) {
     Flower x = new Flower();
     x.print();
+  }
+
+  void print() {
+    System.out.println("petalCount = " + petalCount + "s = " + s);
   }
 }

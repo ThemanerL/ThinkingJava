@@ -9,8 +9,8 @@ package thinkingjava.innerclasses.controller;
  * @date 2018/11/1 14:48
  */
 public abstract class AbstractEvent {
-  private long eventTime;
   protected final long delayTime;
+  private long eventTime;
 
   public AbstractEvent(long delayTime) {
     this.delayTime = delayTime;

@@ -17,5 +17,5 @@ public enum Spiciness {
   MILD,
   MEDIUM,
   HOT,
-  FLAMING;
+  FLAMING
 }

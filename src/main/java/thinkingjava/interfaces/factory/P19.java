@@ -2,6 +2,26 @@ package thinkingjava.interfaces.factory;
 
 import java.util.Random;
 
+interface Gamb {
+  Random RAND = new Random(System.currentTimeMillis());
+
+  /**
+   * 赌
+   *
+   * @return 赌博结果
+   */
+  String play();
+}
+
+interface GambFactory {
+  /**
+   * 实例化赌博
+   *
+   * @return 返回一个赌博游戏
+   */
+  Gamb getGambInstance();
+}
+
 /**
  * @author 李重辰
  * @date 2018/10/18 18:27
@@ -15,17 +35,6 @@ public class P19 {
     playGamb(new CoinFactory());
     playGamb(new DiceFactory());
   }
-}
-
-interface Gamb {
-  Random RAND = new Random(System.currentTimeMillis());
-
-  /**
-   * 赌
-   *
-   * @return 赌博结果
-   */
-  String play();
 }
 
 class Coin implements Gamb {
@@ -48,15 +57,6 @@ class Dice implements Gamb {
   public String play() {
     return "你抛出了" + point + "点";
   }
-}
-
-interface GambFactory {
-  /**
-   * 实例化赌博
-   *
-   * @return 返回一个赌博游戏
-   */
-  Gamb getGambInstance();
 }
 
 class CoinFactory implements GambFactory {

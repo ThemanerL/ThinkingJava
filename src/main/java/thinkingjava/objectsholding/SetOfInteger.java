@@ -18,8 +18,8 @@ public class SetOfInteger {
       integerSet.add(rand.nextInt(30));
     }
     Iterator<Integer> iterator = integerSet.iterator();
-    while (iterator.hasNext()){
-      System.out.print(iterator.next()+" ");
+    while (iterator.hasNext()) {
+      System.out.print(iterator.next() + " ");
     }
   }
 }

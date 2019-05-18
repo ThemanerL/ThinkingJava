@@ -22,6 +22,11 @@ package thinkingjava.innerclasses;
  * @date 2018/10/24 21:30
  */
 public class Parcel9 {
+  public static void main(String[] args) {
+    Parcel9 parcel9 = new Parcel9();
+    Destination destination = parcel9.destination("Down");
+  }
+
   private Destination destination(final String dest) {
     return new Destination() {
       private String label = dest;
@@ -31,10 +36,5 @@ public class Parcel9 {
         return label;
       }
     };
-  }
-
-  public static void main(String[] args) {
-    Parcel9 parcel9 = new Parcel9();
-    Destination destination = parcel9.destination("Down");
   }
 }

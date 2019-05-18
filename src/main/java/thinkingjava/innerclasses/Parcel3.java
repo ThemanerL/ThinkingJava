@@ -8,6 +8,14 @@ package thinkingjava.innerclasses;
  * @date 2018/10/22 11:38
  */
 public class Parcel3 {
+  public static void main(String[] args) {
+    Parcel3 parcel3 = new Parcel3();
+    //Parcel3.Contents contents = new Contents(18);也可以
+    Parcel3.Contents contents = new Contents(18);
+    System.out.println(contents.value());
+    Parcel3.Destination destination = parcel3.new Destination("Tasmania");
+  }
+
   static private class Contents {
     private int i = 11;
 
@@ -30,13 +38,5 @@ public class Parcel3 {
     String readLabel() {
       return label;
     }
-  }
-
-  public static void main(String[] args) {
-    Parcel3 parcel3 = new Parcel3();
-    //Parcel3.Contents contents = new Contents(18);也可以
-    Parcel3.Contents contents = new Contents(18);
-    System.out.println(contents.value());
-    Parcel3.Destination destination = parcel3.new Destination("Tasmania");
   }
 }

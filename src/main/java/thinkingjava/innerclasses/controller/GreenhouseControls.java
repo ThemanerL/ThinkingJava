@@ -8,6 +8,25 @@ package thinkingjava.innerclasses.controller;
  */
 public class GreenhouseControls extends Controller {
   private boolean light = false;
+  private boolean water = false;
+  private String thermostat = "Day";
+  private boolean roll = false;
+
+  public static class Terminate extends AbstractEvent {
+    public Terminate(long delayTime) {
+      super(delayTime);
+    }
+
+    @Override
+    public void action() {
+      System.exit(0);
+    }
+
+    @Override
+    public String toString() {
+      return "Terminating";
+    }
+  }
 
   public class LightOn extends AbstractEvent {
     public LightOn(long delayTime) {
@@ -41,8 +60,6 @@ public class GreenhouseControls extends Controller {
     }
   }
 
-  private boolean water = false;
-
   public class WaterOn extends AbstractEvent {
     public WaterOn(long delayTime) {
       super(delayTime);
@@ -74,8 +91,6 @@ public class GreenhouseControls extends Controller {
       return "Greenhouse water is off " + water;
     }
   }
-
-  private String thermostat = "Day";
 
   public class ThermostatNight extends AbstractEvent {
     public ThermostatNight(long delayTime) {
@@ -125,8 +140,6 @@ public class GreenhouseControls extends Controller {
     }
   }
 
-  private boolean roll = false;
-
   public class BlowerOn extends AbstractEvent {
     public BlowerOn(long delayTime) {
       super(delayTime);
@@ -159,7 +172,6 @@ public class GreenhouseControls extends Controller {
     }
   }
 
-
   public class Restart extends AbstractEvent {
     private AbstractEvent[] abstractEvents;
 
@@ -185,22 +197,6 @@ public class GreenhouseControls extends Controller {
     @Override
     public String toString() {
       return "Restarting System";
-    }
-  }
-
-  public static class Terminate extends AbstractEvent {
-    public Terminate(long delayTime) {
-      super(delayTime);
-    }
-
-    @Override
-    public void action() {
-      System.exit(0);
-    }
-
-    @Override
-    public String toString() {
-      return "Terminating";
     }
   }
 }

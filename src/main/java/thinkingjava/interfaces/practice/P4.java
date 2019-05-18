@@ -24,13 +24,13 @@ abstract class AbstractFather1 {
 }
 
 class Child1 extends AbstractFather1 {
+  static void print(AbstractFather1 af1) {
+    af1.print();
+  }
+
   @Override
   void print() {
     System.out.println("Child1.print");
-  }
-
-  static void print(AbstractFather1 af1) {
-    af1.print();
   }
 }
 
@@ -42,11 +42,11 @@ abstract class AbstractFather2 {
  */
 class Child2 extends AbstractFather2 {
 
-  void print() {
-    System.out.println("Child1.print");
-  }
-
   static void print(AbstractFather2 af2) {
     ((Child2) af2).print();
+  }
+
+  void print() {
+    System.out.println("Child1.print");
   }
 }

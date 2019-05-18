@@ -9,53 +9,6 @@ package thinkingjava.innerclasses;
  * @date 2018/10/30 20:36
  */
 public class Parcel11 {
-  private static class ParcelContents implements Contents {
-    private int i = 11;
-
-    @Override
-    public int value() {
-      return i;
-    }
-  }
-
-  class Practice18 {
-    public Practice18() {
-      System.out.println("Pactice18.Pactice18");
-    }
-
-    class Practice19 {
-      public Practice19() {
-        System.out.println("Practice19.Practice19");
-      }
-    }
-  }
-
-
-  protected static class ParcelDestination implements Destination {
-    private String label;
-
-    private ParcelDestination(String label) {
-      this.label = label;
-    }
-
-    @Override
-    public String readLabel() {
-      return label;
-    }
-
-    public static void f() {
-    }
-
-    static int x = 10;
-
-    static class AnotherLevel {
-      public static void f() {
-      }
-
-      static int x = 10;
-    }
-  }
-
   private static Destination destination(String s) {
     return new ParcelDestination(s);
   }
@@ -70,5 +23,50 @@ public class Parcel11 {
 
     Parcel11 parcel11 = new Parcel11();
     Parcel11.Practice18 pactice18 = parcel11.new Practice18();
+  }
+
+  private static class ParcelContents implements Contents {
+    private int i = 11;
+
+    @Override
+    public int value() {
+      return i;
+    }
+  }
+
+  protected static class ParcelDestination implements Destination {
+    static int x = 10;
+    private String label;
+
+    private ParcelDestination(String label) {
+      this.label = label;
+    }
+
+    public static void f() {
+    }
+
+    @Override
+    public String readLabel() {
+      return label;
+    }
+
+    static class AnotherLevel {
+      static int x = 10;
+
+      public static void f() {
+      }
+    }
+  }
+
+  class Practice18 {
+    public Practice18() {
+      System.out.println("Pactice18.Pactice18");
+    }
+
+    class Practice19 {
+      public Practice19() {
+        System.out.println("Practice19.Practice19");
+      }
+    }
   }
 }

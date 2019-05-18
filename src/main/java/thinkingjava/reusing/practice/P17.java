@@ -6,11 +6,6 @@ package thinkingjava.reusing.practice;
  */
 public class P17 extends Origin {
 
-  private void myName(String firstName, String midName, String lastName, int age) {
-    myName(firstName, midName, lastName);
-    System.out.print(" " + age);
-  }
-
   public static void main(String[] args) {
     P17 p17 = new P17();
     p17.myName("李");
@@ -29,6 +24,11 @@ public class P17 extends Origin {
     p18.myName("李", "重", "辰");
     System.out.println();
     p18.myName("重", "辰", "李", 81);
+  }
+
+  private void myName(String firstName, String midName, String lastName, int age) {
+    myName(firstName, midName, lastName);
+    System.out.print(" " + age);
   }
 }
 

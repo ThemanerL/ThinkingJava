@@ -9,20 +9,11 @@ import java.util.Objects;
  * @author 李重辰
  * @date 2018/11/2 20:18
  */
-public class Gerbil implements Comparable{
+public class Gerbil implements Comparable {
   private int gerbilNumber;
 
   public Gerbil(int gerbilNumber) {
     this.gerbilNumber = gerbilNumber;
-  }
-
-  void hop() {
-    System.out.println(gerbilNumber + ": Jumping!");
-  }
-
-  @Override
-  public int compareTo(Object o) {
-    return this.gerbilNumber - ((Gerbil)o).gerbilNumber ;
   }
 
   public static void main(String[] args) {
@@ -39,13 +30,21 @@ public class Gerbil implements Comparable{
 
   }
 
+  void hop() {
+    System.out.println(gerbilNumber + ": Jumping!");
+  }
+
+  @Override
+  public int compareTo(Object o) {
+    return this.gerbilNumber - ((Gerbil) o).gerbilNumber;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof Gerbil))
-    {
+    if (!(o instanceof Gerbil)) {
       return false;
     }
     Gerbil gerbil = (Gerbil) o;

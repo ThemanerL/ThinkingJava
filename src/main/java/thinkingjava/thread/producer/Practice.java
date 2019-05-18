@@ -13,20 +13,21 @@ public class Practice {
     Bucket bucket = new Bucket(5);
     Buyer buyer = new Buyer(bucket);
     Seller seller = new Seller(bucket);
-    ThreadPoolExecutor threadPool = new ThreadPoolExecutor(3,3,10, TimeUnit.MILLISECONDS,new ArrayBlockingQueue<>(2),new ThreadPoolExecutor.DiscardPolicy());
+    ThreadPoolExecutor threadPool = new ThreadPoolExecutor(3, 3, 10, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(2), new ThreadPoolExecutor.DiscardPolicy());
     threadPool.execute(buyer::buyBread);
     threadPool.execute(seller::addBread);
     threadPool.shutdown();
   }
 }
-class Buyer{
+
+class Buyer {
   private Bucket bucket;
 
   public Buyer(Bucket bucket) {
     this.bucket = bucket;
   }
 
-  void buyBread(){
+  void buyBread() {
     int loopTimes = 10;
     for (int i = 0; i < loopTimes; i++) {
       int bread = bucket.getBread();
@@ -36,14 +37,14 @@ class Buyer{
   }
 }
 
-class Seller{
+class Seller {
   private Bucket bucket;
 
   public Seller(Bucket bucket) {
     this.bucket = bucket;
   }
 
-  void addBread(){
+  void addBread() {
     int loopTimes = 10;
     for (int i = 0; i < loopTimes; i++) {
       bucket.putBread(i);
@@ -51,7 +52,6 @@ class Seller{
     }
   }
 }
-
 
 class Bucket {
   private int[] bread;
@@ -62,7 +62,7 @@ class Bucket {
   }
 
   synchronized void putBread(int i) {
-    while(index==bread.length-1){
+    while (index == bread.length - 1) {
       try {
         this.wait();
       } catch (InterruptedException e) {
@@ -73,9 +73,9 @@ class Bucket {
     this.notifyAll();
   }
 
-  synchronized int getBread(){
-    while (index==0){
-      try{
+  synchronized int getBread() {
+    while (index == 0) {
+      try {
         this.wait();
       } catch (InterruptedException e) {
         e.printStackTrace();

@@ -8,9 +8,15 @@ package thinkingjava.innerclasses;
  * @date 2018/10/29 19:53
  */
 public class Parcel10 {
+  public static void main(String[] args) {
+    Parcel10 parcel10 = new Parcel10();
+    Destination destination = parcel10.destination("ThemanerL", 45.124F);
+  }
+
   private Destination destination(final String dest, final float price) {
     return new Destination() {
       private int cost;
+      private String label = dest;
 
       {
         int i = 100;
@@ -20,17 +26,10 @@ public class Parcel10 {
         }
       }
 
-      private String label = dest;
-
       @Override
       public String readLabel() {
         return label;
       }
     };
-  }
-
-  public static void main(String[] args) {
-    Parcel10 parcel10 = new Parcel10();
-    Destination destination = parcel10.destination("ThemanerL", 45.124F);
   }
 }

@@ -1,6 +1,8 @@
 package thinkingjava.thirdparty.typeinfo.pets;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Using class literals.
@@ -25,13 +27,13 @@ public class LiteralPetCreator extends AbstractPetCreator {
       ALL_TYPES.subList(ALL_TYPES.indexOf(Mutt.class),
           ALL_TYPES.size());
 
+  public static void main(String[] args) {
+    System.out.println(TYPES);
+  }
+
   @Override
   public List<Class<? extends Pet>> types() {
     return TYPES;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(TYPES);
   }
 } /* Output:
 [class Mutt, class Pug, class EgyptianMau, class Manx, class Cymric, class Rat, class Mouse, class Hamster]

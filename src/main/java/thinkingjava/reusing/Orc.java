@@ -12,6 +12,13 @@ public class Orc extends Villain {
     this.orcNumber = orcNumber;
   }
 
+  public static void main(String[] args) {
+    Orc orc = new Orc("李重辰", 12);
+    System.out.println(orc);
+    orc.change("Joey", 19);
+    System.out.println(orc);
+  }
+
   public void change(String name, int orcNumber) {
     setName(name);
     this.orcNumber = orcNumber;
@@ -25,24 +32,17 @@ public class Orc extends Villain {
   public String toString() {
     return "Orc" + orcNumber + ": " + super.toString();
   }
-
-  public static void main(String[] args) {
-    Orc orc = new Orc("李重辰", 12);
-    System.out.println(orc);
-    orc.change("Joey", 19);
-    System.out.println(orc);
-  }
 }
 
 class Villain {
   private String name;
 
-  protected void setName(String name1) {
-    name = name1;
-  }
-
   public Villain(String name) {
     this.name = name;
+  }
+
+  protected void setName(String name1) {
+    name = name1;
   }
 
   @Override

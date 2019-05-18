@@ -17,14 +17,27 @@ import java.util.Scanner;
  * @date 2018/10/13 10:24
  */
 public class RandomWords implements Readable {
-  private static Random rand = new Random(System.currentTimeMillis());
   public static final char[] CAPITALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
   private static final char[] LOWERS = "abcdefghijklmnopqrstuvwxyz".toCharArray();
   private static final char[] VOWELS = "aeiou".toCharArray();
+  private static Random rand = new Random(System.currentTimeMillis());
   private int count;
 
   protected RandomWords(int count) {
     this.count = count;
+  }
+
+  /**
+   * 这一块代码关于Scanner的详细调用顺序栈 留待第十三章仔细分析
+   * 在read()方法内部，将输入内容
+   *
+   * @param args 控制台参数
+   */
+  public static void main(String[] args) {
+    Scanner s = new Scanner(new RandomWords(10));
+    while (s.hasNext()) {
+      System.out.println(s.next());
+    }
   }
 
   @Override
@@ -43,27 +56,10 @@ public class RandomWords implements Readable {
     //Numbers of characters append
     return 10;
   }
-
-  /**
-   * 这一块代码关于Scanner的详细调用顺序栈 留待第十三章仔细分析
-   * 在read()方法内部，将输入内容
-   *
-   * @param args 控制台参数
-   */
-  public static void main(String[] args) {
-    Scanner s = new Scanner(new RandomWords(10));
-    while (s.hasNext()) {
-      System.out.println(s.next());
-    }
-  }
 }
 
 class RandomDoubles {
   private static Random rand = new Random(System.currentTimeMillis());
-
-  double next() {
-    return rand.nextDouble();
-  }
 
   public static void main(String[] args) {
     int casual = 7;
@@ -71,5 +67,9 @@ class RandomDoubles {
     for (int i = 0; i < casual; i++) {
       System.out.println(rd.next() + " ");
     }
+  }
+
+  double next() {
+    return rand.nextDouble();
   }
 }

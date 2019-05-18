@@ -1,4 +1,5 @@
 package thinkingjava.objectsholding;
+
 import java.util.*;
 
 /**
@@ -32,7 +33,7 @@ public class PriorityQueueDemo {
     QueueDemo.printQ(stringQueue);
 
     Set<Character> set = new HashSet<>();
-    for (char c:sentence.toCharArray()) {
+    for (char c : sentence.toCharArray()) {
       set.add(c);
     }
     PriorityQueue<Character> characterPriorityQueue = new PriorityQueue<>(set);

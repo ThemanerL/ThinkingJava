@@ -12,11 +12,11 @@ public class P1 {
 }
 
 class Outer {
-  class Inner {
-
-  }
-
   Inner getInner() {
     return new Inner();
+  }
+
+  class Inner {
+
   }
 }

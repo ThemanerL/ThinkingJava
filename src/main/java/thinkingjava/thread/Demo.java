@@ -38,7 +38,7 @@ class FindError {
       int mid = (left + right) / 2;
       if (isBug(versions[mid])) {
         // 目标版本号特征为，当前版本有错误，前一个版本无错误。
-        if (!isBug(versions[mid-1])){
+        if (!isBug(versions[mid - 1])) {
           return mid;
         }
         right = mid - 1;
@@ -48,7 +48,7 @@ class FindError {
     }
   }
 
-  private boolean isBug(int i){
+  private boolean isBug(int i) {
     // 假设在版本2开始发生错误
     return i >= 2;
   }

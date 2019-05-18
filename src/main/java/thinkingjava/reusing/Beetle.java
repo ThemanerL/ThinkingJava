@@ -8,6 +8,10 @@ package thinkingjava.reusing;
  */
 public class Beetle extends Insect {
   /**
+   * 3
+   */
+  private static int x2 = printInit("Static Beetle.x2 initialized");
+  /**
    * 9
    */
   private int k = printInit("Beetle.k initialized");
@@ -19,11 +23,6 @@ public class Beetle extends Insect {
     System.out.println("k = " + k);
     System.out.println("j = " + j);
   }
-
-  /**
-   * 3
-   */
-  private static int x2 = printInit("Static Beetle.x2 initialized");
 
   public static void main(String[] args) {
     // 4
@@ -41,14 +40,17 @@ public class Beetle extends Insect {
 class Insect {
 
   /**
-   * 6
+   * 1
    */
-  private int i = 9;
-
+  private static int x1 = printInit("Static Insect.x1 initialized");
   /**
    * 7
    */
   int j;
+  /**
+   * 6
+   */
+  private int i = 9;
 
   /**
    * 8
@@ -57,11 +59,6 @@ class Insect {
     System.out.println("i = " + i + " , j = " + j);
     j = 39;
   }
-
-  /**
-   * 1
-   */
-  private static int x1 = printInit("Static Insect.x1 initialized");
 
   /**
    * 2 加载

@@ -41,7 +41,7 @@ public class P5 {
     System.out.println("shuffled subList: " + sub);
     System.out.println("12: " + pets.containsAll(sub));
     List<Integer> copy = new ArrayList<>(pets);
-    sub = Arrays.asList(pets.get(1),pets.get(4));
+    sub = Arrays.asList(pets.get(1), pets.get(4));
     System.out.println("sub: " + sub);
     //从copy中删除所有不在sub中的元素
     copy.retainAll(sub);
@@ -54,7 +54,7 @@ public class P5 {
     System.out.println("15: " + copy);
     copy.set(1, 10);
     System.out.println("16: " + copy);
-    copy.addAll(2,sub);
+    copy.addAll(2, sub);
     System.out.println("17: " + copy);
     System.out.println("18: " + pets.isEmpty());
     /// subList返回原来list的从[fromIndex, toIndex)之间这一部分的视图，之所以说是视图，是因为实际上，返回的list是靠原来的list支持的

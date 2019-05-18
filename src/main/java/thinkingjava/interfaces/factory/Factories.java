@@ -1,5 +1,26 @@
 package thinkingjava.interfaces.factory;
 
+interface Service {
+  /**
+   * 接口方法必须Javadoc注释
+   */
+  void method1();
+
+  /**
+   * 接口方法必须Javadoc注释
+   */
+  void method2();
+}
+
+interface ServiceFactory {
+  /**
+   * 接口方法必须Javadoc注释
+   *
+   * @return 返回一个服务
+   */
+  Service getService();
+}
+
 /**
  * 遵循某个接口的对象的典型方式就是工厂方法设计模式。这与直接调用构造器不同，
  * 我们在工厂对象上调用的是创建方法，而该工厂对象将生成接口的某个实现的对象。
@@ -23,27 +44,6 @@ public class Factories {
     serviceConsumer(new Implementation1Factory());
     serviceConsumer(new Implementation2Factory());
   }
-}
-
-interface Service {
-  /**
-   * 接口方法必须Javadoc注释
-   */
-  void method1();
-
-  /**
-   * 接口方法必须Javadoc注释
-   */
-  void method2();
-}
-
-interface ServiceFactory {
-  /**
-   * 接口方法必须Javadoc注释
-   *
-   * @return 返回一个服务
-   */
-  Service getService();
 }
 
 class Implementation1Impl implements Service {

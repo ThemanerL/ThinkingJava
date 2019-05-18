@@ -10,13 +10,6 @@ import java.util.*;
  * @date 2018/11/8 21:41
  */
 public class P11 {
-  void printToString(Collection collection){
-    Iterator iterator = collection.iterator();
-    while(iterator.hasNext()){
-      System.out.println(iterator.next().toString());
-    }
-  }
-
   public static void main(String[] args) {
     P11 p11 = new P11();
     ArrayList<Pet> pets = Pets.arrayList(8);
@@ -30,5 +23,12 @@ public class P11 {
     p11.printToString(petHashSet);
     System.out.println();
     p11.printToString(petTreeSet);
+  }
+
+  void printToString(Collection collection) {
+    Iterator iterator = collection.iterator();
+    while (iterator.hasNext()) {
+      System.out.println(iterator.next().toString());
+    }
   }
 }

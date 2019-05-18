@@ -6,14 +6,14 @@ package thinkingjava.exception.practice;
  */
 public class P1AndP2 {
   public static void main(String[] args) {
-    try{
+    try {
       String a = null;
       System.out.println(a.length());
       /// 练习1
       //throw new Exception("P1.1");
-    }catch (Exception e){
+    } catch (Exception e) {
       e.printStackTrace(System.out);
-    }finally {
+    } finally {
       System.out.println("This is finally");
     }
   }

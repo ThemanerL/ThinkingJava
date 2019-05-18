@@ -31,8 +31,8 @@ public class LockProducerAndConsumer {
 }
 
 class ProducerStudent {
-  private Container container;
   private static int loopTimes = 10;
+  private Container container;
 
   ProducerStudent(Container container, int loopTimes) {
     this.container = container;
@@ -56,12 +56,15 @@ class ProducerStudent {
   }
 }
 
-
 class Container {
+  private static int pen = 0, putTimes, getTimes;
   private Lock lock = new ReentrantLock();
   private Condition condition = lock.newCondition();
-  private static int pen = 0, putTimes, getTimes;
   private int size;
+
+  Container(int size) {
+    this.size = size;
+  }
 
   int getPutTimes() {
     return putTimes;
@@ -69,10 +72,6 @@ class Container {
 
   int getGetTimes() {
     return getTimes;
-  }
-
-  Container(int size) {
-    this.size = size;
   }
 
   void add() {

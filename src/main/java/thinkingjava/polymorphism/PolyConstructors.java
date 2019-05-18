@@ -22,14 +22,14 @@ public class PolyConstructors {
 }
 
 class Glyph {
-  void draw() {
-    System.out.println("Glyph.draw");
-  }
-
   public Glyph() {
     System.out.println("Before Glyph.draw");
     draw();
     System.out.println("After Glyph.draw");
+  }
+
+  void draw() {
+    System.out.println("Glyph.draw");
   }
 }
 

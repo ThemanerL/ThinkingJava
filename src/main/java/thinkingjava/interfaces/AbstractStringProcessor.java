@@ -8,6 +8,14 @@ import java.util.Arrays;
  */
 public abstract class AbstractStringProcessor implements ModifyProcessor {
 
+  public static String s = "If she weighs the same as a duck, she's made of wood";
+
+  public static void main(String[] args) {
+    ModifyApply.process(new ModifyUpcase(), s);
+    ModifyApply.process(new ModifyDowncase(), s);
+    ModifyApply.process(new ModifySplitter(), s);
+  }
+
   @Override
   public String name() {
     return getClass().getSimpleName();
@@ -21,14 +29,6 @@ public abstract class AbstractStringProcessor implements ModifyProcessor {
    */
   @Override
   public abstract Object process(Object input);
-
-  public static String s = "If she weighs the same as a duck, she's made of wood";
-
-  public static void main(String[] args) {
-    ModifyApply.process(new ModifyUpcase(), s);
-    ModifyApply.process(new ModifyDowncase(), s);
-    ModifyApply.process(new ModifySplitter(), s);
-  }
 }
 
 class ModifyUpcase extends AbstractStringProcessor {

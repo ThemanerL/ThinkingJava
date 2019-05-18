@@ -10,44 +10,37 @@ import java.util.Random;
  * @date 2018/9/29 20:10
  */
 public class FinalData {
-  private static Random rand = new Random(47);
-  private String id;
-
-  private FinalData(String id) {
-    this.id = id;
-  }
-
-  /**
-   * compile-time constants
-   */
-  public final int valueOne = 9;
-  private static final int VALUE_TWO = 99;
   /**
    * Typical public constant
    * 经典的常量定义，定义为public，可以被运用于包外；定义为static，强调只有一份；定义为final，说明是一个常量
    */
   public static final int VALUE_THREE = 39;
-  /**
-   * Cannot be compile-time constants
-   */
-  private final int i4 = rand.nextInt(20);
-  private final int INT_5 = rand.nextInt(20);
-  private Value v1 = new Value(11);
-  private final Value v2 = new Value(22);
+  private static final int VALUE_TWO = 99;
   private static final Value VAL_3 = new Value(33);
   /**
    * String 本身就是不可变字符串
    */
   private static final String S1 = "Test String";
-
+  private static Random rand = new Random(47);
+  /**
+   * compile-time constants
+   */
+  public final int valueOne = 9;
+  /**
+   * Cannot be compile-time constants
+   */
+  private final int i4 = rand.nextInt(20);
+  private final int INT_5 = rand.nextInt(20);
+  private final Value v2 = new Value(22);
   /**
    * Arrays
    */
   private final int[] a = {1, 2, 3, 4, 5, 6};
+  private String id;
+  private Value v1 = new Value(11);
 
-  @Override
-  public String toString() {
-    return id + ": " + "i4 = " + i4 + ", INT_5 = " + INT_5;
+  private FinalData(String id) {
+    this.id = id;
   }
 
   public static void main(String[] args) {
@@ -65,6 +58,11 @@ public class FinalData {
     System.out.println(finalData1);
     System.out.println(finalData2);
 
+  }
+
+  @Override
+  public String toString() {
+    return id + ": " + "i4 = " + i4 + ", INT_5 = " + INT_5;
   }
 
 }

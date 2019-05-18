@@ -1,8 +1,7 @@
 package algorithms.leecode;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
@@ -30,13 +29,13 @@ public class TwoSum {
   }
 
   private int[] solution(int[] nums, int target) {
-    Map<Integer,Integer> map = new HashMap<Integer,Integer>(16);
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>(16);
     for (int i = 0; i < nums.length; i++) {
-      int value = target-nums[i];
-      if (map.containsKey(value)){
-        return new int[]{map.get(value),i};
+      int value = target - nums[i];
+      if (map.containsKey(value)) {
+        return new int[]{map.get(value), i};
       }
-      map.put(nums[i],i);
+      map.put(nums[i], i);
     }
     throw new IllegalArgumentException("No Such elements");
   }

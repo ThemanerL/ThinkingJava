@@ -9,6 +9,12 @@ package thinkingjava.innerclasses;
  */
 public class Parcel8 {
 
+  public static void main(String[] args) {
+    Parcel8 parcel8 = new Parcel8();
+    Wrapping wrapping = parcel8.wrapping(88);
+    wrapping.value();
+  }
+
   private Wrapping wrapping(int x) {
     // 内部的这个类是没有名字的，即匿名类
     return new Wrapping(x) {
@@ -17,11 +23,5 @@ public class Parcel8 {
         return super.value() * 47;
       }
     };
-  }
-
-  public static void main(String[] args) {
-    Parcel8 parcel8 = new Parcel8();
-    Wrapping wrapping = parcel8.wrapping(88);
-    wrapping.value();
   }
 }

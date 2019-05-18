@@ -14,6 +14,25 @@ public class DynamicFields {
     }
   }
 
+  public static void main(String[] args) {
+    DynamicFields df = new DynamicFields(3);
+    System.out.println(df);
+    try {
+      df.setField("d", "A value for d");
+      df.setField("number", 47);
+      df.setField("number2", 48);
+      System.out.println(df);
+      df.setField("d", "A new value for d");
+      df.setField("number3", 11);
+      System.out.println("df: " + df);
+      System.out.println("df.getField(\"d\") : " + df.getField("d"));
+      // Exception
+      Object field = df.setField("d", null);
+    } catch (NoSuchFieldException | DynamicFieldsException e) {
+      e.printStackTrace(System.out);
+    }
+  }
+
   @Override
   public String toString() {
     StringBuilder result = new StringBuilder();
@@ -67,7 +86,7 @@ public class DynamicFields {
     return fields[getFieldNumber(id)][1];
   }
 
-  private Object setField(String id,Object value)
+  private Object setField(String id, Object value)
       throws DynamicFieldsException {
     if (value == null) {
       // Most exceptions don’t have a "cause" constructor.
@@ -91,25 +110,6 @@ public class DynamicFields {
     }
     fields[fieldNumber][1] = value;
     return result;
-  }
-
-  public static void main(String[] args) {
-    DynamicFields df = new DynamicFields(3);
-    System.out.println(df);
-    try {
-      df.setField("d", "A value for d");
-      df.setField("number", 47);
-      df.setField("number2", 48);
-      System.out.println(df);
-      df.setField("d", "A new value for d");
-      df.setField("number3", 11);
-      System.out.println("df: " + df);
-      System.out.println("df.getField(\"d\") : " + df.getField("d"));
-      // Exception
-      Object field = df.setField("d", null);
-    } catch (NoSuchFieldException | DynamicFieldsException e) {
-      e.printStackTrace(System.out);
-    }
   }
 }
 

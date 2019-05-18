@@ -9,7 +9,19 @@ import java.util.*;
  * @author 李重辰
  * @date 2018/11/20 10:36
  */
-public class NonCollectionSequence extends PetSequence{
+public class NonCollectionSequence extends PetSequence {
+  public static void main(String[] args) {
+    NonCollectionSequence nonCollectionSequence = new NonCollectionSequence();
+    InterfaceVsIterator.display(nonCollectionSequence.iterator());
+    for (Pet pet : nonCollectionSequence.reversed()) {
+      System.out.print(pet + " ");
+    }
+    System.out.println();
+    for (Pet pet : nonCollectionSequence.randomized()) {
+      System.out.print(pet + " ");
+    }
+  }
+
   public Iterator<Pet> iterator() {
     return new Iterator<Pet>() {
       private int index = 0;
@@ -48,18 +60,6 @@ public class NonCollectionSequence extends PetSequence{
       Collections.shuffle(pets);
       return pets.iterator();
     };
-  }
-
-  public static void main(String[] args) {
-    NonCollectionSequence nonCollectionSequence = new NonCollectionSequence();
-    InterfaceVsIterator.display(nonCollectionSequence.iterator());
-    for (Pet pet : nonCollectionSequence.reversed()) {
-      System.out.print(pet + " ");
-    }
-    System.out.println();
-    for (Pet pet : nonCollectionSequence.randomized()) {
-      System.out.print(pet + " ");
-    }
   }
 }
 

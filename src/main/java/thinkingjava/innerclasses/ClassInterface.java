@@ -20,11 +20,6 @@ public interface ClassInterface {
       new Test().howdy();
     }
 
-    @Override
-    public void howdy() {
-      System.out.println("Test.howdy");
-    }
-
     /**
      * Practice21
      *
@@ -33,18 +28,23 @@ public interface ClassInterface {
     static void printHowdy(ClassInterface classInterface) {
       classInterface.howdy();
     }
+
+    @Override
+    public void howdy() {
+      System.out.println("Test.howdy");
+    }
   }
 }
 
 class Practice20 implements ClassInterface {
-  @Override
-  public void howdy() {
-    System.out.println("Practice20.howdy");
-  }
-
   public static void main(String[] args) {
     ClassInterface classInterface = new Test();
     classInterface.howdy();
     Test.printHowdy(classInterface);
+  }
+
+  @Override
+  public void howdy() {
+    System.out.println("Practice20.howdy");
   }
 }

@@ -18,9 +18,9 @@ public class LoggingException2 {
   }
 
   public static void main(String[] args) {
-    try{
+    try {
       throw new NullPointerException();
-    }catch (NullPointerException e){
+    } catch (NullPointerException e) {
       logException(e);
     }
   }

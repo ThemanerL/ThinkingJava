@@ -12,14 +12,14 @@ public class Amphibian {
 
 class Frog extends Amphibian {
 
-  @Override
-  public void printName(Amphibian amphibian) {
-    System.out.println("My name is ：" + amphibian.getClass().getSimpleName() + " from child");
-  }
-
   public static void main(String[] args) {
     Frog frog = new Frog();
     Amphibian a = new Amphibian();
     a.printName(frog);
+  }
+
+  @Override
+  public void printName(Amphibian amphibian) {
+    System.out.println("My name is ：" + amphibian.getClass().getSimpleName() + " from child");
   }
 }

@@ -23,6 +23,8 @@ class Tag {
 
 class Card {
   Tag t1 = new Tag(1);
+  Tag r2 = new Tag(2);
+  Tag t3 = new Tag(3);
 
   Card() {
     int f = 3;
@@ -30,11 +32,7 @@ class Card {
     t3 = new Tag(33);
   }
 
-  Tag r2 = new Tag(2);
-
   void f() {
     System.out.println("f()");
   }
-
-  Tag t3 = new Tag(3);
 }

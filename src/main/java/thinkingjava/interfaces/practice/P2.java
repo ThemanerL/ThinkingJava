@@ -17,14 +17,14 @@ public class P2 {
 }
 
 abstract class AbstractFather {
+  AbstractFather() {
+    print();
+  }
+
   /**
    * 第九章第二个练习题
    */
   abstract void print();
-
-  AbstractFather() {
-    print();
-  }
 }
 
 class Child extends AbstractFather {

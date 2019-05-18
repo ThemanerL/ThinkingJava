@@ -9,13 +9,13 @@ package thinkingjava.polymorphism;
  * @date 2018/10/3 0:59
  */
 public class PrivateOverride {
-  private void f() {
-    System.out.println("PrivateOverride.f");
-  }
-
   public static void main(String[] args) {
     PrivateOverride privateOverride = new Derived();
     privateOverride.f();
+  }
+
+  private void f() {
+    System.out.println("PrivateOverride.f");
   }
 }
 

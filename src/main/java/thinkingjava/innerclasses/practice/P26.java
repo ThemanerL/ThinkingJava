@@ -25,14 +25,14 @@ class P26final extends P26.P26Inner {
     p26.super(i);
   }
 
-  @Override
-  void overWriter() {
-    System.out.println("P26final.overWriter");
-  }
-
   public static void main(String[] args) {
     P26 p26 = new P26();
     P26final p26final = new P26final(p26, 32);
     p26final.overWriter();
+  }
+
+  @Override
+  void overWriter() {
+    System.out.println("P26final.overWriter");
   }
 }

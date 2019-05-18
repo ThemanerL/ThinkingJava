@@ -56,16 +56,16 @@ public class SynchronizedProducerAndConsumer {
   }
 }
 
-class Goods{
+class Goods {
   private int i;
   private int loopTimes;
 
-  int getLoopTimes() {
-    return loopTimes;
-  }
-
   Goods(int loopTimes) {
     this.loopTimes = loopTimes;
+  }
+
+  int getLoopTimes() {
+    return loopTimes;
   }
 
   synchronized void buy() {

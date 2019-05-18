@@ -6,6 +6,20 @@ package thinkingjava.reusing;
  */
 public class Detergent extends Cleanser {
   /**
+   * Test the new class:
+   */
+  public static void main(String[] args) {
+    Detergent x = new Detergent();
+    x.dilute();
+    x.apply();
+    x.scrub();
+    x.foam();
+    x.print();
+    System.out.println("Testing base class:");
+    Cleanser.main(args);
+  }
+
+  /**
    * Change a method:
    */
   @Override
@@ -21,20 +35,6 @@ public class Detergent extends Cleanser {
   public void foam() {
     append(" foam()");
   }
-
-  /**
-   * Test the new class:
-   */
-  public static void main(String[] args) {
-    Detergent x = new Detergent();
-    x.dilute();
-    x.apply();
-    x.scrub();
-    x.foam();
-    x.print();
-    System.out.println("Testing base class:");
-    Cleanser.main(args);
-  }
 }
 
 /**
@@ -45,6 +45,14 @@ public class Detergent extends Cleanser {
  */
 class Cleanser {
   private String s = "Cleanser";
+
+  public static void main(String[] args) {
+    Cleanser x = new Cleanser();
+    x.dilute();
+    x.apply();
+    x.scrub();
+    x.print();
+  }
 
   public void append(String a) {
     s += a;
@@ -65,14 +73,6 @@ class Cleanser {
   public void print() {
     System.out.println(s);
   }
-
-  public static void main(String[] args) {
-    Cleanser x = new Cleanser();
-    x.dilute();
-    x.apply();
-    x.scrub();
-    x.print();
-  }
 }
 
 /**
@@ -80,6 +80,16 @@ class Cleanser {
  */
 class DetergentFromIdea {
   private Cleanser cleanser;
+
+  public static void main(String[] args) {
+    Detergent x = new Detergent();
+    x.foam();
+    x.dilute();
+    x.apply();
+    x.scrub();
+    x.print();
+    Cleanser.main(args);
+  }
 
   public void append(String a) {
     cleanser.append(a);
@@ -99,15 +109,5 @@ class DetergentFromIdea {
 
   public void print() {
     cleanser.print();
-  }
-
-  public static void main(String[] args) {
-    Detergent x = new Detergent();
-    x.foam();
-    x.dilute();
-    x.apply();
-    x.scrub();
-    x.print();
-    Cleanser.main(args);
   }
 }

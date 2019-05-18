@@ -1,6 +1,6 @@
 package thinkingjava.thirdparty.typeinfo.pets;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Facade to produce a default PetCreator.

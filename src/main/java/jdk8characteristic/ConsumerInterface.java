@@ -9,10 +9,10 @@ package jdk8characteristic;
 @FunctionalInterface
 public interface ConsumerInterface<T> {
 
-    /**
-     * 函数式接口是只有唯一方法的接口
-     *
-     * @param t /
-     */
-    void accept(T t);
+  /**
+   * 函数式接口是只有唯一方法的接口
+   *
+   * @param t /
+   */
+  void accept(T t);
 }

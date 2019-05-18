@@ -1,5 +1,23 @@
 package thinkingjava.interfaces.factory;
 
+interface Cycle {
+  /**
+   * 获取perimeter的值
+   *
+   * @return 返回它的值
+   */
+  int getPerimeter();
+}
+
+interface Factory {
+  /**
+   * 创建Cycle实例
+   *
+   * @return Cycle
+   */
+  Cycle getCycleInstance();
+}
+
 /**
  * @author 李重辰
  * @date 2018/10/18 18:18
@@ -10,15 +28,6 @@ public class P18 {
     System.out.println(new BicycleFactory().getCycleInstance().getPerimeter());
     System.out.println(new TricycleFactory().getCycleInstance().getPerimeter());
   }
-}
-
-interface Cycle {
-  /**
-   * 获取perimeter的值
-   *
-   * @return 返回它的值
-   */
-  int getPerimeter();
 }
 
 class Unicycle implements Cycle {
@@ -40,15 +49,6 @@ class Tricycle implements Cycle {
   public int getPerimeter() {
     return 3;
   }
-}
-
-interface Factory {
-  /**
-   * 创建Cycle实例
-   *
-   * @return Cycle
-   */
-  Cycle getCycleInstance();
 }
 
 class UnicycleFactory implements Factory {

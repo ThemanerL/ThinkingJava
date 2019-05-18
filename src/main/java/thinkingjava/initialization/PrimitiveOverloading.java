@@ -9,6 +9,18 @@ public class PrimitiveOverloading {
     System.out.println(s);
   }
 
+  public static void main(String[] args) {
+    PrimitiveOverloading primitiveOverloading = new PrimitiveOverloading();
+    primitiveOverloading.testConstVal();
+    primitiveOverloading.testChar();
+    primitiveOverloading.testByte();
+    primitiveOverloading.testShort();
+    primitiveOverloading.testInt();
+    primitiveOverloading.testLong();
+    primitiveOverloading.testFloat();
+    primitiveOverloading.testDouble();
+  }
+
   void f1(char x) {
     prt("f1(char)");
   }
@@ -214,17 +226,5 @@ public class PrimitiveOverloading {
     f5(x);
     f6(x);
     f7(x);
-  }
-
-  public static void main(String[] args) {
-    PrimitiveOverloading primitiveOverloading = new PrimitiveOverloading();
-    primitiveOverloading.testConstVal();
-    primitiveOverloading.testChar();
-    primitiveOverloading.testByte();
-    primitiveOverloading.testShort();
-    primitiveOverloading.testInt();
-    primitiveOverloading.testLong();
-    primitiveOverloading.testFloat();
-    primitiveOverloading.testDouble();
   }
 }

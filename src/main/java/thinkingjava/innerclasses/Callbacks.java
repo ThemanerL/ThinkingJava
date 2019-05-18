@@ -1,5 +1,11 @@
 package thinkingjava.innerclasses;
 
+interface Incrementable {
+  /**
+   * 增长
+   */
+  void increment();
+}
 
 /**
  * Java中的闭包与回调，具体在第22章用的比较多。
@@ -25,13 +31,6 @@ public class Callbacks {
   }
 }
 
-interface Incrementable {
-  /**
-   * 增长
-   */
-  void increment();
-}
-
 class Callee1 implements Incrementable {
   private int i = 0;
 
@@ -43,12 +42,12 @@ class Callee1 implements Incrementable {
 }
 
 class MyIncrement {
-  public void increment() {
-    System.out.println("Other operation");
-  }
-
   static void f(MyIncrement myIncrement) {
     myIncrement.increment();
+  }
+
+  public void increment() {
+    System.out.println("Other operation");
   }
 }
 
@@ -69,6 +68,10 @@ class Callee2 extends MyIncrement {
     System.out.println(i);
   }
 
+  Incrementable getCallbackReference() {
+    return new Closure();
+  }
+
   /**
    * 内部类实现了Incrmentable，以提供一个返回Gallee2的钩子“hook”——而且这是一个安全的钩子，无论谁获得此类的引用，
    * 都只能调用increment()，没有其他功能。
@@ -78,10 +81,6 @@ class Callee2 extends MyIncrement {
     public void increment() {
       Callee2.this.increment();
     }
-  }
-
-  Incrementable getCallbackReference() {
-    return new Closure();
   }
 }
 

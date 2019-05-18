@@ -15,6 +15,11 @@ public class SpaceShipDelegation {
     this.name = name;
   }
 
+  public static void main(String[] args) {
+    SpaceShipDelegation protector = new SpaceShipDelegation("NSEA protector");
+    protector.forward(100);
+  }
+
   /**
    * DelegationMethod
    */
@@ -44,10 +49,5 @@ public class SpaceShipDelegation {
 
   public void right(int velocity) {
     controls.right(velocity);
-  }
-
-  public static void main(String[] args) {
-    SpaceShipDelegation protector = new SpaceShipDelegation("NSEA protector");
-    protector.forward(100);
   }
 }

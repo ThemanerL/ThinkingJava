@@ -20,21 +20,6 @@ import java.util.concurrent.*;
 public class Tt {
   private int b = 100;
 
-  private synchronized void m1() {
-    try {
-      b = 1000;
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    System.out.println("Tt.m1 b=" + b);
-  }
-
-  private void m2() {
-    b=2000;
-    System.out.println("Tt.m2 b=" + b);
-  }
-
   public static void main(String[] args) {
     Tt tt = new Tt();
     ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
@@ -51,6 +36,21 @@ public class Tt {
       e.printStackTrace();
     }
     threadPool.shutdown();
+  }
+
+  private synchronized void m1() {
+    try {
+      b = 1000;
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    System.out.println("Tt.m1 b=" + b);
+  }
+
+  private void m2() {
+    b = 2000;
+    System.out.println("Tt.m2 b=" + b);
   }
 }
 

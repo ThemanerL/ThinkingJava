@@ -27,9 +27,9 @@ public class Shapes {
     new Shapes().chapterElevenP31();
   }
 
-  private void chapterElevenP31(){
+  private void chapterElevenP31() {
     RandomShapeGenerator generator1 = new RandomShapeGenerator(8);
-    for (Object s:generator1) {
+    for (Object s : generator1) {
       System.out.print(s.getClass().getSimpleName() + " ");
     }
   }
@@ -39,10 +39,10 @@ public class Shapes {
  * 2018/11/21 修改,增加适配Iterable,支持生成多个对象
  */
 class RandomShapeGenerator implements Iterable {
+  static RandomShapeGenerator getInstance = new RandomShapeGenerator();
   private Random rand = new Random(System.currentTimeMillis());
   private int count = 0;
   private Set<Shape> shapes = null;
-  static RandomShapeGenerator getInstance = new RandomShapeGenerator();
 
   private RandomShapeGenerator() {
   }
@@ -52,7 +52,7 @@ class RandomShapeGenerator implements Iterable {
     shapes = getShapes();
   }
 
-  private Set<Shape> getShapes(){
+  private Set<Shape> getShapes() {
     Set<Shape> set = new HashSet<>();
     for (int i = 0; i < count; i++) {
       set.add(next());
@@ -77,6 +77,7 @@ class RandomShapeGenerator implements Iterable {
   public Iterator<Shape> iterator() {
     return new Iterator<Shape>() {
       int index = 0;
+
       @Override
       public boolean hasNext() {
         return index < count;
@@ -84,7 +85,7 @@ class RandomShapeGenerator implements Iterable {
 
       @Override
       public Shape next() {
-        return (Shape)shapes.toArray()[index++];
+        return (Shape) shapes.toArray()[index++];
       }
     };
   }

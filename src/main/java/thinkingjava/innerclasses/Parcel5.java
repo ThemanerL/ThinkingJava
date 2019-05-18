@@ -8,6 +8,12 @@ package thinkingjava.innerclasses;
  * @date 2018/10/22 18:28
  */
 public class Parcel5 {
+  public static void main(String[] args) {
+    Parcel5 parcel5 = new Parcel5();
+    Destination destination = parcel5.destination("ThinkingJava");
+    System.out.println(destination.readLabel());
+  }
+
   private Destination destination(String s) {
     class P5Destination implements Destination {
       private String label;
@@ -22,11 +28,5 @@ public class Parcel5 {
       }
     }
     return new P5Destination(s);
-  }
-
-  public static void main(String[] args) {
-    Parcel5 parcel5 = new Parcel5();
-    Destination destination = parcel5.destination("ThinkingJava");
-    System.out.println(destination.readLabel());
   }
 }

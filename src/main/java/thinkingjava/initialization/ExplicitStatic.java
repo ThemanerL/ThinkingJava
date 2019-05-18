@@ -5,13 +5,13 @@ package thinkingjava.initialization;
  * @date 2018/9/25
  */
 public class ExplicitStatic {
+  static Cups x = new Cups();
+  static Cups y = new Cups();
+
   public static void main(String[] args) {
     System.out.println("Inside main()");
     Cups.c1.f(99);
   }
-
-  static Cups x = new Cups();
-  static Cups y = new Cups();
 }
 
 class Cup {

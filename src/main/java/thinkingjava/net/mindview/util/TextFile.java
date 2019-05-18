@@ -11,7 +11,32 @@ import java.util.TreeSet;
  */
 public class TextFile extends ArrayList<String> {
   /**
+   * Read a file, split by any regular expression:
+   *
+   * @param fileName /
+   * @param splitter /
+   */
+  public TextFile(String fileName, String splitter) {
+    super(Arrays.asList(read(fileName).split(splitter)));
+    // Regular expression split() often leaves an empty
+    // String at the first position:
+    if ("".equals(get(0))) {
+      remove(0);
+    }
+  }
+
+  /**
+   * Normally read by lines:
+   *
+   * @param fileName /
+   */
+  public TextFile(String fileName) {
+    this(fileName, "\n");
+  }
+
+  /**
    * Read a file as a single string:
+   *
    * @param fileName 文件名
    * @return /
    */
@@ -33,6 +58,7 @@ public class TextFile extends ArrayList<String> {
 
   /**
    * Write a single file in one method call:
+   *
    * @param fileName 文件名
    * @param text     /
    */
@@ -51,25 +77,20 @@ public class TextFile extends ArrayList<String> {
   }
 
   /**
-   * Read a file, split by any regular expression:
-   * @param fileName /
-   * @param splitter /
+   * 测试类
+   *
+   * @param args /
    */
-  public TextFile(String fileName, String splitter) {
-    super(Arrays.asList(read(fileName).split(splitter)));
-    // Regular expression split() often leaves an empty
-    // String at the first position:
-    if ("".equals(get(0))) {
-      remove(0);
-    }
-  }
-
-  /**
-   * Normally read by lines:
-   * @param fileName /
-   */
-  public TextFile(String fileName) {
-    this(fileName, "\n");
+  public static void main(String[] args) {
+    String file = read("TextFile.java");
+    write("test.txt", file);
+    TextFile text = new TextFile("test.txt");
+    text.write("test2.txt");
+    // Break into unique sorted list of words:
+    TreeSet<String> words = new TreeSet<>(
+        new TextFile("TextFile.java", "\\W+"));
+    // Display the capitalized words:
+    System.out.println(words.headSet("a"));
   }
 
   public void write(String fileName) {
@@ -83,30 +104,14 @@ public class TextFile extends ArrayList<String> {
     } catch (IOException e) {
       throw new RuntimeException(e);
     } finally {
-      try{
-        if (out != null){
+      try {
+        if (out != null) {
           out.close();
         }
-      }catch (Exception e){
+      } catch (Exception e) {
         e.printStackTrace();
       }
     }
-  }
-
-  /**
-   * 测试类
-   * @param args /
-   */
-  public static void main(String[] args) {
-    String file = read("TextFile.java");
-    write("test.txt", file);
-    TextFile text = new TextFile("test.txt");
-    text.write("test2.txt");
-    // Break into unique sorted list of words:
-    TreeSet<String> words = new TreeSet<>(
-        new TextFile("TextFile.java", "\\W+"));
-    // Display the capitalized words:
-    System.out.println(words.headSet("a"));
   }
 } /* Output:
 [0, ArrayList, Arrays, Break, BufferedReader, BufferedWriter, Clean, Display, File, FileReader, FileWriter, IOException, Normally, Output, PrintWriter, Read, Regular, RuntimeException, Simple, Static, String, StringBuilder, System, TextFile, Tools, TreeSet, W, Write]

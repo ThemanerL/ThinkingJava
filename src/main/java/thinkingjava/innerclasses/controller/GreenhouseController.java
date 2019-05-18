@@ -29,8 +29,8 @@ public class GreenhouseController {
 
     LinkedList<AbstractEvent> eventLinkedList = new LinkedList<>(Arrays.asList(events));
     Iterator<AbstractEvent> iterator = eventLinkedList.listIterator();
-    while(iterator.hasNext()){
-      System.out.print(iterator.next()+", ");
+    while (iterator.hasNext()) {
+      System.out.print(iterator.next() + ", ");
     }
     System.out.println();
     greenhouseControls.addEvent(greenhouseControls.new Restart(200, events));
@@ -39,7 +39,6 @@ public class GreenhouseController {
     //    if(args.length == 1){
     //         reenhouseControls.addEvent(new GreenhouseControls.Terminate(new Integer(args[0])));
     //    }
-
 
     //这是测试的时候使用的数据,也就是没有指定命令行参数而是在这里把停止的条件写死
     if (args.length == 0) {

@@ -5,6 +5,11 @@ package thinkingjava.polymorphism.practice;
  * @date 2018/10/1 22:49
  */
 public class Cycle {
+  public static void main(String[] args) {
+    Cycle cycle = new Bicycle();
+    cycle.ride();
+  }
+
   public void ride() {
     System.out.println("Cycle.ride");
     this.wheels();
@@ -12,11 +17,6 @@ public class Cycle {
 
   private void wheels() {
     System.out.println("Cycle.wheels");
-  }
-
-  public static void main(String[] args) {
-    Cycle cycle = new Bicycle();
-    cycle.ride();
   }
 }
 

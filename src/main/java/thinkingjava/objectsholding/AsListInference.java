@@ -27,7 +27,7 @@ public class AsListInference {
     Collections.addAll(snow3, new Light(), new Heavy());
     /// 可以在Arrays.asList中插入一条“线索”，以告诉编译器对于由Arrays.asList()产生的List类型，实际的目标类型应该是什么。
     // 这称为显示类型参数说明
-    List<Snow> snow4 = Arrays.<Snow>asList(new Light(), new Heavy());
+    List<Snow> snow4 = Arrays.asList(new Light(), new Heavy());
   }
 }
 

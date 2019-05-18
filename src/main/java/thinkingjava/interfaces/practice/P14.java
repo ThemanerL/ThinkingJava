@@ -1,39 +1,5 @@
 package thinkingjava.interfaces.practice;
 
-/**
- * @author 李重辰
- * @date 2018/10/12 12:02
- */
-public class P14 extends AbstractBirdService implements Bird {
-  private void fly14(Flyable f) {
-    f.highAltitudeFly();
-    f.lowAltitudeFly();
-  }
-
-  private void run14(Runnable r) {
-    r.walk();
-    r.run();
-  }
-
-  private void eat14(Eatable e) {
-    e.eat();
-    e.drink();
-  }
-
-  private void bird14(Bird b) {
-    b.takeOff();
-  }
-
-  public static void main(String[] args) {
-    P14 p = new P14();
-    p.bird14(p);
-    p.eat14(p);
-    p.fly14(p);
-    p.run14(p);
-  }
-}
-
-
 interface Flyable {
   /**
    * 低空飞行
@@ -75,6 +41,39 @@ interface Bird extends Runnable, Eatable, Flyable {
    * 起飞
    */
   void takeOff();
+}
+
+/**
+ * @author 李重辰
+ * @date 2018/10/12 12:02
+ */
+public class P14 extends AbstractBirdService implements Bird {
+  public static void main(String[] args) {
+    P14 p = new P14();
+    p.bird14(p);
+    p.eat14(p);
+    p.fly14(p);
+    p.run14(p);
+  }
+
+  private void fly14(Flyable f) {
+    f.highAltitudeFly();
+    f.lowAltitudeFly();
+  }
+
+  private void run14(Runnable r) {
+    r.walk();
+    r.run();
+  }
+
+  private void eat14(Eatable e) {
+    e.eat();
+    e.drink();
+  }
+
+  private void bird14(Bird b) {
+    b.takeOff();
+  }
 }
 
 /**

@@ -1,5 +1,33 @@
 package thinkingjava.interfaces;
 
+interface CanFight extends CanClimb {
+  /**
+   * 打
+   */
+  void fight();
+}
+
+interface CanSwim {
+  /**
+   * 游
+   */
+  void swim();
+}
+
+interface CanFly extends CanFight, CanSwim {
+  /**
+   * 飞
+   */
+  void fly();
+}
+
+interface CanClimb {
+  /**
+   * 爬
+   */
+  void climb();
+}
+
 /**
  * 注意，CanFight接口与ActionCharacter类中的fight()方法的特征签名是一样的，而且，在Hero中并没有提供fight()的定义。可以扩展
  * 接口，但是得到的只是另一个接口。当想要创建时，所有的定义必须都存在。即使Hero没有显示地提供fight()的定义，其定义也因
@@ -34,34 +62,6 @@ public class Adventure {
     v(h);
     w(h);
   }
-}
-
-interface CanFight extends CanClimb {
-  /**
-   * 打
-   */
-  void fight();
-}
-
-interface CanSwim {
-  /**
-   * 游
-   */
-  void swim();
-}
-
-interface CanFly extends CanFight, CanSwim {
-  /**
-   * 飞
-   */
-  void fly();
-}
-
-interface CanClimb {
-  /**
-   * 爬
-   */
-  void climb();
 }
 
 class ActionCharacter {

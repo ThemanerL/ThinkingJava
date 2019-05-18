@@ -9,7 +9,7 @@ import java.util.*;
 public class P4 {
   public static void main(String[] args) {
     int stringLength = 8;
-    for (String s:Generate.nameGenerator(new String[stringLength])) {
+    for (String s : Generate.nameGenerator(new String[stringLength])) {
       System.out.println(s);
     }
     System.out.println(Generate.nameGenerator(new ArrayList<>()));
@@ -30,14 +30,14 @@ class Generate {
     return str;
   }
 
-  static String[] nameGenerator(String[] strings){
+  static String[] nameGenerator(String[] strings) {
     for (int i = 0; i < strings.length; i++) {
       strings[i] = next();
     }
     return strings;
   }
 
-  static Collection nameGenerator(Collection<String> collection){
+  static Collection nameGenerator(Collection<String> collection) {
     int j = 10;
     for (int i = 0; i < j; i++) {
       collection.add(next());

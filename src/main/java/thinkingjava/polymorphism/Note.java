@@ -8,5 +8,5 @@ public enum Note {
   /**
    * 枚举的所有字段都缺少注释信息
    */
-  MIDDLE_C, C_SHARP, B_FLAT;
+  MIDDLE_C, C_SHARP, B_FLAT
 }

@@ -1,6 +1,9 @@
 package thinkingjava.thirdparty.typeinfo.pets;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Creates random sequences of Pets.

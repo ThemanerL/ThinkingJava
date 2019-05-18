@@ -23,48 +23,48 @@ import java.util.function.Supplier;
  */
 public class MethodRefTest {
 
-    /**
-     * 类名::静态方法名
-     */
-    @Test
-    public void test1() {
-        Consumer<String> consumer = (x) -> System.out.println(x);
-        PrintStream stream = System.out;
-        Consumer<String> consumer1 = stream::println;
-        consumer1.accept("I don't like you any more.");
-    }
+  /**
+   * 类名::静态方法名
+   */
+  @Test
+  public void test1() {
+    Consumer<String> consumer = (x) -> System.out.println(x);
+    PrintStream stream = System.out;
+    Consumer<String> consumer1 = stream::println;
+    consumer1.accept("I don't like you any more.");
+  }
 
-    /**
-     * 类名::静态方法名
-     */
-    @Test
-    public void test2() {
-        Employee employee = new Employee("珍妮弗", 12, 2312);
-        Supplier<String> supplier = () -> employee.getName();
+  /**
+   * 类名::静态方法名
+   */
+  @Test
+  public void test2() {
+    Employee employee = new Employee("珍妮弗", 12, 2312);
+    Supplier<String> supplier = () -> employee.getName();
 
-        Supplier<Integer> supplier2 = employee::getAge;
-        Integer integer = supplier2.get();
-        System.out.println(integer);
-    }
+    Supplier<Integer> supplier2 = employee::getAge;
+    Integer integer = supplier2.get();
+    System.out.println(integer);
+  }
 
-    /**
-     * 类::静态方法名
-     */
-    @Test
-    public void test3() {
-        Comparator<Integer> comparator = (x, y) -> Integer.compare(x, y);
+  /**
+   * 类::静态方法名
+   */
+  @Test
+  public void test3() {
+    Comparator<Integer> comparator = (x, y) -> Integer.compare(x, y);
 
-        Comparator<Integer> comparator1 = Integer::compare;
-    }
+    Comparator<Integer> comparator1 = Integer::compare;
+  }
 
-    /**
-     * 类名::实例名
-     * 当第一个参数是方法的调用者，第二个参数是方法的入参时就可以使用类名::实例方法的方式
-     */
-    @Test
-    public void test4(){
-        BiPredicate<String, String> biPredicate = (x,y) -> x.equalsIgnoreCase(y);
-        biPredicate.test("A","a");
-        BiPredicate<String, String> biPredicate1 = String::equals;
-    }
+  /**
+   * 类名::实例名
+   * 当第一个参数是方法的调用者，第二个参数是方法的入参时就可以使用类名::实例方法的方式
+   */
+  @Test
+  public void test4() {
+    BiPredicate<String, String> biPredicate = (x, y) -> x.equalsIgnoreCase(y);
+    biPredicate.test("A", "a");
+    BiPredicate<String, String> biPredicate1 = String::equals;
+  }
 }

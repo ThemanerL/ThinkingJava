@@ -6,15 +6,16 @@ import java.util.Iterator;
 
 /**
  * 李重辰2018/11/08修改：objectsholding practice10 使用ArrayList存放Rodents，并且使用Iterator来访问
+ *
  * @author 李重辰
  * @date 2018/10/3 0:28
  */
 public class RodentDemo {
   public static void main(String[] args) {
     Rodent[] rodents = {new Mouse(), new Gerbil(), new Hamster()};
-    ArrayList<Rodent> rodents1 = new ArrayList<>(Arrays.<Rodent>asList(rodents));
+    ArrayList<Rodent> rodents1 = new ArrayList<>(Arrays.asList(rodents));
     Iterator<Rodent> rodentIterator = rodents1.iterator();
-    while (rodentIterator.hasNext()){
+    while (rodentIterator.hasNext()) {
       System.out.println(rodentIterator.next().getId() + "  objectsholding practice 10");
       rodentIterator.remove();
     }
@@ -45,12 +46,12 @@ class Rodent {
     return size;
   }
 
-  public int getId() {
-    return id;
-  }
-
   public void setSize(double size) {
     this.size = size;
+  }
+
+  public int getId() {
+    return id;
   }
 
   public double getWeight() {

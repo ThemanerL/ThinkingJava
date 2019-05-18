@@ -1,7 +1,7 @@
 package thinkingjava.innerclasses.practice.p6.p3;
 
-import thinkingjava.innerclasses.practice.p6.p2.ClassSixTwo;
 import thinkingjava.innerclasses.practice.p6.p1.InterfaceOne;
+import thinkingjava.innerclasses.practice.p6.p2.ClassSixTwo;
 
 /**
  * protected修饰的内部类没有定义任何构造函数，Java的编译器会默认的给类生成一个空参数构造函数，而这个构造函数的访问
@@ -13,14 +13,14 @@ import thinkingjava.innerclasses.practice.p6.p1.InterfaceOne;
  * @date 2018/10/22 14:48
  */
 public class ClassSixThree extends ClassSixTwo {
+  public static void main(String[] args) {
+    ClassSixThree classSixThree = new ClassSixThree();
+    classSixThree.getInterfaceOne().printName();
+  }
+
   private InterfaceOne getInterfaceOne() {
     ClassSixTwo classSixTwo = new ClassSixTwo();
 
     return classSixTwo.getInstance();
-  }
-
-  public static void main(String[] args) {
-    ClassSixThree classSixThree = new ClassSixThree();
-    classSixThree.getInterfaceOne().printName();
   }
 }

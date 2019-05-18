@@ -31,11 +31,11 @@ class Main {
 class Command {
   String string;
 
-  void operation() {
-    System.out.println(string);
-  }
-
   Command(String string) {
     this.string = string;
+  }
+
+  void operation() {
+    System.out.println(string);
   }
 }

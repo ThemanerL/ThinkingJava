@@ -11,6 +11,13 @@ public class P2 {
     this.str = str;
   }
 
+  @Override
+  public String toString() {
+    return "p2{" +
+        "str='" + str + '\'' +
+        '}';
+  }
+
   public class Inner {
     @Override
     public String toString() {
@@ -18,12 +25,5 @@ public class P2 {
           "str='" + str + '\'' +
           '}';
     }
-  }
-
-  @Override
-  public String toString() {
-    return "p2{" +
-        "str='" + str + '\'' +
-        '}';
   }
 }

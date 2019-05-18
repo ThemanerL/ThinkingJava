@@ -10,6 +10,7 @@ import java.util.*;
  */
 public class MapOfList {
   private static Map<Person, List<? extends Pet>> petPeople = new HashMap<>(5);
+
   static {
     petPeople.put(new Person("Dawn"),
         Arrays.asList(new Cymric("Molly"), new Mutt("Spot")));

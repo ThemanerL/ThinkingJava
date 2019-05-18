@@ -9,17 +9,17 @@ public class WhoCalled {
     try {
       throw new Exception();
     } catch (Exception e) {
-      for (StackTraceElement s:e.getStackTrace()) {
+      for (StackTraceElement s : e.getStackTrace()) {
         System.out.println(s.getMethodName());
       }
     }
   }
 
-  static void g(){
+  static void g() {
     f();
   }
 
-  static void h(){
+  static void h() {
     g();
   }
 

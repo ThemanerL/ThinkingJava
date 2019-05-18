@@ -1,6 +1,7 @@
 package thinkingjava.objectsholding;
 
-import thinkingjava.thirdparty.typeinfo.pets.*;
+import thinkingjava.thirdparty.typeinfo.pets.Pet;
+import thinkingjava.thirdparty.typeinfo.pets.Pets;
 
 import java.util.*;
 
@@ -9,16 +10,16 @@ import java.util.*;
  * @date 2018/11/19 14:19
  */
 public class InterfaceVsIterator {
-  public static void display(Iterator<Pet> it){
-    while (it.hasNext()){
+  public static void display(Iterator<Pet> it) {
+    while (it.hasNext()) {
       Pet p = it.next();
       System.out.print(p.id() + ":" + p + " ");
     }
     System.out.println();
   }
 
-  public static void display(Collection<Pet> pets){
-    for (Pet p:pets) {
+  public static void display(Collection<Pet> pets) {
+    for (Pet p : pets) {
       System.out.print(p.id() + ":" + p + " ");
     }
     System.out.println();

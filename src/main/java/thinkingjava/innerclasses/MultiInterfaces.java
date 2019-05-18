@@ -1,5 +1,11 @@
 package thinkingjava.innerclasses;
 
+interface InterfaceA {
+}
+
+interface InterfaceB {
+}
+
 /**
  * @author 李重辰
  * @date 2018/10/31 19:52
@@ -19,12 +25,6 @@ public class MultiInterfaces {
     takesB(x);
     takesB(y.makeB());
   }
-}
-
-interface InterfaceA {
-}
-
-interface InterfaceB {
 }
 
 class ClassX implements InterfaceA, InterfaceB {

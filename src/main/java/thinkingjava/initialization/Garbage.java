@@ -15,7 +15,7 @@ public class Garbage {
     }
     while (!Chair.f) {
       new Chair();
-      new String("To take up space");
+      "To take up space";
     }
     System.out.println("After all Chairs have been created:\n"
         + "total created = " + Chair.created
@@ -37,11 +37,11 @@ public class Garbage {
 }
 
 class Chair {
+  final static int PRACTICE = 47;
   static boolean gcrun = false;
   static boolean f = false;
   static int created = 0;
   static int finalized = 0;
-  final static int PRACTICE = 47;
   int i;
 
   Chair() {

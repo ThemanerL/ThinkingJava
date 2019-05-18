@@ -18,24 +18,24 @@ package algorithms.leecode;
  * @date 2019/5/10 16:54
  */
 public class RemoveElement {
-    public static void main(String[] args) {
-        int[] nums = {3,2,2,3};
-        Solution solution = new Solution();
-        System.out.println(solution.removeElement(nums, 3));
-        for (int n : nums) {
-            System.out.print(n+", ");
-        }
+  public static void main(String[] args) {
+    int[] nums = {3, 2, 2, 3};
+    Solution solution = new Solution();
+    System.out.println(solution.removeElement(nums, 3));
+    for (int n : nums) {
+      System.out.print(n + ", ");
     }
+  }
 }
 
 class Solution {
-    int removeElement(int[] nums, int val) {
-        int temp = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (val != nums[i]) {
-                nums[temp++] = nums[i];
-            }
-        }
-        return temp;
+  int removeElement(int[] nums, int val) {
+    int temp = 0;
+    for (int i = 0; i < nums.length; i++) {
+      if (val != nums[i]) {
+        nums[temp++] = nums[i];
+      }
     }
+    return temp;
+  }
 }

@@ -23,26 +23,26 @@ public class ExtraFeatures {
   }
 
   public static void main(String[] args) {
-    try{
+    try {
       f();
-    }
-    catch (MyTwoException e) {
+    } catch (MyTwoException e) {
       e.printStackTrace(System.out);
-    }try {
+    }
+    try {
       g();
-    } catch(MyTwoException e) {
+    } catch (MyTwoException e) {
       e.printStackTrace(System.out);
     }
     try {
       h();
-    } catch(MyTwoException e) {
+    } catch (MyTwoException e) {
       e.printStackTrace(System.out);
       System.out.println("e.val() = " + e.val());
     }
   }
 }
 
-class MyTwoException extends Exception{
+class MyTwoException extends Exception {
   Logger logger = Logger.getLogger(MyTwoException.class.getName());
   private int x;
 
@@ -62,12 +62,12 @@ class MyTwoException extends Exception{
     this.x = x;
   }
 
-  public int val(){
+  public int val() {
     return x;
   }
 
   @Override
-  public String getMessage(){
+  public String getMessage() {
     return "Detail Message: " + x + " " + super.getMessage();
   }
 }

@@ -6,6 +6,27 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+interface Selector {
+  /**
+   * 检查序列是否到末尾了
+   *
+   * @return 标志位
+   */
+  boolean end();
+
+  /**
+   * 访问当前对象
+   *
+   * @return 返回一个对象数组
+   */
+  Object current();
+
+  /**
+   * 移到序列中的下一个对象
+   */
+  void next();
+}
+
 /**
  * 当某个外围类的对象创建了一个内部类对象时，此内部类对象必定会秘密地捕获一个指向那个外围类对象的引用。
  * 然后在你访问此外围类的成员时，就是用那个引用来选择外围类的成员。编译器会帮你处理所有的细节
@@ -26,76 +47,9 @@ public class Sequence {
     this.items = new Object[size];
   }
 
-  private void add(Object x) {
-    if (next < items.length) {
-      //等同于items[next] = x;next ++
-      items[next++] = x;
-    }
-  }
-
-  /**
-   * 练习22
-   *
-   * @return 一个反向遍历的Selector
-   */
-  Selector reverseSelector() {
-    return new Selector() {
-      private int i = 0;
-
-      @Override
-      public boolean end() {
-        return i == items.length;
-      }
-
-      @Override
-      public Object current() {
-        return items[i];
-      }
-
-      @Override
-      public void next() {
-        if (i < items.length) {
-          i++;
-        }
-      }
-    };
-  }
-
-
-  /**
-   * 这个类中用到了Object[] items，这是一个外部类的private引用。然而内部类可以访问其外围类的方法与字段，就像自己拥有它们似的。
-   */
-  private class SequenceSelector implements Selector {
-    private int i = 0;
-
-    @Override
-    public boolean end() {
-      return i == items.length;
-    }
-
-    @Override
-    public Object current() {
-      return items[i];
-    }
-
-    @Override
-    public void next() {
-      if (i < items.length) {
-        i++;
-      }
-    }
-
-    private Sequence getSequence() {
-      return new Sequence(i);
-    }
-  }
-
-  private Selector selector() {
-    return new SequenceSelector();
-  }
-
   /**
    * 李重辰181108修改：objectsholding Practice9 使用Iterator替代Selector
+   *
    * @param args /
    */
   public static void main(String[] args) {
@@ -139,25 +93,71 @@ public class Sequence {
       selector1.next();
     }
   }
-}
 
-interface Selector {
+  private void add(Object x) {
+    if (next < items.length) {
+      //等同于items[next] = x;next ++
+      items[next++] = x;
+    }
+  }
+
   /**
-   * 检查序列是否到末尾了
+   * 练习22
    *
-   * @return 标志位
+   * @return 一个反向遍历的Selector
    */
-  boolean end();
+  Selector reverseSelector() {
+    return new Selector() {
+      private int i = 0;
+
+      @Override
+      public boolean end() {
+        return i == items.length;
+      }
+
+      @Override
+      public Object current() {
+        return items[i];
+      }
+
+      @Override
+      public void next() {
+        if (i < items.length) {
+          i++;
+        }
+      }
+    };
+  }
+
+  private Selector selector() {
+    return new SequenceSelector();
+  }
 
   /**
-   * 访问当前对象
-   *
-   * @return 返回一个对象数组
+   * 这个类中用到了Object[] items，这是一个外部类的private引用。然而内部类可以访问其外围类的方法与字段，就像自己拥有它们似的。
    */
-  Object current();
+  private class SequenceSelector implements Selector {
+    private int i = 0;
 
-  /**
-   * 移到序列中的下一个对象
-   */
-  void next();
+    @Override
+    public boolean end() {
+      return i == items.length;
+    }
+
+    @Override
+    public Object current() {
+      return items[i];
+    }
+
+    @Override
+    public void next() {
+      if (i < items.length) {
+        i++;
+      }
+    }
+
+    private Sequence getSequence() {
+      return new Sequence(i);
+    }
+  }
 }

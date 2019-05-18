@@ -1,5 +1,36 @@
 package thinkingjava.interfaces;
 
+interface Monster {
+  /**
+   * 威胁
+   */
+  void menace();
+}
+
+interface DangerousMonster extends Monster {
+  /**
+   * 毁灭
+   */
+  void destroy();
+}
+
+interface Lethal {
+  /**
+   * 致命、致死
+   */
+  void kill();
+}
+
+/**
+ * 吸血鬼
+ */
+interface Vampire extends DangerousMonster, Lethal {
+  /**
+   * 吸血鬼在喝血啦
+   */
+  void drinkBlood();
+}
+
 /**
  * 2018/10/29 修改使用匿名类实现DangerousMonster和Vampire
  * <p>
@@ -63,28 +94,6 @@ public class HorrorShow {
   }
 }
 
-interface Monster {
-  /**
-   * 威胁
-   */
-  void menace();
-}
-
-interface DangerousMonster extends Monster {
-  /**
-   * 毁灭
-   */
-  void destroy();
-}
-
-
-interface Lethal {
-  /**
-   * 致命、致死
-   */
-  void kill();
-}
-
 /**
  * 叫吉拉的龙
  */
@@ -99,16 +108,6 @@ class DragonZilla implements DangerousMonster {
   public void destroy() {
 
   }
-}
-
-/**
- * 吸血鬼
- */
-interface Vampire extends DangerousMonster, Lethal {
-  /**
-   * 吸血鬼在喝血啦
-   */
-  void drinkBlood();
 }
 
 class VeryBadVampire implements Vampire {

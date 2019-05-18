@@ -1,5 +1,12 @@
 package thinkingjava.polymorphism;
 
+interface FastFood {
+  /**
+   * 可以为食物实现这个接口来加糖
+   */
+  void moreSugar();
+}
+
 /**
  * 构造工作一经发生,那么对象所有部分的全体成员都会得到构建,
  * 1) 调用基类的构造器,这个步骤会不断的反复递归下去,从更到下层导出类,直到最低层的导出类.
@@ -62,11 +69,4 @@ class PortableLunch extends Lunch {
   public PortableLunch() {
     System.out.println("PortableLunch.PortableLunch");
   }
-}
-
-interface FastFood {
-  /**
-   * 可以为食物实现这个接口来加糖
-   */
-  void moreSugar();
 }

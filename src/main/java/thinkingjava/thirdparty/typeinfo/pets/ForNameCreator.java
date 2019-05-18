@@ -1,6 +1,7 @@
 package thinkingjava.thirdparty.typeinfo.pets;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 李重辰
@@ -23,6 +24,10 @@ public class ForNameCreator extends AbstractPetCreator {
       "Hamster"
   };
 
+  static {
+    loader();
+  }
+
   @SuppressWarnings("unchecked")
   private static void loader() {
     try {
@@ -33,10 +38,6 @@ public class ForNameCreator extends AbstractPetCreator {
     } catch (ClassNotFoundException e) {
       throw new RuntimeException(e);
     }
-  }
-
-  static {
-    loader();
   }
 
   @Override

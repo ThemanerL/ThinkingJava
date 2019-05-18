@@ -1,5 +1,17 @@
 package thinkingjava.initialization.practice;
 
+enum Currency {
+  /**
+   * 六种货币
+   */
+  JPY,
+  EUR,
+  GBP,
+  DEM,
+  CHF,
+  FRF
+
+}
 
 /**
  * @author 李重辰
@@ -7,6 +19,12 @@ package thinkingjava.initialization.practice;
  */
 
 public class P21 {
+  private Currency currency;
+
+  private P21(Currency currency) {
+    this.currency = currency;
+  }
+
   public static void main(String[] args) {
     for (Currency currency : Currency.values()) {
       System.out.println(currency + " , ordinal() " + currency.ordinal());
@@ -14,12 +32,6 @@ public class P21 {
     P21 p21 = new P21(Currency.CHF);
     p21.enumSwitch();
 
-  }
-
-  private Currency currency;
-
-  private P21(Currency currency) {
-    this.currency = currency;
   }
 
   private void enumSwitch() {
@@ -49,17 +61,4 @@ public class P21 {
     System.out.println("'s currency");
 
   }
-}
-
-enum Currency {
-  /**
-   * 六种货币
-   */
-  JPY,
-  EUR,
-  GBP,
-  DEM,
-  CHF,
-  FRF;
-
 }

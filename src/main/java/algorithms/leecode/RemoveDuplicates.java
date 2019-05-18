@@ -14,7 +14,7 @@ package algorithms.leecode;
  * [0,1,2,2,3,3,4,4,4,4],
  * 函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
  * 你不需要考虑数组中超出新长度后面的元素。
- *
+ * <p>
  * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
  *
  * @author 李重辰
@@ -23,7 +23,7 @@ package algorithms.leecode;
 
 public class RemoveDuplicates {
   public static void main(String[] args) {
-    int[] nums = {0, 0, 1, 1, 1,2,2,2,2,2,2,3,3,3,3,3,3,4,4,5,5,5,5,5,5,5,5,5,5,5};
+    int[] nums = {0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
     RemoveDuplicates rd = new RemoveDuplicates();
     int i = rd.removeDuplicates(nums);
     for (int k : nums) {
@@ -49,11 +49,12 @@ public class RemoveDuplicates {
 
   /**
    * 神代码
+   *
    * @param nums /
    * @return /
    */
   public int removeDuplicates1ms(int[] nums) {
-    if (nums.length == 1){
+    if (nums.length == 1) {
       return 1;
     }
     int size = 0;

@@ -14,13 +14,13 @@ public class SimpleIteration {
   public static void main(String[] args) {
     List<Pet> pets = Pets.arrayList(12);
     Iterator<Pet> petIterator = pets.iterator();
-    while (petIterator.hasNext()){
+    while (petIterator.hasNext()) {
       Pet p = petIterator.next();
       System.out.println(p.id() + ":" + p + " ");
     }
     System.out.println();
-    for (Pet p: pets) {
-      System.out.println(p.id() + ":" + p +" ");
+    for (Pet p : pets) {
+      System.out.println(p.id() + ":" + p + " ");
     }
     System.out.println();
 
@@ -28,7 +28,7 @@ public class SimpleIteration {
     int size = 6;
     for (int i = 0; i < size; i++) {
       petIterator.next();
-      System.out.println( petIterator.next());
+      System.out.println(petIterator.next());
       petIterator.remove();
     }
     System.out.println(pets);

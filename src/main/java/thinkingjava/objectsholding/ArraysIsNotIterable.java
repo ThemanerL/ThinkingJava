@@ -1,6 +1,6 @@
 package thinkingjava.objectsholding;
 
-import java.util.*;
+import java.util.Arrays;
 
 /**
  * foreach 可以用于数组或其他任何Iterable,但是这并不意味着数组肯定也是一个Iterable,而任何自动包装也不会自动发生;

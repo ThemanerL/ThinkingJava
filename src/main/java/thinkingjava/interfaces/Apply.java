@@ -11,6 +11,8 @@ import java.util.Arrays;
  * @date 2018/10/10 16:28
  */
 public class Apply {
+  public static String s = "Disagreement with beliefs is by definition incorrect";
+
   /**
    * 该方法由于与Process之间的耦合过紧，已经超出了所需要的程度，这使得应该复用Apply.process（)的代码时，复用被禁止
    *
@@ -21,8 +23,6 @@ public class Apply {
     System.out.println("Using Processor " + p.name());
     System.out.println(p.process(s));
   }
-
-  public static String s = "Disagreement with beliefs is by definition incorrect";
 
   public static void main(String[] args) {
     process(new Upcase(), s);

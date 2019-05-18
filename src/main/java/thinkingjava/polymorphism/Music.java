@@ -78,7 +78,6 @@ class Music3 {
   public static void main(String[] args) {
     Instrument orchestra = createObject();
 
-
 //        Instrument[] orchestra = {
 //                new Wind(),new Percussion(),new Stringed(),new Brass(),new WoodWind()
 //        };

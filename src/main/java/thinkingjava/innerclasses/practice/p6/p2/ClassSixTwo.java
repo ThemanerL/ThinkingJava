@@ -7,14 +7,14 @@ import thinkingjava.innerclasses.practice.p6.p1.InterfaceOne;
  * @date 2018/10/22 14:45
  */
 public class ClassSixTwo {
+  public Inner getInstance() {
+    return new Inner();
+  }
+
   protected class Inner implements InterfaceOne {
     @Override
     public void printName() {
       System.out.println("Inner.printName");
     }
-  }
-
-  public Inner getInstance() {
-    return new Inner();
   }
 }

@@ -7,6 +7,15 @@ package thinkingjava.innerclasses;
  * @date 2018/11/2 14:55
  */
 public class BigEgg2 extends Egg2 {
+  public BigEgg2() {
+    insertYolk(new Yolk());
+  }
+
+  public static void main(String[] args) {
+    Egg2 egg2 = new BigEgg2();
+    egg2.g();
+  }
+
   public class Yolk extends Egg2.Yolk {
     public Yolk() {
       System.out.println("BigEgg2.Yolk");
@@ -18,28 +27,9 @@ public class BigEgg2 extends Egg2 {
     }
   }
 
-  public BigEgg2() {
-    insertYolk(new Yolk());
-  }
-
-  public static void main(String[] args) {
-    Egg2 egg2 = new BigEgg2();
-    egg2.g();
-  }
-
 }
 
 class Egg2 {
-  public class Yolk {
-    public Yolk() {
-      System.out.println("BigEgg2.Yolk");
-    }
-
-    public void f() {
-      System.out.println("BigEgg2.Yolk.f");
-    }
-  }
-
   private Yolk y = new Yolk();
 
   public Egg2() {
@@ -52,5 +42,15 @@ class Egg2 {
 
   public void g() {
     y.f();
+  }
+
+  public class Yolk {
+    public Yolk() {
+      System.out.println("BigEgg2.Yolk");
+    }
+
+    public void f() {
+      System.out.println("BigEgg2.Yolk.f");
+    }
   }
 }

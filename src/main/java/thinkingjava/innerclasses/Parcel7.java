@@ -7,6 +7,12 @@ package thinkingjava.innerclasses;
  * @date 2018/10/24 21:15
  */
 public class Parcel7 {
+  public static void main(String[] args) {
+    Parcel7 parcel7 = new Parcel7();
+    Contents contents = parcel7.contents();
+    System.out.println(contents.value());
+  }
+
   private Contents contents() {
     return new Contents() {
       private int i = 11;
@@ -16,11 +22,5 @@ public class Parcel7 {
         return i;
       }
     };
-  }
-
-  public static void main(String[] args) {
-    Parcel7 parcel7 = new Parcel7();
-    Contents contents = parcel7.contents();
-    System.out.println(contents.value());
   }
 }

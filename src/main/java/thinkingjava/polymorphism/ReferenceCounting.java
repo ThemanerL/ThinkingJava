@@ -20,9 +20,9 @@ public class ReferenceCounting {
 
 class Shared {
   private static boolean gcrun = false;
-  private int refcount = 0;
   private static long counter = 0;
   private final long id = counter++;
+  private int refcount = 0;
 
   Shared() {
     System.out.println("Creating " + this);
@@ -61,9 +61,9 @@ class Shared {
 }
 
 class Composing {
-  private Shared shared;
   private static long counter;
   private final long id = counter++;
+  private Shared shared;
 
   Composing(Shared shared) {
     System.out.println("Creating " + this);

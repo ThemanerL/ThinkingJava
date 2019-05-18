@@ -25,6 +25,11 @@ class AdaptedRandomWords extends RandomWords {
   private static Random rand = new Random(System.currentTimeMillis());
   private int count;
 
+  AdaptedRandomWords(int count) {
+    super(count);
+    this.count = count;
+  }
+
   @Override
   public int read(CharBuffer cb) {
     if (count-- == 0) {
@@ -34,10 +39,5 @@ class AdaptedRandomWords extends RandomWords {
     //字符用空格分离
     cb.append(" ");
     return cb.length();
-  }
-
-  AdaptedRandomWords(int count) {
-    super(count);
-    this.count = count;
   }
 }

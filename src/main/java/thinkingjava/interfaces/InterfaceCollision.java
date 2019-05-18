@@ -1,14 +1,5 @@
 package thinkingjava.interfaces;
 
-/**
- * 重载方法仅通过返回类型是区分不开的。在打算组合的不同接口中使用相同的方法名通常会引起代码可读性的混乱，要尽量避免
- *
- * @author 李重辰
- * @date 2018/10/12 12:34
- */
-public class InterfaceCollision {
-}
-
 interface I1 {
   /**
    * 接口内的方法必须要有javadoc声明
@@ -33,6 +24,15 @@ interface I3 {
    * @return 返回int
    */
   int f();
+}
+
+/**
+ * 重载方法仅通过返回类型是区分不开的。在打算组合的不同接口中使用相同的方法名通常会引起代码可读性的混乱，要尽量避免
+ *
+ * @author 李重辰
+ * @date 2018/10/12 12:34
+ */
+public class InterfaceCollision {
 }
 
 class C1 {

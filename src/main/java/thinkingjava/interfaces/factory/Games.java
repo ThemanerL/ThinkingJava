@@ -1,24 +1,5 @@
 package thinkingjava.interfaces.factory;
 
-/**
- * @author 李重辰
- * @date 2018/10/18 17:26
- */
-public class Games {
-  private static void playGame(GameFactory factory) {
-    Game s = factory.getGame();
-    // 这是故意写的空while体
-    while (s.move()) {
-      ;
-    }
-  }
-
-  public static void main(String[] args) {
-    playGame(new CheckersFactory());
-    playGame(new ChessFactory());
-  }
-}
-
 interface Game {
   /**
    * 移动旗子
@@ -37,9 +18,27 @@ interface GameFactory {
   Game getGame();
 }
 
+/**
+ * @author 李重辰
+ * @date 2018/10/18 17:26
+ */
+public class Games {
+  private static void playGame(GameFactory factory) {
+    Game s = factory.getGame();
+    // 这是故意写的空while体
+    while (s.move()) {
+    }
+  }
+
+  public static void main(String[] args) {
+    playGame(new CheckersFactory());
+    playGame(new ChessFactory());
+  }
+}
+
 class Checkers implements Game {
-  private int moves = 0;
   private static final int MOVES = 3;
+  private int moves = 0;
 
   @Override
   public boolean move() {
@@ -58,8 +57,8 @@ class CheckersFactory implements GameFactory {
 }
 
 class Chess implements Game {
-  private int moves = 0;
   private static final int MOVES = 4;
+  private int moves = 0;
 
   @Override
   public boolean move() {

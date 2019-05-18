@@ -15,7 +15,7 @@ public class P28 {
     for (int i = 0; i < queueLength; i++) {
       doubles.offer(rand.nextDouble() * queueLength);
     }
-    while(!doubles.isEmpty()){
+    while (!doubles.isEmpty()) {
       System.out.println(doubles.poll());
     }
   }

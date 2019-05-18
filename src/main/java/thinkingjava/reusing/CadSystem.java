@@ -24,6 +24,15 @@ public class CadSystem extends Shape {
     System.out.println("Combined constructor");
   }
 
+  public static void main(String[] args) {
+    CadSystem x = new CadSystem(47);
+    try {
+      // Code and excepting handling...
+    } finally {
+      x.dispose();
+    }
+  }
+
   @Override
   void dispose() {
     System.out.println("CadSystem.dispose()");
@@ -33,15 +42,6 @@ public class CadSystem extends Shape {
       lines[i].dispose();
     }
     super.dispose();
-  }
-
-  public static void main(String[] args) {
-    CadSystem x = new CadSystem(47);
-    try {
-      // Code and excepting handling...
-    } finally {
-      x.dispose();
-    }
   }
 }
 

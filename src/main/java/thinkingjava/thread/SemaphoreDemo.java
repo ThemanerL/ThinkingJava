@@ -18,6 +18,7 @@ public class SemaphoreDemo {
     }
   }
 }
+
 class SemaphoreService {
 
   private SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -45,6 +46,7 @@ class SemaphoreService {
     return sf.format(new Date());
   }
 }
+
 class MyThread extends Thread {
   private SemaphoreService service;
 

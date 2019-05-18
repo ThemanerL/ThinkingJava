@@ -2,6 +2,22 @@ package thinkingjava.interfaces;
 
 import thinkingjava.polymorphism.Note;
 
+interface Instrument {
+  /**
+   * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
+   */
+  void adjust();
+}
+
+interface Playable {
+  /**
+   * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
+   *
+   * @param n 来自于枚举类
+   */
+  void play(Note n);
+}
+
 /**
  * @author 李重辰
  * @date 2018/10/9 16:43
@@ -28,22 +44,6 @@ class Music5 {
     };
     tuneAll(orchestra);
   }
-}
-
-interface Instrument {
-  /**
-   * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
-   */
-  void adjust();
-}
-
-interface Playable {
-  /**
-   * 所有的抽象方法（包括接口中的方法）必须要用javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能
-   *
-   * @param n 来自于枚举类
-   */
-  void play(Note n);
 }
 
 /**

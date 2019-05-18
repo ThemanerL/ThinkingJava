@@ -11,6 +11,12 @@ public class Demotion {
     System.out.println(s);
   }
 
+  public static void main(String[] args) {
+    Demotion demotion = new Demotion();
+    demotion.testDouble();
+    //Bush bush = new Bush();
+  }
+
   void f1(char x) {
     prt("f1(char)");
   }
@@ -133,12 +139,6 @@ public class Demotion {
     f5((short) x);
     f6((byte) x);
     f7((char) x);
-  }
-
-  public static void main(String[] args) {
-    Demotion demotion = new Demotion();
-    demotion.testDouble();
-    //Bush bush = new Bush();
   }
 }
 

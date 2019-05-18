@@ -7,6 +7,11 @@ package thinkingjava.innerclasses;
  * @date 2018/10/22 20:00
  */
 public class Parcel6 {
+  public static void main(String[] args) {
+    Parcel6 parcel6 = new Parcel6();
+    parcel6.track();
+  }
+
   private void internalTracking(boolean b) {
     if (b) {
       class TrackingSlip {
@@ -29,10 +34,5 @@ public class Parcel6 {
 
   public void track() {
     internalTracking(true);
-  }
-
-  public static void main(String[] args) {
-    Parcel6 parcel6 = new Parcel6();
-    parcel6.track();
   }
 }

@@ -5,18 +5,20 @@ package thinkingjava.access;
  * @date 2018/9/27 9:39
  */
 public class Lunch {
+  public static void main(String[] args) {
+    One.o1.f();
+  }
+
   void test() {
     Soup priv2 = Soup.makeSoup();
     Sandwich f1 = new Sandwich();
     Soup.access().f();
   }
-
-  public static void main(String[] args) {
-    One.o1.f();
-  }
 }
 
 class Soup {
+  private static Soup ps1 = new Soup();
+
   private Soup() {
   }
 
@@ -29,8 +31,6 @@ class Soup {
   public static Soup makeSoup() {
     return new Soup();
   }
-
-  private static Soup ps1 = new Soup();
 
   public static Soup access() {
     return ps1;
@@ -48,11 +48,10 @@ class Sandwich {
 }
 
 class One {
+  protected static One o1 = new One();
+
   private One() {
   }
-
-  ;
-  protected static One o1 = new One();
 
   protected void f() {
     System.out.println("From One.f()");

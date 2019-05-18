@@ -11,6 +11,15 @@ public class Burrito {
     this.degree = degree;
   }
 
+  public static void main(String[] args) {
+    Burrito plain = new Burrito(Spiciness.NOT);
+    Burrito greenChile = new Burrito(Spiciness.MEDIUM);
+    Burrito jalapeno = new Burrito(Spiciness.HOT);
+    plain.describe();
+    greenChile.describe();
+    jalapeno.describe();
+  }
+
   private void describe() {
     System.out.print("This Burrito is ");
     switch (degree) {
@@ -26,14 +35,5 @@ public class Burrito {
       default:
         System.out.println("maybe too hot");
     }
-  }
-
-  public static void main(String[] args) {
-    Burrito plain = new Burrito(Spiciness.NOT);
-    Burrito greenChile = new Burrito(Spiciness.MEDIUM);
-    Burrito jalapeno = new Burrito(Spiciness.HOT);
-    plain.describe();
-    greenChile.describe();
-    jalapeno.describe();
   }
 }

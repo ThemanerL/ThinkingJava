@@ -17,8 +17,8 @@ public class P3 {
     }
     // p5
     int[] ints = {6, 7, 8, 9, 10};
-    int index = ints.length+1;
-    while (true){
+    int index = ints.length + 1;
+    while (true) {
       try {
         System.out.println(ints[index--]);
       } catch (Exception e) {
@@ -31,12 +31,13 @@ public class P3 {
   }
 }
 
-class MyException extends Exception{
+class MyException extends Exception {
   public MyException(String message) {
     super(message);
     f(message);
   }
-  void f(String message){
-    System.out.println(message+"__");
+
+  void f(String message) {
+    System.out.println(message + "__");
   }
 }

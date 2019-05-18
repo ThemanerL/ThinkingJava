@@ -14,21 +14,21 @@ public class ListIteration {
   public static void main(String[] args) {
     List<Pet> pets = Pets.arrayList(9);
     ListIterator<Pet> it = pets.listIterator();
-    while (it.hasNext()){
+    while (it.hasNext()) {
       System.out.print(it.previousIndex() + "; ");
-      System.out.print(it.next() + ", " );
+      System.out.print(it.next() + ", ");
       System.out.println(it.nextIndex() + ", ");
     }
     System.out.println();
     //Backwards:
-    while(it.hasPrevious()){
+    while (it.hasPrevious()) {
       System.out.println(it.previous().id() + " ");
     }
     System.out.println();
     System.out.println(pets);
     // 3为迭代器要返回的第一个元素的索引；可以理解为将游标移动到3
     it = pets.listIterator(3);
-    while (it.hasNext()){
+    while (it.hasNext()) {
       it.next();
       it.set(Pets.randomPet());
     }

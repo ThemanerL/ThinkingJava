@@ -12,10 +12,11 @@ import java.util.*;
 public class CrossContainerIteration {
   /**
    * display不包含任何有关它所遍历的序列的类型信息，迭代器统一了对容器的访问方式
+   *
    * @param petIterator
    */
-  private static void display(Iterator<Pet> petIterator){
-    while (petIterator.hasNext()){
+  private static void display(Iterator<Pet> petIterator) {
+    while (petIterator.hasNext()) {
       Pet pet = petIterator.next();
       System.out.print(pet.id() + ":" + pet + " ");
     }

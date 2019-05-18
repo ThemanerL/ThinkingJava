@@ -8,6 +8,7 @@ import java.util.*;
  * 这里使用了第14章中的类库。
  * 1、有一个Pet类，以及Pet的各种子类型；
  * 2、静态的Pets.arrayList()方法将返回一个填充了随机选取的Pet对象的ArrayList
+ *
  * @author 李重辰
  * @date 2018/11/6 21:38
  */
@@ -41,7 +42,7 @@ public class ListFeatures {
     System.out.println("shuffled subList: " + sub);
     System.out.println("12: " + pets.containsAll(sub));
     List<Pet> copy = new ArrayList<Pet>(pets);
-    sub = Arrays.asList(pets.get(1),pets.get(4));
+    sub = Arrays.asList(pets.get(1), pets.get(4));
     System.out.println("sub: " + sub);
     //删除所有不再sub中的元素
     copy.retainAll(sub);
@@ -53,7 +54,7 @@ public class ListFeatures {
     System.out.println("15: " + copy);
     copy.set(1, new Mouse());
     System.out.println("16: " + copy);
-    copy.addAll(2,sub);
+    copy.addAll(2, sub);
     System.out.println("17: " + copy);
     System.out.println("18: " + pets.isEmpty());
     /// subList返回原来list的从[fromIndex, toIndex)之间这一部分的视图，之所以说是视图，是因为实际上，返回的list是靠原来的list支持的

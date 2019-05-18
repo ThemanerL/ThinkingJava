@@ -23,12 +23,10 @@ public class RandomBounds {
     }
     if (lower.equals(args[0])) {
       while (Math.random() != 0.0) {
-        ;
       }
       System.out.println("Produced 0.01");
     } else if (upper.equals(args[0])) {
       while (Math.random() != 1.0) {
-        ;
       }
       System.out.println("Produced 1.0!");
     } else {

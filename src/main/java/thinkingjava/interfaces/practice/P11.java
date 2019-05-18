@@ -7,6 +7,11 @@ import thinkingjava.interfaces.filters.Filter;
  * @date 2018/10/11 16:43
  */
 public class P11 extends Filter {
+  public static void main(String[] args) {
+    P11 p = new P11();
+    System.out.println(p.reverseString("My name is Joey"));
+  }
+
   /**
    * 将每一对字符进行互换
    *
@@ -23,10 +28,5 @@ public class P11 extends Filter {
       a[i + 1] = temp;
     }
     return new String(a);
-  }
-
-  public static void main(String[] args) {
-    P11 p = new P11();
-    System.out.println(p.reverseString("My name is Joey"));
   }
 }
