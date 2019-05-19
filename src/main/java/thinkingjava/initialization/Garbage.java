@@ -15,7 +15,7 @@ public class Garbage {
     }
     while (!Chair.f) {
       new Chair();
-      "To take up space";
+      String s = "To take up space";
     }
     System.out.println("After all Chairs have been created:\n"
         + "total created = " + Chair.created
