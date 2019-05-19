@@ -10,13 +10,24 @@ import java.util.Objects;
  */
 public class Employee {
   static List<Employee> employees = Arrays.asList(
-      new Employee("Tom", 18, 3000.1),
-      new Employee("Joey", 34, 21000),
-      new Employee("John", 45, 12000)
+      new Employee("Tom", 18, 3000.1, Status.Single),
+      new Employee("Joey", 34, 21000, Status.Busy),
+      new Employee("Tom", 18, 3000.1, Status.Free),
+      new Employee("Joey", 34, 25000, Status.Single),
+      new Employee("John", 45, 12000, Status.Busy)
   );
   private String name;
   private int age;
   private double salary;
+  private Status status;
+
+  public Status getStatus() {
+    return status;
+  }
+
+  public void setStatus(Status status) {
+    this.status = status;
+  }
 
   Employee() {
   }
@@ -25,7 +36,7 @@ public class Employee {
     this.age = age;
   }
 
-  public Employee(String name, int age) {
+  Employee(String name, int age) {
     this.name = name;
     this.age = age;
   }
@@ -34,6 +45,13 @@ public class Employee {
     this.name = name;
     this.age = age;
     this.salary = salary;
+  }
+
+  Employee(String name, int age, double salary, Status status) {
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+    this.status = status;
   }
 
   public String getName() {
@@ -58,6 +76,24 @@ public class Employee {
 
   public void setSalary(double salary) {
     this.salary = salary;
+  }
+
+  public enum Status {
+    /**
+     * 忙
+     */
+    Busy("busy"),
+    /**
+     * 闲
+     */
+    Free("free"),
+    /**
+     * 单身狗
+     */
+    Single("Single");
+
+    Status(String s) {
+    }
   }
 
   @Override
@@ -85,6 +121,7 @@ public class Employee {
         "name='" + name + '\'' +
         ", age=" + age +
         ", salary=" + salary +
+        ", status=" + status +
         '}';
   }
 }
