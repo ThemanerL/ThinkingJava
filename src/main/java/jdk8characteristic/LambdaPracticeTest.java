@@ -15,7 +15,7 @@ import java.util.function.Consumer;
  * @author 李重辰
  * @date 2019/5/13 23:50
  */
-public class LambdaGrammarTest {
+public class LambdaPracticeTest {
   @Test
   public void test1() {
     Runnable runnable = new Runnable() {
