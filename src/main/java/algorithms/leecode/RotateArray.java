@@ -27,4 +27,24 @@ package algorithms.leecode;
  * @date 2019/8/12 15:46
  */
 public class RotateArray {
+
+    public static void main(String[] args) {
+        int[] ints = {1, 2, 3, 4, 5, 6, 7};
+        int[] rotate = new RotateArray().rotate(ints);
+        for (int i : rotate) {
+            System.out.println(i);
+        }
+    }
+
+    public int[] rotate(int[] ints) {
+        int temp = ints[ints.length - 1];
+        for (int i = ints.length - 1; i < temp; i--) {
+            if (i == 0) {
+                ints[0] = temp;
+                break;
+            }
+            ints[i] = ints[i - 1];
+        }
+        return ints;
+    }
 }
