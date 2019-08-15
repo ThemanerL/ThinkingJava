@@ -30,21 +30,43 @@ public class RotateArray {
 
     public static void main(String[] args) {
         int[] ints = {1, 2, 3, 4, 5, 6, 7};
-        int[] rotate = new RotateArray().rotate(ints);
+        int[] rotate = new RotateArray().rotateOne(ints, 3);
         for (int i : rotate) {
             System.out.println(i);
         }
     }
 
-    public int[] rotate(int[] ints) {
-        int temp = ints[ints.length - 1];
-        for (int i = ints.length - 1; i < temp; i--) {
-            if (i == 0) {
-                ints[0] = temp;
-                break;
+    /**
+     * 方法一
+     */
+    private int[] rotateOne(int[] ints, int k) {
+        for (int i = 0; i < k; i++) {
+            int temp = ints[ints.length - 1];
+            for (int j = ints.length - 1; j >= 0; j--) {
+                if (j == 0) {
+                    ints[0] = temp;
+                    break;
+                }
+                ints[j] = ints[j - 1];
             }
-            ints[i] = ints[i - 1];
         }
         return ints;
     }
+
+    /**
+     * 方法二
+     * int[i]->int[(i+step)%length]
+     */
+    private int[] rotateTwo(int[] ints, int k) {
+            int temp = ints[ints.length - 1];
+            for (int j = ints.length - 1; j >= 0; j--) {
+                if (j == 0) {
+                    ints[0] = temp;
+                    break;
+                }
+                ints[j] = ints[j - 1];
+            }
+        return ints;
+    }
+
 }
