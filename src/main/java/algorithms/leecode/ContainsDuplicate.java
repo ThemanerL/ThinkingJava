@@ -1,9 +1,6 @@
 package algorithms.leecode;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
 
 /**
  * 给定一个整数数组，判断是否存在重复元素。
@@ -29,11 +26,11 @@ import java.util.Set;
 public class ContainsDuplicate {
     public static void main(String[] args) {
         int[] ints = {1, 2, 3, 1};
+        boolean solution = new ContainsDuplicate().solution(ints);
+        System.out.println(solution);
     }
 
     private boolean solution(int[] ints) {
-        List<int[]> list = Arrays.asList(ints);
-//        Set<Integer> set =
-        return true;
+        return ints.length !=Arrays.stream(ints).distinct().count();
     }
 }
