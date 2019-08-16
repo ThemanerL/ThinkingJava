@@ -29,8 +29,8 @@ package algorithms.leecode;
 public class RotateArray {
 
     public static void main(String[] args) {
-        int[] ints = {1, 2, 3, 4, 5, 6, 7};
-        int[] rotate = new RotateArray().rotateOne(ints, 3);
+        int[] ints = {1, 2, 3, 4, 5, 6};
+        int[] rotate = new RotateArray().rotateTwo(ints, 3);
         for (int i : rotate) {
             System.out.println(i);
         }
@@ -57,16 +57,25 @@ public class RotateArray {
      * 方法二
      * int[i]->int[(i+step)%length]
      */
-    private int[] rotateTwo(int[] ints, int k) {
-            int temp = ints[ints.length - 1];
-            for (int j = ints.length - 1; j >= 0; j--) {
-                if (j == 0) {
-                    ints[0] = temp;
-                    break;
-                }
-                ints[j] = ints[j - 1];
+    private int[] rotateTwo(int[] nums, int k) {
+        int start = 0;
+        int i = 0;
+        int cur = nums[i];
+        int cnt = 0;
+
+        while (cnt++ < nums.length) {
+            i = (i + k) % nums.length;
+            int t = nums[i];
+            nums[i] = cur;
+            if (i == start) {
+                ++start;
+                ++i;
+                cur = nums[i];
+            } else {
+                cur = t;
             }
-        return ints;
+        }
+        return nums;
     }
 
 }
