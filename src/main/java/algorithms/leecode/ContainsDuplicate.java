@@ -30,7 +30,7 @@ public class ContainsDuplicate {
         System.out.println(solution);
     }
 
-    private boolean solution(int[] ints) {
-        return ints.length !=Arrays.stream(ints).distinct().count();
+    private boolean solution(int[] nums) {
+        return nums.length !=Arrays.stream(nums).distinct().count();
     }
 }
