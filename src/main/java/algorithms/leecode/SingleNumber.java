@@ -64,7 +64,7 @@ public class SingleNumber {
      * @return
      */
     private int solutionTwo(int[] nums) {
-        PrimitiveIterator.OfInt iterator = Arrays.stream(nums).sorted().;
+        PrimitiveIterator.OfInt iterator = Arrays.stream(nums).sorted().iterator();
         int sum = 0;
         int i = 0;
         while (iterator.hasNext()) {
