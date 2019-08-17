@@ -1,5 +1,8 @@
 package algorithms.leecode;
 
+import java.util.Arrays;
+import java.util.PrimitiveIterator;
+
 /**
  * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
  * <p>
@@ -21,8 +24,8 @@ package algorithms.leecode;
  */
 public class SingleNumber {
     public static void main(String[] args) {
-        int[] nums = {4,1,2,1,2};
-        int i = new SingleNumber().solutionOne(nums);
+        int[] nums = {4, 1, 2, 1, 2};
+        int i = new SingleNumber().solutionTwo(nums);
         System.out.println(i);
     }
 
@@ -53,5 +56,26 @@ public class SingleNumber {
             }
         }
         return 0;
+    }
+
+    /**
+     * 将数组排序后求和，奇数+ 偶数- 这种方式引用的PrimitiveIterator在LeetCode中没有被引用
+     * @param nums
+     * @return
+     */
+    private int solutionTwo(int[] nums) {
+        PrimitiveIterator.OfInt iterator = Arrays.stream(nums).sorted().;
+        int sum = 0;
+        int i = 0;
+        while (iterator.hasNext()) {
+            i++;
+            Integer integer = iterator.next();
+            if ((1 & i) == 1) {
+                sum += integer;
+            } else {
+                sum -= integer;
+            }
+        }
+        return sum;
     }
 }
