@@ -23,59 +23,60 @@ import java.util.PrimitiveIterator;
  * @date 2019/8/17 9:59
  */
 public class SingleNumber {
-    public static void main(String[] args) {
-        int[] nums = {4, 1, 2, 1, 2};
-        int i = new SingleNumber().solutionTwo(nums);
-        System.out.println(i);
-    }
+  public static void main(String[] args) {
+    int[] nums = {4, 1, 2, 1, 2};
+    int i = new SingleNumber().solutionTwo(nums);
+    System.out.println(i);
+  }
 
-    private int solutionOne(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            boolean sorted = true;
-            for (int j = 0; j < nums.length - 1 - i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                    sorted = false;
-                }
-            }
-            if (sorted) {
-                break;
-            }
+  private int solutionOne(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+      boolean sorted = true;
+      for (int j = 0; j < nums.length - 1 - i; j++) {
+        if (nums[j] > nums[j + 1]) {
+          int temp = nums[j];
+          nums[j] = nums[j + 1];
+          nums[j + 1] = temp;
+          sorted = false;
         }
-        if (nums.length == 1 || nums[0] != nums[1]) {
-            return nums[0];
-        }
-        for (int i = 2; i < nums.length; i = i + 2) {
-            if (i >= nums.length - 1) {
-                return nums[i];
-            }
-            if (nums[i] != nums[i + 1]) {
-                return nums[i];
-            }
-        }
-        return 0;
+      }
+      if (sorted) {
+        break;
+      }
     }
+    if (nums.length == 1 || nums[0] != nums[1]) {
+      return nums[0];
+    }
+    for (int i = 2; i < nums.length; i = i + 2) {
+      if (i >= nums.length - 1) {
+        return nums[i];
+      }
+      if (nums[i] != nums[i + 1]) {
+        return nums[i];
+      }
+    }
+    return 0;
+  }
 
-    /**
-     * 将数组排序后求和，奇数+ 偶数- 这种方式引用的PrimitiveIterator在LeetCode中没有被引用
-     * @param nums
-     * @return
-     */
-    private int solutionTwo(int[] nums) {
-        PrimitiveIterator.OfInt iterator = Arrays.stream(nums).sorted().iterator();
-        int sum = 0;
-        int i = 0;
-        while (iterator.hasNext()) {
-            i++;
-            Integer integer = iterator.next();
-            if ((1 & i) == 1) {
-                sum += integer;
-            } else {
-                sum -= integer;
-            }
-        }
-        return sum;
+  /**
+   * 将数组排序后求和，奇数+ 偶数- 这种方式引用的PrimitiveIterator在LeetCode中没有被引用
+   *
+   * @param nums
+   * @return
+   */
+  private int solutionTwo(int[] nums) {
+    PrimitiveIterator.OfInt iterator = Arrays.stream(nums).sorted().iterator();
+    int sum = 0;
+    int i = 0;
+    while (iterator.hasNext()) {
+      i++;
+      Integer integer = iterator.next();
+      if ((1 & i) == 1) {
+        sum += integer;
+      } else {
+        sum -= integer;
+      }
     }
+    return sum;
+  }
 }

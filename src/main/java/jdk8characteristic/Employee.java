@@ -21,14 +21,6 @@ public class Employee {
   private double salary;
   private Status status;
 
-  public Status getStatus() {
-    return status;
-  }
-
-  public void setStatus(Status status) {
-    this.status = status;
-  }
-
   Employee() {
   }
 
@@ -54,6 +46,14 @@ public class Employee {
     this.status = status;
   }
 
+  public Status getStatus() {
+    return status;
+  }
+
+  public void setStatus(Status status) {
+    this.status = status;
+  }
+
   public String getName() {
     return name;
   }
@@ -76,24 +76,6 @@ public class Employee {
 
   public void setSalary(double salary) {
     this.salary = salary;
-  }
-
-  public enum Status {
-    /**
-     * 忙
-     */
-    Busy("busy"),
-    /**
-     * 闲
-     */
-    Free("free"),
-    /**
-     * 单身狗
-     */
-    Single("Single");
-
-    Status(String s) {
-    }
   }
 
   @Override
@@ -123,5 +105,23 @@ public class Employee {
         ", salary=" + salary +
         ", status=" + status +
         '}';
+  }
+
+  public enum Status {
+    /**
+     * 忙
+     */
+    Busy("busy"),
+    /**
+     * 闲
+     */
+    Free("free"),
+    /**
+     * 单身狗
+     */
+    Single("Single");
+
+    Status(String s) {
+    }
   }
 }

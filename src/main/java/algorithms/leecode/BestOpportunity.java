@@ -25,14 +25,14 @@ package algorithms.leecode;
  */
 public class BestOpportunity {
   public static void main(String[] args) {
-        int[] ops = {7, 1, 5, 3, 6, 4};
-        int sum = 0;
-        for (int i = 0; i < ops.length - 1; i++) {
-            int i1 = ops[i + 1] - ops[i];
-            if (i1 > 0) {
-                sum += i1;
-            }
-        }
-        System.out.println(sum);
+    int[] ops = {7, 1, 5, 3, 6, 4};
+    int sum = 0;
+    for (int i = 0; i < ops.length - 1; i++) {
+      int i1 = ops[i + 1] - ops[i];
+      if (i1 > 0) {
+        sum += i1;
+      }
     }
+    System.out.println(sum);
+  }
 }

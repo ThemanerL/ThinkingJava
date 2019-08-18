@@ -24,13 +24,13 @@ import java.util.Arrays;
  * @date 2019/8/16 20:52
  */
 public class ContainsDuplicate {
-    public static void main(String[] args) {
-        int[] ints = {1, 2, 3, 1};
-        boolean solution = new ContainsDuplicate().solution(ints);
-        System.out.println(solution);
-    }
+  public static void main(String[] args) {
+    int[] ints = {1, 2, 3, 1};
+    boolean solution = new ContainsDuplicate().solution(ints);
+    System.out.println(solution);
+  }
 
-    private boolean solution(int[] nums) {
-        return nums.length !=Arrays.stream(nums).distinct().count();
-    }
+  private boolean solution(int[] nums) {
+    return nums.length != Arrays.stream(nums).distinct().count();
+  }
 }
