@@ -25,25 +25,13 @@ import java.util.PrimitiveIterator;
 public class SingleNumber {
   public static void main(String[] args) {
     int[] nums = {4, 1, 2, 1, 2};
-    int i = new SingleNumber().solutionTwo(nums);
+    int i = new SingleNumber().solution(nums);
     System.out.println(i);
   }
 
   private int solutionOne(int[] nums) {
-    for (int i = 0; i < nums.length; i++) {
-      boolean sorted = true;
-      for (int j = 0; j < nums.length - 1 - i; j++) {
-        if (nums[j] > nums[j + 1]) {
-          int temp = nums[j];
-          nums[j] = nums[j + 1];
-          nums[j + 1] = temp;
-          sorted = false;
-        }
-      }
-      if (sorted) {
-        break;
-      }
-    }
+    bubbleSort(nums);
+
     if (nums.length == 1 || nums[0] != nums[1]) {
       return nums[0];
     }
@@ -64,7 +52,7 @@ public class SingleNumber {
    * @param nums
    * @return
    */
-  private int solutionTwo(int[] nums) {
+  private int solutionTwo1(int[] nums) {
     PrimitiveIterator.OfInt iterator = Arrays.stream(nums).sorted().iterator();
     int sum = 0;
     int i = 0;
@@ -72,11 +60,54 @@ public class SingleNumber {
       i++;
       Integer integer = iterator.next();
       if ((1 & i) == 1) {
-        sum += integer;
-      } else {
         sum -= integer;
+      } else {
+        sum += integer;
       }
     }
     return sum;
+  }
+
+  private int solutionTwo2(int[] nums) {
+    bubbleSort(nums);
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++) {
+      if ((1 & i) == 1) {
+        sum -= nums[i];
+      } else {
+        sum += nums[i];
+      }
+    }
+    return sum;
+  }
+
+  /**
+   * 终极算法，使用异或
+   * @param nums
+   * @return
+   */
+  private int solution(int[] nums){
+    int sum = 0;
+    for (int num : nums) {
+      sum = sum ^ num;
+    }
+    return sum;
+  }
+
+  private void bubbleSort(int[] nums) {
+    for (int i = 0; i < nums.length; i++) {
+      boolean sorted = true;
+      for (int j = 0; j < nums.length - 1 - i; j++) {
+        if (nums[j] > nums[j + 1]) {
+          int temp = nums[j];
+          nums[j] = nums[j + 1];
+          nums[j + 1] = temp;
+          sorted = false;
+        }
+      }
+      if (sorted) {
+        break;
+      }
+    }
   }
 }
