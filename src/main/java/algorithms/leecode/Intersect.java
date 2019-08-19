@@ -1,9 +1,5 @@
 package algorithms.leecode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * 给定两个数组，编写一个函数来计算它们的交集。
  * <p>
