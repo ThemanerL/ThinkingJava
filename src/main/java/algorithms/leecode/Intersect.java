@@ -30,28 +30,5 @@ import java.util.List;
  */
 public class Intersect {
     public static void main(String[] args) {
-        int[] ints = new Intersect().solution(new int[]{1, 2, 2, 3}, new int[]{2, 2, 4});
-        Arrays.stream(ints).forEach(System.out::println);
     }
-
-    /**
-     * 最蠢算法
-     *
-     * @param nums1
-     * @param nums2
-     * @return
-     */
-    private int[] solution(int[] nums1, int[] nums2) {
-        List<Integer> list = new ArrayList<>(Math.min(nums1.length, nums2.length));
-        for (int item : nums1) {
-            for (int value : nums2) {
-                if (item == value) {
-                    list.add(item);
-                    break;
-                }
-            }
-        }
-        return list.stream().mapToInt(Integer::intValue).toArray();
-    }
-
 }
