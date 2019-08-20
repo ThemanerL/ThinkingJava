@@ -1,5 +1,7 @@
 package algorithms.leecode;
 
+import java.util.Arrays;
+
 /**
  * 加一
  * 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
@@ -24,15 +26,21 @@ package algorithms.leecode;
  */
 public class PlusOne {
   public static void main(String[] args) {
-
+    int[] ints = new PlusOne().solution(new int[]{4, 3, 2, 9});
+    Arrays.stream(ints).forEach(System.out::println);
   }
 
-  private int[] solution(int[] input) {
-    int length = input.length;
-    Integer temp = 0;
-    for (int i = 0; i < length; i++) {
-      temp = 10 * input[i] + temp;
+  private int[] solution(int[] digits) {
+    int[] outPut = new int[digits.length + 1];
+    int i = digits[digits.length - 1] + 1;
+    if (i > 9) {
+      digits[digits.length - 1] = 1;
+      System.arraycopy(digits, 0, outPut, 0, digits.length);
+      outPut[digits.length] = i - 10;
+      return outPut;
     }
-    return null;
+    digits[digits.length - 1] = i;
+    return digits;
   }
+
 }
