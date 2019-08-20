@@ -28,7 +28,11 @@ public class PlusOne {
     }
 
     private int[] solution(int[] input) {
-
+        int length = input.length;
+        Integer temp = 0;
+        for (int i = 0; i < length; i++) {
+            temp = 10 * input[i] + temp;
+        }
         return null;
     }
 }
