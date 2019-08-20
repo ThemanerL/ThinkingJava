@@ -23,16 +23,16 @@ package algorithms.leecode;
  * @date 2019/8/20 17:57
  */
 public class PlusOne {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-    }
+  }
 
-    private int[] solution(int[] input) {
-        int length = input.length;
-        Integer temp = 0;
-        for (int i = 0; i < length; i++) {
-            temp = 10 * input[i] + temp;
-        }
-        return null;
+  private int[] solution(int[] input) {
+    int length = input.length;
+    Integer temp = 0;
+    for (int i = 0; i < length; i++) {
+      temp = 10 * input[i] + temp;
     }
+    return null;
+  }
 }

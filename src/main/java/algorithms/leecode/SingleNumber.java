@@ -83,10 +83,11 @@ public class SingleNumber {
 
   /**
    * 终极算法，使用异或
+   *
    * @param nums
    * @return
    */
-  private int solution(int[] nums){
+  private int solution(int[] nums) {
     int sum = 0;
     for (int num : nums) {
       sum = sum ^ num;
