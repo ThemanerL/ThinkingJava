@@ -1,5 +1,8 @@
 package algorithms.leecode;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 /**
  * 给定两个数组，编写一个函数来计算它们的交集。
  * <p>
@@ -26,5 +29,28 @@ package algorithms.leecode;
  */
 public class Intersect {
     public static void main(String[] args) {
+        int[] ints = new Intersect().solution(new int[]{4, 9, 5}, new int[]{9, 4, 9, 8, 4});
+        Arrays.stream(ints).forEach(System.out::println);
     }
+
+    private int[] solution(int[] nums1, int[] nums2) {
+        HashMap<Integer, Integer> map = new HashMap<>(64);
+        for (Integer i : nums1) {
+            if (map.containsKey(i)) {
+                map.put(i, map.get(i) + 1);
+            } else {
+                map.put(i, 1);
+            }
+        }
+        int index = 0;
+        int[] outPut = new int[Math.max(nums1.length, nums2.length)];
+        for (Integer j : nums2) {
+            if (map.containsKey(j) && map.get(j) > 0) {
+                outPut[index++] = j;
+                map.put(j, map.get(j) - 1);
+            }
+        }
+        return Arrays.copyOf(outPut, index);
+    }
+
 }
