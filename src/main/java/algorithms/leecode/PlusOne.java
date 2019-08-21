@@ -31,16 +31,26 @@ public class PlusOne {
   }
 
   private int[] solution(int[] digits) {
-    int[] outPut = new int[digits.length + 1];
     int i = digits[digits.length - 1] + 1;
-    if (i > 9) {
-      digits[digits.length - 1] = 1;
-      System.arraycopy(digits, 0, outPut, 0, digits.length);
-      outPut[digits.length] = i - 10;
-      return outPut;
-    }
     digits[digits.length - 1] = i;
-    return digits;
+    if (i < 10) {
+      return digits;
+    }
+    // 如果最后一位大于10，则进位
+    for (int j = digits.length - 1; j > 0; j--) {
+      if (digits[j] > 9) {
+        digits[j - 1] = digits[j - 1] + 1;
+        digits[j] = i - 10;
+      }
+    }
+    if (digits[0] < 10) {
+      return digits;
+    }
+    // 如果进位到digits[0]>10 则digits[1]至digits[length-1]全部后移一位
+    int[] outPut = new int[digits.length + 1];
+    outPut[0] = 1;
+    outPut[1] = i - 10;
+    System.arraycopy(digits, 1, outPut, 2, digits.length - 1);
+    return outPut;
   }
-
 }
