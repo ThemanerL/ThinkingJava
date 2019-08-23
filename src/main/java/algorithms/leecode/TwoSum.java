@@ -18,11 +18,11 @@ public class TwoSum {
   public static void main(String[] args) {
     int[] numbers = {2, 2, 2, 15};
     TwoSum twoSum = new TwoSum();
-    int[] solution = twoSum.solution(numbers, 4);
+    int[] solution = twoSum.solutionTwo(numbers, 4);
     for (int s : solution) {
       System.out.println(s);
     }
-    solution = twoSum.solution(numbers, 17);
+    solution = twoSum.solutionTwo(numbers, 17);
     for (int s : solution) {
       System.out.println(s);
     }
@@ -40,4 +40,15 @@ public class TwoSum {
     throw new IllegalArgumentException("No Such elements");
   }
 
+  private int[] solutionTwo(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>(16);
+    for (int i = 0; i < nums.length; i++) {
+      int temp = target - nums[i];
+      if (map.containsKey(temp)) {
+        return new int[]{map.get(temp), i};
+      }
+      map.put(nums[i], i);
+    }
+    throw new RuntimeException("输入不合法");
+  }
 }
