@@ -21,7 +21,7 @@ import java.util.Arrays;
 public class MoveZeroes {
   public static void main(String[] args) {
     int[] nums = new int[]{0, 3, 0, 3, 12};
-    new MoveZeroes().solution(nums);
+    new MoveZeroes().moveZeroesFinally(nums);
     Arrays.stream(nums).forEach(System.out::println);
   }
 
@@ -50,10 +50,10 @@ public class MoveZeroes {
   }
 
   /**
-   * 终极算法
+   * 1ms算法
    * @param nums
    */
-  public void moveZeroes(int[] nums) {
+  private void moveZeroes(int[] nums) {
     if(nums == null || nums.length < 2){
       return;
     }
@@ -68,6 +68,22 @@ public class MoveZeroes {
     }
     for(int j = 0; j < count; j++){
       nums[nums.length - 1 -j] = 0;
+    }
+  }
+
+  /**
+   * 对于非零的数，直接把它丢到前面，然后用零填充后面的数即可，只需要遍历一遍数组。
+   * @param nums
+   */
+  public void moveZeroesFinally(int[] nums) {
+    int k = 0;
+    for(int i = 0;i<nums.length;i++){
+      if(nums[i] != 0){
+        nums[k++] = nums[i];
+      }
+    }
+    for(;k<nums.length;k++){
+      nums[k] = 0;
     }
   }
 }
