@@ -120,7 +120,7 @@ public class IsValidSudoku {
         }
       }
     }
-
+    // 判断某一个小方块中是否存在相同数字
     for (int rowEnd = 2; rowEnd < 9; rowEnd = rowEnd + 3) {
       for (int columnEnd = 2; columnEnd < 9; columnEnd = columnEnd + 3) {
         List<Character> listCube = new ArrayList<>(16);
