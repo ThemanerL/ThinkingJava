@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
+ * <h1>两个数组的交集中II</h1>
  * 给定两个数组，编写一个函数来计算它们的交集。
  * <p>
  * 示例 1:
