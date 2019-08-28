@@ -1,4 +1,4 @@
-package algorithms.leecode;
+package algorithms.leecode.primary.array;
 
 /**
  * <h1>旋转数组</h1>

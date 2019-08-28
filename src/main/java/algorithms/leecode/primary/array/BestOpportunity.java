@@ -1,4 +1,4 @@
-package algorithms.leecode;
+package algorithms.leecode.primary.array;
 
 /**
  * <h1>买卖股票的最佳时机</h1>

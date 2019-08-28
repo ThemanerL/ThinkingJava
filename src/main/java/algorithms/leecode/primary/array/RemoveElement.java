@@ -1,4 +1,4 @@
-package algorithms.leecode;
+package algorithms.leecode.primary.array;
 
 /**
  * <h1>删除元素</h1>

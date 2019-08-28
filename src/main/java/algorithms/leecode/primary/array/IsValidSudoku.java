@@ -1,4 +1,4 @@
-package algorithms.leecode;
+package algorithms.leecode.primary.array;
 
 import java.util.ArrayList;
 import java.util.List;

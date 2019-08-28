@@ -1,4 +1,4 @@
-package algorithms.leecode;
+package algorithms.leecode.primary.array;
 
 /**
  * <h1>从排序数组中删除重复项</h1>
