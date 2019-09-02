@@ -21,13 +21,17 @@ import java.util.ArrayList;
  * 注意:
  * <p>
  * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。
+ * <p>
+ * 题解：
+ * 1、可以将数字转化为字符串，然后反转字符串
+ * 2、可以使用堆栈或者数组
  *
  * @author 李重辰
  * @date 2019/8/30 10:05
  */
 public class Reverse {
   public static void main(String[] args) {
-    int solution = new Reverse().solution(1534236469);
+    int solution = new Reverse().solution(153);
     System.out.println(solution);
   }
 
@@ -43,18 +47,11 @@ public class Reverse {
       list.add(v);
       origin = (int) Math.floor(origin % Math.pow(10, i));
     }
-    // 翻转数组
-    int size = list.size();
-    for (int i = 0; i < size / 2; i++) {
-      Integer temp = list.get(i);
-      list.set(i, list.get(size - 1 - i));
-      list.set(size - 1 - i, temp);
-    }
     // 将数组转化为int数值返回
     int result = 0;
-    for (int i = 0, j = list.size() - 1; i < list.size(); ) {
+    for (int j = list.size() - 1; j >= 0; ) {
       try {
-        result = Math.addExact(result, (int) (list.get(i++) * Math.pow(10, j--)));
+        result = Math.addExact(result, (int) (list.get(j) * Math.pow(10, j--)));
       } catch (ArithmeticException e) {
         return 0;
       }
@@ -64,4 +61,28 @@ public class Reverse {
     }
     return result;
   }
+
+  /**
+   * 终极算法
+   *
+   * @return
+   */
+  private int solutionTwo(int x) {
+    int result = 0;
+    int biggerValue = Integer.MAX_VALUE / 10;
+    int smallerValue = Integer.MIN_VALUE / 10;
+    while (x != 0) {
+      int pop = x % 10;
+      x /= 10;
+      if (result > biggerValue) {
+        return 0;
+      }
+      if (result < smallerValue) {
+        return 0;
+      }
+      result = result * 10 + pop;
+    }
+    return result;
+  }
+
 }
