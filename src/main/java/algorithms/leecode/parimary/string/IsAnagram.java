@@ -1,5 +1,9 @@
 package algorithms.leecode.parimary.string;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * <h1>有效的字母异位词</h1>
  * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
@@ -24,25 +28,58 @@ package algorithms.leecode.parimary.string;
 public class IsAnagram {
 
   public static void main(String[] args) {
-    boolean solution = new IsAnagram().solution("aa", "bb");
+    boolean solution = new IsAnagram().solution("xaaddy", "xbbccy");
     System.out.println(solution);
   }
 
   public boolean solution(String s, String t) {
     char[] chars = s.toCharArray();
     char[] chars1 = t.toCharArray();
+    Set<Character> set = new HashSet<>();
     int result = 0;
     int chatInt1 = 0;
     for (char c : chars) {
       result = result ^ c;
       chatInt1 += c;
+      set.add(c);
     }
 
     int chatInt2 = 0;
     for (char c : chars1) {
       result = result ^ c;
       chatInt2 += c;
+      if (!set.contains(c)) {
+        return false;
+      }
     }
     return chatInt1 == chatInt2 && result == 0;
+  }
+
+  public boolean solutionOne(String s, String t){
+    if (s.length()!=t.length()){
+      return false;
+    }
+    char[] chars1 = s.toCharArray();
+    char[] chars2 = t.toCharArray();
+    Arrays.sort(chars1);
+    Arrays.sort(chars2);
+    return Arrays.equals(chars1, chars2);
+  }
+
+  public boolean solutionTwo(String s, String t){
+    if (s.length()!=t.length()){
+      return false;
+    }
+    int[] counter = new int[26];
+    for (int i = 0; i < s.length(); i++) {
+      counter[s.charAt(i) - 'a']++;
+      counter[t.charAt(i) - 'a']--;
+    }
+    for (int count : counter) {
+      if (count != 0) {
+        return false;
+      }
+    }
+    return true;
   }
 }
