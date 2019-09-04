@@ -47,28 +47,70 @@ import org.jetbrains.annotations.Contract;
  * 输出: -2147483648
  * 解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
  * 因此返回 INT_MIN (−2^31) 。
+ * 示例 6:
+ * <p>
+ * 输入: "3.141"
+ * 输出: 3
+ * 解释: '3'的下一个字符不为数字。
  *
  * @author 李重辰
  * @date 2019/9/3 16:57
  */
 public class MyAtoi {
-  public static void main(String[] args) {
-    int solution = new MyAtoi().solution("   words and 987");
-    System.out.println(solution);
-  }
 
+  /**
+   * 3.141592647 应当转化为3
+   *
+   * @param str
+   * @return
+   */
   @Contract(pure = true)
-  private int solution(String s) {
-    String s1 = s.replaceAll("[^0-9-+]", "");
-    char c = s1.charAt(0);
-    // 判断字符串的首字符是否为0-9，-，+
-    boolean noNumber = c > 57 || (c < 48 && c != 43 && c != 45);
-    if (noNumber) {
+  public int solution(String str) {
+    while (str.length() > 0 && str.charAt(0) == ' ') {
+      str = str.replaceFirst(" ", "");
+    }
+    if (str.length() == 0) {
       return 0;
     }
-    Integer.valueOf(s1);
-    System.out.println(s1);
+    char c = str.charAt(0);
+    // 判断字符串的首字符是否为0-9，-，+
+    boolean specChar = isSpecialChar(c);
+    if (specChar) {
+      return 0;
+    }
+    // 当出现非数字字符时，截断字符串
+    char[] charArray = str.toCharArray();
+    for (int i = 1; i < charArray.length; i++) {
+      char temp = charArray[i];
+      if (isNotNumber(temp)) {
+        str = str.substring(0, i);
+        break;
+      }
+    }
+    if (str.length() < 2 && isNotNumber(str.charAt(0))) {
+      return 0;
+    }
+    // 当数值超出范围时，输入Integer.MIN_VALUE或者Integer.MAX_VALUE
+    int result;
+    try {
+      result = Integer.parseInt(str);
+    } catch (NumberFormatException e) {
+      if (c == 45) {
+        return Integer.MIN_VALUE;
+      } else {
+        return Integer.MAX_VALUE;
+      }
+    }
+    return result;
+  }
 
-    return 0;
+  private boolean isSpecialChar(char temp) {
+    return temp > 57 || (temp < 48 && temp != 43 && temp != 45);
+  }
+
+  private boolean isNotNumber(char temp) {
+    return temp > 57 || temp < 48;
   }
 }
+
+
