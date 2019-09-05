@@ -82,12 +82,12 @@ public class MyAtoi {
     char[] charArray = str.toCharArray();
     for (int i = 1; i < charArray.length; i++) {
       char temp = charArray[i];
-      if (isNotNumber(temp)) {
+      if (!Character.isDigit(temp)) {
         str = str.substring(0, i);
         break;
       }
     }
-    if (str.length() < 2 && isNotNumber(str.charAt(0))) {
+    if (str.length() < 2 && !Character.isDigit(str.charAt(0))) {
       return 0;
     }
     // 当数值超出范围时，输入Integer.MIN_VALUE或者Integer.MAX_VALUE
@@ -108,9 +108,6 @@ public class MyAtoi {
     return temp > 57 || (temp < 48 && temp != 43 && temp != 45);
   }
 
-  private boolean isNotNumber(char temp) {
-    return temp > 57 || temp < 48;
-  }
 }
 
 
