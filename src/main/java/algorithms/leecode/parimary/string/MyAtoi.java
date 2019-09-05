@@ -108,6 +108,65 @@ public class MyAtoi {
     return temp > 57 || (temp < 48 && temp != 43 && temp != 45);
   }
 
+  /**
+   * 7毫秒
+   *
+   * @param str
+   * @return
+   */
+  public int solutionTwo(String str) {
+    if (str.length() == 0) {
+      return 0;
+    }
+
+    char[] chars = str.toCharArray();
+    char[] result = new char[chars.length];
+    int i = 0, j = 0;
+    // 此处从chars[i] 开始往后处理，
+    for (; i < chars.length; ) {
+      if (chars[i] != ' ') {
+        break;
+      } else {
+        i++;
+      }
+    }
+
+    // 开始由chars[i]节点开始存数据
+    for (int k = i; k < chars.length; k++) {
+      if ((k == i && (chars[i] == '+' || chars[i] == '-')) || Character.isDigit(chars[k])) {
+        result[j++] = chars[k];
+      } else {
+        break;
+      }
+    }
+
+    if (result.length == 0) {
+      return 0;
+    }
+
+    int flag = 1;
+    int start = 0;
+    if (!Character.isDigit(result[0])) {
+      start = 1;
+      if (result[0] == '-') {
+        flag = -1;
+      }
+    }
+
+    int sum = 0;
+    for (int k = start; k < j; k++) {
+      try {
+        sum = Math.addExact(sum, (int) (Character.getNumericValue(result[k]) * Math.pow(10, j - 1 - k)));
+      } catch (ArithmeticException e) {
+        if (flag == 1) {
+          return Integer.MAX_VALUE;
+        } else {
+          return Integer.MIN_VALUE;
+        }
+      }
+    }
+    return sum * flag;
+  }
 }
 
 
