@@ -8,7 +8,7 @@ package algorithms.leecode.parimary.string;
  * <p>
  * 示例 1:
  * <p>
- * 输入: haystack = "hello", needle = "ll"
+ * 输入: haystack = "hlello", needle = "ll"
  * 输出: 2
  * 示例 2:
  * <p>
@@ -24,17 +24,33 @@ package algorithms.leecode.parimary.string;
  * @date 2019/9/5 18:08
  */
 public class StrStr {
-  public static void main(String[] args) {
-    int hello = new StrStr().solution("hello", "");
-    System.out.println(hello);
-  }
 
-  private int solution(String haystack, String needle) {
+  public int solution(String haystack, String needle) {
+    int hLength = haystack.length();
+    int nLength = needle.length();
     char[] chars = haystack.toCharArray();
-    for (int i = 0; i < haystack.length(); i++) {
-      char c = chars[i];
-      if (c == needle.charAt(0)) {
-        return i;
+    if (needle.length() == 0) {
+      return 0;
+    }
+    if (needle.length() > hLength) {
+      return -1;
+    }
+    for (int i = 0; i < hLength; i++) {
+      // 当某个字符与目标字符匹配后，开始匹配后面的字符
+      if (chars[i] == needle.charAt(0)) {
+        if (hLength - i < nLength) {
+          return -1;
+        }
+        // 若后面的字符在needle循环完之前，有不匹配的，则继续外层循环
+        for (int k = i, j = 0; j < nLength || k < hLength; k++, j++) {
+          if (chars[k] != needle.charAt(j)) {
+            // 重新从i开始
+            break;
+          }
+          if (j == needle.length() - 1) {
+            return i;
+          }
+        }
       }
     }
     return -1;
