@@ -37,36 +37,41 @@ import java.util.*;
 public class CountAndSay {
 
   public static void main(String[] args) {
-    String gate = new CountAndSay().gate(4);
+    String gate = new CountAndSay().gate(30);
     System.out.println(gate);
   }
 
   public String gate(int n) {
-    int result = 1;
+    String result = "1";
     for (int i = 1; i < n; i++) {
       result = solution(result);
     }
     return String.valueOf(result);
   }
 
-  public int solution(int n) {
-    char[] chars = String.valueOf(n).toCharArray();
+  public String solution(String n) {
+    int length = n.length();
     Map<Integer, Integer> map = new LinkedHashMap<>(1);
     StringBuilder builder = new StringBuilder();
 
-    Integer temp = 1;
-    for (int i = 0; i < chars.length; i++) {
-      Integer aChar = chars[i] - 48;
+    // 可以根据chars[i+1]来判断下一个的值
+    for (int i = 0; i < length; i++) {
+      Integer aChar = n.charAt(i) - 48;
       map.put(aChar, map.getOrDefault(aChar, 0) + 1);
-      if (!aChar.equals(temp) || i == chars.length - 1) {
+      if (i == length - 1) {
+        builder.append(map.get(aChar));
+        builder.append(aChar);
+        map.clear();
+        break;
+      }
+      Integer nextChar = n.charAt(i + 1) - 48;
+      if (!aChar.equals(nextChar)) {
         builder.append(map.get(aChar));
         builder.append(aChar);
         map.clear();
       }
-      temp = aChar;
     }
-
-    return Integer.parseInt(builder.toString());
+    return builder.toString();
   }
 
 }
