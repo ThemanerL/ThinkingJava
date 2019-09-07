@@ -51,7 +51,7 @@ public class CountAndSay {
 
   public String solution(String n) {
     int length = n.length();
-    Map<Integer, Integer> map = new LinkedHashMap<>(1);
+    Map<Integer, Integer> map = new LinkedHashMap<>(2);
     StringBuilder builder = new StringBuilder();
 
     // 可以根据chars[i+1]来判断下一个的值
