@@ -25,22 +25,40 @@ package algorithms.leecode.parimary.string;
 public class LongestCommonPrefix {
 
   public static void main(String[] args) {
-
+    String[] strs = {"aca", "cba"};
+    String s = new LongestCommonPrefix().solution(strs);
+    System.out.println(s);
   }
 
+  /**
+   * 初级算法 时间复杂度O(n^2)
+   *
+   * @param strs
+   * @return
+   */
   public String solution(String[] strs) {
-
-    int minLength = 255;
-    for (int i = 0; i < strs.length; i++) {
-      minLength = Math.min(strs[i].length(), minLength);
+    if (strs.length == 0) {
+      return "";
     }
-
-    char[] prefix;
-    for (int i = 0; i < minLength; i++) {
-      for (int j = 0; j < strs.length; j++) {
-//        if (strs[j].charAt(i))
+    int minLength = Integer.MAX_VALUE;
+    for (String str : strs) {
+      minLength = Math.min(str.length(), minLength);
+    }
+    StringBuilder sb = new StringBuilder();
+    char temp;
+    for (int i = 0, j; i < minLength; i++) {
+      j = 0;
+      temp = strs[j].charAt(i);
+      for (; j < strs.length; j++) {
+        if (temp != strs[j].charAt(i)) {
+          return sb.toString();
+        }
+        if (j == strs.length - 1) {
+          sb.append(temp);
+        }
       }
     }
-    return "";
+    return sb.toString();
   }
+
 }
