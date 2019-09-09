@@ -36,7 +36,7 @@ public class DeleteNode {
 
   private void solution(ListNode node) {
 //    ListNode next = node.next;
-    
+
   }
 
 }
