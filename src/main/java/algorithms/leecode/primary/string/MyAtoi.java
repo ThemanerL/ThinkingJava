@@ -1,4 +1,4 @@
-package algorithms.leecode.parimary.string;
+package algorithms.leecode.primary.string;
 
 import org.jetbrains.annotations.Contract;
 

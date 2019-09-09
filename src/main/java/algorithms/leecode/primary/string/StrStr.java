@@ -1,4 +1,4 @@
-package algorithms.leecode.parimary.string;
+package algorithms.leecode.primary.string;
 
 /**
  * <h1>实现 strStr()</h1>

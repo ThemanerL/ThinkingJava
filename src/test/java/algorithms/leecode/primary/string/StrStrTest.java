@@ -1,6 +1,5 @@
-package algorithms.leecode.parimary.string;
+package algorithms.leecode.primary.string;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,6 +24,6 @@ public class StrStrTest {
 //    Assert.assertEquals(1, strStr.solution("hlello", "l"));
 //    Assert.assertEquals(-1, strStr.solution("aaa", "aaaa"));
 //    Assert.assertEquals(0, strStr.solution("aaa", "a"));
-    Assert.assertEquals(-1, strStr.solution("mississippi", "issipi"));
+    assertEquals(-1, strStr.solution("mississippi", "issipi"));
   }
 }
