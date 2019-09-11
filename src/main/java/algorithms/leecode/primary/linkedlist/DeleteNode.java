@@ -39,13 +39,13 @@ public class DeleteNode {
     node.next = node.next.next;
   }
 
-}
+  static class ListNode {
+    int val;
+    ListNode next;
 
-class ListNode {
-  int val;
-  ListNode next;
-
-  ListNode(int x) {
-    val = x;
+    ListNode(int x) {
+      val = x;
+    }
   }
 }
+
