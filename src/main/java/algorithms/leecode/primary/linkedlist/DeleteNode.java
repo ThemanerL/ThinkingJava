@@ -35,8 +35,8 @@ package algorithms.leecode.primary.linkedlist;
 public class DeleteNode {
 
   private void solution(ListNode node) {
-//    ListNode next = node.next;
-
+    node.val = node.next.val;
+    node.next = node.next.next;
   }
 
 }
