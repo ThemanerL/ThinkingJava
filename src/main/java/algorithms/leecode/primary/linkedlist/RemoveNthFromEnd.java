@@ -55,12 +55,11 @@ public class RemoveNthFromEnd {
     while (head.next != null) {
       flag++;
       if (flag == target) {
-        if (n > 1) {
-          head.next = head.next.next;
-        } else if (n == 1) {
+        if (n == 1) {
           head.next = null;
           continue;
         }
+        head.next = head.next.next;
       }
       head = head.next;
     }
