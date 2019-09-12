@@ -17,17 +17,28 @@ import static algorithms.leecode.primary.linkedlist.DeleteNode.ListNode;
  * @date 2019/9/11 20:48
  */
 public class ReverseList {
-  public ListNode reverseList(ListNode head) {
-    ListNode pre = new ListNode(0);
-    ListNode temp = head;
-    pre.next = head;
-    while (head.next != null) {
-      head = head.next;
-    }
+  public static void main(String[] args) {
+    ListNode head = new ListNode(1);
+    ListNode one = new ListNode(2);
+    ListNode two = new ListNode(3);
+    ListNode three = new ListNode(4);
+    ListNode four = new ListNode(5);
+    head.next = one;
+    one.next = two;
+    two.next = three;
+    three.next = four;
+    ListNode resultHead = new ReverseList().reverseList(head);
+    System.out.println(resultHead);
+  }
 
-    while (temp.next == head) {
-      head.next = temp;
+  public ListNode reverseList(ListNode head) {
+    ListNode secondHead = new ListNode(0);
+    while (head.next != null) {
+      ListNode temp = new ListNode(head.val);
+      head = head.next;
+      secondHead = new ListNode(head.val);
+      secondHead.next = temp;
     }
-    return null;
+    return secondHead;
   }
 }
