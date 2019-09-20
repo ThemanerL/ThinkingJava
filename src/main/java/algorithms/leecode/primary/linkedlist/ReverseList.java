@@ -31,14 +31,19 @@ public class ReverseList {
     System.out.println(resultHead);
   }
 
+  /**
+   * 递归法
+   * @param head
+   * @return
+   */
   public ListNode reverseList(ListNode head) {
-    ListNode secondHead = new ListNode(0);
-    while (head.next != null) {
-      ListNode temp = new ListNode(head.val);
-      head = head.next;
-      secondHead = new ListNode(head.val);
-      secondHead.next = temp;
+    if(head==null||head.next==null){
+      return head;
     }
-    return secondHead;
+    ListNode temp = head.next;
+    ListNode newHead = reverseList(head.next);
+    temp.next = head;
+    head.next = null;
+    return newHead;
   }
 }
