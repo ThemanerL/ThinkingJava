@@ -33,10 +33,10 @@ public class ReverseList {
 
   /**
    * 递归法
-   * @param head
-   * @return
+   * @param head  链表的头结点
+   * @return 反转后的链表的头
    */
-  public ListNode reverseList(ListNode head) {
+  private ListNode reverseList(ListNode head) {
     if(head==null||head.next==null){
       return head;
     }
