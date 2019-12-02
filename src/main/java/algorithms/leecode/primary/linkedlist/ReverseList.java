@@ -27,23 +27,45 @@ public class ReverseList {
     one.next = two;
     two.next = three;
     three.next = four;
-    ListNode resultHead = new ReverseList().reverseList(head);
+    ListNode resultHead = new ReverseList().reverserListWhile(head);
     System.out.println(resultHead);
   }
 
   /**
    * 递归法
-   * @param head  链表的头结点
+   *
+   * @param head 链表的头结点
    * @return 反转后的链表的头
    */
   private ListNode reverseList(ListNode head) {
-    if(head==null||head.next==null){
+    if (head == null || head.next == null) {
       return head;
     }
-    ListNode temp = head.next;
     ListNode newHead = reverseList(head.next);
-    temp.next = head;
+    head.next.next = head;
     head.next = null;
     return newHead;
+  }
+
+  /**
+   * 循环法
+   *
+   * @param head 链表的头结点
+   * @return 反转后的链表的头
+   */
+  private ListNode reverserListWhile(ListNode head) {
+    ListNode pre = null;
+    ListNode next = null;
+    do {
+      // 获得源数据的下一个节点
+      next = head.next;
+      // 当前节点的下一个节点
+      head.next = pre;
+      // 当前节点
+      pre = head;
+      // 下一个节点
+      head = next;
+    } while (null != head.next);
+    return pre;
   }
 }
