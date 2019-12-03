@@ -27,7 +27,7 @@ public class ReverseList {
     one.next = two;
     two.next = three;
     three.next = four;
-    ListNode resultHead = new ReverseList().reverserListWhile(head);
+    ListNode resultHead = new ReverseList().reverserListThree(head);
     System.out.println(resultHead);
   }
 
@@ -52,10 +52,11 @@ public class ReverseList {
    *
    * @param head 链表的头结点
    * @return 反转后的链表的头
+   * @author 韦善贵
    */
   private ListNode reverserListWhile(ListNode head) {
     ListNode pre = null;
-    ListNode next = null;
+    ListNode next;
     do {
       // 获得源数据的下一个节点
       next = head.next;
@@ -66,6 +67,29 @@ public class ReverseList {
       // 下一个节点
       head = next;
     } while (null != head.next);
+    return pre;
+  }
+
+  /**
+   * 循环法
+   *
+   * @param head 链表的头结点
+   * @return 反转后的链表的头
+   */
+  private ListNode reverserListThree(ListNode head) {
+    if (head.next == null) {
+      return head;
+    }
+    ListNode pre = head;
+    ListNode next = head.next;
+    ListNode temp;
+    head.next = null;
+    while (next != null) {
+      temp = next.next;
+      next.next = pre;
+      pre = next;
+      next = temp;
+    }
     return pre;
   }
 }
