@@ -1,6 +1,6 @@
 package algorithms.leecode.primary.linkedlist;
 
-import static algorithms.leecode.primary.linkedlist.DeleteNode.ListNode;
+import static algorithms.leecode.primary.linkedlist.ListNode;
 
 /**
  * <h1>删除链表的倒数第N个节点</h1>

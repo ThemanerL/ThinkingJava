@@ -1,7 +1,5 @@
 package algorithms.leecode.primary.linkedlist;
 
-import static algorithms.leecode.primary.linkedlist.DeleteNode.ListNode;
-
 /**
  * <h1>反转链表</h1>
  * 反转一个单链表。
