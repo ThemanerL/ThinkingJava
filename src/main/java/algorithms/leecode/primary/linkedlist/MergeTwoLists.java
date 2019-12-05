@@ -13,7 +13,9 @@ package algorithms.leecode.primary.linkedlist;
  */
 public class MergeTwoLists {
 
-  private ListNode solution(ListNode l1, ListNode l2) {}
+  private ListNode solution(ListNode l1, ListNode l2) {
+    return null;
+  }
 
   public static void main(String[] args) {
     ListNode one = new ListNode(1);
