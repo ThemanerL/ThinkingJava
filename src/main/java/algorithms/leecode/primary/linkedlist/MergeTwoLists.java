@@ -14,7 +14,28 @@ package algorithms.leecode.primary.linkedlist;
 public class MergeTwoLists {
 
   private ListNode solution(ListNode l1, ListNode l2) {
-    return null;
+    if (null == l1 && null == l2) {
+      return null;
+    } else if (null == l1) {
+      return l2;
+    } else if (null == l2) {
+      return l1;
+    } else {
+      ListNode pre = new ListNode(-1);
+      ListNode pointer = pre;
+      while (null != l1 && null != l2) {
+        if (l1.val <= l2.val) {
+          pointer.next = l1;
+          l1 = l1.next;
+        } else {
+          pointer.next = l2;
+          l2 = l2.next;
+        }
+        pointer = pointer.next;
+      }
+      pointer.next = l1 == null ? l2 : l1;
+      return pre.next;
+    }
   }
 
   public static void main(String[] args) {
@@ -25,8 +46,8 @@ public class MergeTwoLists {
     three.next = five;
 
     ListNode one1 = new ListNode(1);
-    ListNode two = new ListNode(3);
-    ListNode three1 = new ListNode(5);
+    ListNode two = new ListNode(2);
+    ListNode three1 = new ListNode(3);
     one1.next = two;
     two.next = three1;
 
