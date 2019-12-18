@@ -19,7 +19,7 @@ public class LiteralPerCreator extends AbstractPetCreator {
       Arrays.asList(Pet.class, Dog.class, Cat.class, Rodent.class, Mutt.class, Pug.class,
           EgyptianMau.class, Manx.class, Cymric.class, Rat.class, Mouse.class, Hamster.class));
 
-  private static final List<Class<? extends Pet>> TYPES = allTypes.subList(allTypes.indexOf(Mutt.class), allTypes.size());
+  public static final List<Class<? extends Pet>> TYPES = allTypes.subList(allTypes.indexOf(Mutt.class), allTypes.size());
 
   public static void main(String[] args) {
     System.out.println(TYPES);
