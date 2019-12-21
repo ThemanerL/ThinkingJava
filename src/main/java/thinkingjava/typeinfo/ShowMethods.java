@@ -12,16 +12,16 @@ import java.util.regex.Pattern;
  * @author 李重辰
  * @date 2019/12/19 16:14
  */
-public class ShowMethods {
-  private static String usage = "usage:\n" +
-      "ShowMethods qualified.class.name\n" +
-      "To show all methods in class or:\n" +
-      "ShowMethods qualified.class.name word\n" +
-      "To search for methods involving ‘word’";
-  private static Pattern p = Pattern.compile("\\w+\\.");
+class ShowMethods {
+  private static Pattern p = Pattern.compile("(\\w+\\.)|(native)|(final)");
 
   public static void main(String[] args) {
     if (args.length < 1) {
+      String usage = "usage:\n" +
+          "ShowMethods qualified.class.name\n" +
+          "To show all methods in class or:\n" +
+          "ShowMethods qualified.class.name word\n" +
+          "To search for methods involving ‘word’";
       System.out.println(usage);
       System.exit(0);
     }
@@ -29,6 +29,7 @@ public class ShowMethods {
     try {
       Class<?> c = Class.forName(args[0]);
       Method[] methods = c.getMethods();
+      // 使用Class.getConstructors()的方法只能获得到public的构造器
       Constructor[] constructors = c.getConstructors();
       if (args.length == 1) {
         for (Method method : methods) {
@@ -52,6 +53,7 @@ public class ShowMethods {
           }
         }
       }
+      System.out.println(lines);
     } catch (ClassNotFoundException e) {
       System.out.println("No such class: " + e);
     }

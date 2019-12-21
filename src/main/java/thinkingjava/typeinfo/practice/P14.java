@@ -1,6 +1,5 @@
-package thinkingjava.typeinfo;
+package thinkingjava.typeinfo.practice;
 
-import thinkingjava.factory.Factory;
 import thinkingjava.net.mindview.util.TypeCounter;
 
 import java.util.ArrayList;
@@ -9,14 +8,19 @@ import java.util.Random;
 import java.util.StringJoiner;
 
 /**
+ * A constructor is a kind of factory method. Modify
+ * RegisteredFactories.java so that instead of using an explicit factory, the class object is
+ * stored in the List, and new Instance( ) is used to create each object.
+ *
  * @author 李重辰
  * @date 2019/12/19 11:39
  */
-public class RegisteredFactories {
+public class P14 {
   public static void main(String[] args) {
     TypeCounter counter = new TypeCounter(Part.class);
     for (int i = 0; i < 20; i++) {
       Part part = Part.createRandom();
+      assert part != null;
       counter.count(part);
     }
     System.out.println(counter);
@@ -30,23 +34,28 @@ class Part {
         .toString();
   }
 
-  static List<Factory<? extends Part>> partFactories = new ArrayList<>();
+  static List<Class<? extends Part>> partFactories = new ArrayList<>();
 
   private static Random rand = new Random(System.currentTimeMillis());
 
   static Part createRandom() {
     int n = rand.nextInt(partFactories.size());
-    return partFactories.get(n).create();
+    try {
+      return partFactories.get(n).newInstance();
+    } catch (InstantiationException | IllegalAccessException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 
   static {
-    partFactories.add(new FuelFilter.Factory());
-    partFactories.add(new AirFilter.Factory());
-    partFactories.add(new CabinAirFilter.Factory());
-    partFactories.add(new OilFilter.Factory());
-    partFactories.add(new FanBelt.Factory());
-    partFactories.add(new PowerSteeringBelt.Factory());
-    partFactories.add(new GeneratorBelt.Factory());
+    partFactories.add(FuelFilter.class);
+    partFactories.add(AirFilter.class);
+    partFactories.add(CabinAirFilter.class);
+    partFactories.add(OilFilter.class);
+    partFactories.add(FanBelt.class);
+    partFactories.add(PowerSteeringBelt.class);
+    partFactories.add(GeneratorBelt.class);
   }
 }
 
