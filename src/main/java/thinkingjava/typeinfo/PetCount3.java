@@ -25,7 +25,7 @@ public class PetCount3 {
 
   static class PetCounter extends LinkedHashMap<Class<? extends Pet>, Integer> {
     public PetCounter() {
-      super(MapData.map(LiteralPerCreator.TYPES, 12));
+      super(MapData.map(LiteralPerCreator.TYPES, 0));
     }
 
     public void count(Pet pet) {

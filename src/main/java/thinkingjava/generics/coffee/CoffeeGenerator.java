@@ -28,8 +28,7 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
   @Override
   public Coffee next() {
     try {
-      return (Coffee)
-          types[rand.nextInt(types.length)].newInstance();
+      return (Coffee)types[rand.nextInt(types.length)].newInstance();
       // Report programmer errors at run time:
     } catch (Exception e) {
       throw new RuntimeException(e);

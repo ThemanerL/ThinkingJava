@@ -54,6 +54,9 @@ public class PetCount {
       if (pet instanceof Hamster) {
         counter.count("Pet");
       }
+      if (pet instanceof Gerbil) {
+        counter.count("Gerbil");
+      }
     }
     System.out.println();
     System.out.println(counter);

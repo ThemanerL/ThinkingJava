@@ -20,6 +20,7 @@ public class ForNameCreator extends AbstractPetCreator {
       "thinkingjava.typeinfo.pets.Rat",
       "thinkingjava.typeinfo.pets.Mouse",
       "thinkingjava.typeinfo.pets.Hamster",
+      "thinkingjava.typeinfo.pets.Gerbil"
   };
 
   @SuppressWarnings("unchecked")
