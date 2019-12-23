@@ -1,5 +1,6 @@
 package thinkingjava.typeinfo.practice;
 
+import thinkingjava.factory.Factory;
 import thinkingjava.net.mindview.util.Null;
 
 import java.lang.reflect.InvocationHandler;
@@ -10,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.StringJoiner;
+
+interface IPart {
+}
 
 /**
  * practice24:Add Null Objects to RegisteredFactories.java
@@ -22,38 +26,33 @@ public class P24 {
   public static void main(String[] args) {
     int loops = 20;
     for (int i = 0; i < loops; i++) {
-      Class<? extends IPart> random = IPart.createRandom();
-      Object o = Proxy.newProxyInstance(P24.class.getClassLoader(), new Class[]{Null.class}, new NullPartInvocationHandle(random));
-      System.out.println(o);
+      IPart random = Part1.createRandom();
+      System.out.println(random);
     }
   }
 }
 
-class NullPartInvocationHandle implements InvocationHandler{
+class NullPartInvocationHandle implements InvocationHandler {
 
-  NullPart proxied = new NullPart();
+  NullPart1 proxied = new NullPart1();
 
-  public NullPartInvocationHandle(Class<? extends IPart> c) {
-    proxied.setClassName(c.getSimpleName());
+  String className;
+
+  public NullPartInvocationHandle(IPart c) {
+    this.className = c.getClass().getSimpleName();
   }
 
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) {
     try {
-      return method.invoke(proxied,args);
+      return method.invoke(proxied, args);
     } catch (IllegalAccessException | InvocationTargetException e) {
       e.printStackTrace();
     }
     return null;
   }
 
-  private static class NullPart extends IPart implements Null {
-    String className;
-
-    public void setClassName(String className) {
-      this.className = className;
-    }
-
+  private class NullPart1 extends Part1 implements Null {
     @Override
     public String toString() {
       return "Null Object" + className;
@@ -61,35 +60,35 @@ class NullPartInvocationHandle implements InvocationHandler{
   }
 }
 
-class IPart {
+class Part1 implements IPart {
+
+  static List<Factory> partFactories = new ArrayList<>();
+  private static Random rand = new Random(System.currentTimeMillis());
+
+  static {
+    partFactories.add(new FuelFilter1.Factory());
+    partFactories.add(new AirFilter1.Factory());
+    partFactories.add(new CabinAirFilter1.Factory());
+    partFactories.add(new OilFilter1.Factory());
+    partFactories.add(new FanBelt1.Factory());
+    partFactories.add(new PowerSteeringBelt1.Factory());
+    partFactories.add(new GeneratorBelt1.Factory());
+  }
+
+  static IPart createRandom() {
+    int n = rand.nextInt(partFactories.size());
+    IPart aClass = (IPart) partFactories.get(n).create();
+    return (IPart) Proxy.newProxyInstance(Part1.class.getClassLoader(), new Class[]{Null.class, IPart.class}, new NullPartInvocationHandle(aClass));
+  }
 
   @Override
   public String toString() {
     return new StringJoiner(", ", getClass().getSimpleName() + "[", "]")
         .toString();
   }
-
-  static List<Class<? extends IPart>> partFactories = new ArrayList<>();
-
-  private static Random rand = new Random(System.currentTimeMillis());
-
-  static Class<? extends IPart> createRandom() {
-    int n = rand.nextInt(partFactories.size());
-    return partFactories.get(n);
-  }
-
-  static {
-    partFactories.add(FuelFilter1.class);
-    partFactories.add(AirFilter1.class);
-    partFactories.add(CabinAirFilter1.class);
-    partFactories.add(OilFilter1.class);
-    partFactories.add(FanBelt1.class);
-    partFactories.add(PowerSteeringBelt1.class);
-    partFactories.add(GeneratorBelt1.class);
-  }
 }
 
-class Filter1 extends IPart {
+class Filter1 extends Part1 {
 }
 
 class FuelFilter1 extends Filter1 {
@@ -128,7 +127,7 @@ class OilFilter1 extends Filter1 {
   }
 }
 
-class Belt1 extends IPart {
+class Belt1 extends Part1 {
 }
 
 class FanBelt1 extends Belt1 {
