@@ -14,7 +14,8 @@ public class SimpleProxyDemo {
 
   public static void main(String[] args) {
     consumer(new RealObject());
-    consumer(new SimpleProxy(new RealObject()));
+    SimpleProxy proxy = new SimpleProxy(new RealObject());
+    consumer(proxy);
   }
 }
 
@@ -54,13 +55,17 @@ class SimpleProxy implements Interface {
 
   @Override
   public void doSomething() {
+    long start = System.nanoTime();
     System.out.println("SimpleProxy doSomething");
     proxied.doSomething();
+    System.out.println("调用历时" + (System.nanoTime() - start));
   }
 
   @Override
   public void somethingElse(String arg) {
+    long start = System.nanoTime();
     System.out.println("SimpleProxy somethingElse " + arg);
     proxied.somethingElse(arg);
+    System.out.println("调用历时" + (System.nanoTime() - start));
   }
 }

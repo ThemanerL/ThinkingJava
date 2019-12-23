@@ -1,5 +1,8 @@
 package thinkingjava.typeinfo.toys;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 interface HasBatteries {
 }
 
@@ -41,6 +44,25 @@ public class ToyTest {
       System.exit(1);
     }
     printInfo(obj.getClass());
+    System.out.println("------------------------------");
+    ToyTest test = new ToyTest();
+    test.p19(5);
+  }
+
+  private void p19(int i){
+    try {
+      Class<?> c = Class.forName("thinkingjava.typeinfo.toys.Toy");
+      try {
+        Constructor constructor = c.getDeclaredConstructor(int.class);
+        constructor.setAccessible(true);
+        Object o = constructor.newInstance(i);
+        printInfo(o.getClass());
+      } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
+        e.printStackTrace();
+      }
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
   }
 }
 
