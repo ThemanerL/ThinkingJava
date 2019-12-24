@@ -1,0 +1,23 @@
+package thinkingjava.net.mindview.util;
+
+/**
+ * @author 李重辰
+ * @date 2019/12/24 17:18
+ */
+public class ThreeTuple<A, B, C> extends TwoTuple<A, B> {
+  public final C third;
+
+  public ThreeTuple(A first, B second, C third) {
+    super(first, second);
+    this.third = third;
+  }
+
+  @Override
+  public String toString() {
+    return "{\"ThreeTuple\":{" +
+        "\"first\":" + first +
+        ", \"second\":" + second +
+        ", \"third\":" + third +
+        "}}";
+  }
+}

@@ -3,7 +3,6 @@ package thinkingjava.innerclasses;
 import thinkingjava.innerclasses.practice.P2;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 interface Selector {
@@ -65,9 +64,8 @@ public class Sequence {
     Selector selector = sequence.selector();
     // objectsholding Practice9
     List<Object> ts = Arrays.asList(sequence.items);
-    Iterator<Object> iterator = ts.iterator();
-    while (iterator.hasNext()) {
-      System.out.println(iterator.next() + " objectsholding Practice9 ");
+    for (Object t : ts) {
+      System.out.println(t + " objectsholding Practice9 ");
     }
     //:~
     while (!selector.end()) {
