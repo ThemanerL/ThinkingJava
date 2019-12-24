@@ -62,7 +62,7 @@ class NullPartInvocationHandle implements InvocationHandler {
 
 class Part1 implements IPart {
 
-  static List<Factory> partFactories = new ArrayList<>();
+  static List<Factory<? extends Part1>> partFactories = new ArrayList<>();
   private static Random rand = new Random(System.currentTimeMillis());
 
   static {
@@ -77,7 +77,7 @@ class Part1 implements IPart {
 
   static IPart createRandom() {
     int n = rand.nextInt(partFactories.size());
-    IPart aClass = (IPart) partFactories.get(n).create();
+    IPart aClass = partFactories.get(n).create();
     return (IPart) Proxy.newProxyInstance(Part1.class.getClassLoader(), new Class[]{Null.class, IPart.class}, new NullPartInvocationHandle(aClass));
   }
 
