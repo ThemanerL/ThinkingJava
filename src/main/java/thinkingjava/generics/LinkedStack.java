@@ -8,7 +8,7 @@ public class LinkedStack<T> {
   private Node<T> top = new Node<>();
 
   public void push(T item) {
-    top.next = new Node<>(item, top);
+    top = new Node<>(item, top);
   }
 
   public T pop() {
@@ -19,16 +19,16 @@ public class LinkedStack<T> {
     return result;
   }
 
-  private static class Node<U> {
-    U item;
-    Node<U> next;
+  private static class Node<T> {
+    T item;
+    Node<T> next;
 
     public Node() {
       item = null;
       next = null;
     }
 
-    public Node(U item, Node<U> next) {
+    public Node(T item, Node<T> next) {
       this.item = item;
       this.next = next;
     }
@@ -46,5 +46,9 @@ class LinkedStackTest {
     stack.push(2);
     stack.push(3);
 
+    Integer s;
+    while ((s = stack.pop()) != null) {
+      System.out.println(s);
+    }
   }
 }

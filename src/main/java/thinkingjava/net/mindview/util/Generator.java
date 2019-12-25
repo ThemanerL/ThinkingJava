@@ -1,3 +1,13 @@
-
 package thinkingjava.net.mindview.util;
-public interface Generator<T> { T next(); }
+
+/**
+ * @author Administrator
+ */
+public interface Generator<T> {
+  /**
+   * 返回参数化的 T
+   *
+   * @return T
+   */
+  T next();
+}
