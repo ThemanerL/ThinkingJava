@@ -1,5 +1,7 @@
 package algorithms.leecode.primary.linkedlist;
 
+import java.util.Stack;
+
 /**
  * 请判断一个链表是否为回文链表。
  * <p>
@@ -20,6 +22,17 @@ package algorithms.leecode.primary.linkedlist;
  */
 public class IsPalindrome {
   public boolean isPalindrome(ListNode head) {
-    return false;
+    Stack<ListNode> stack = new Stack<>();
+    while (head.next != null) {
+      stack.push(head);
+      head.next = head;
+    }
+
+    while (!stack.empty()) {
+      if (stack.pop() != head) {
+        return false;
+      }
+    }
+    return true;
   }
 }
