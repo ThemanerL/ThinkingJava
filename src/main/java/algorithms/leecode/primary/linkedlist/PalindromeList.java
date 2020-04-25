@@ -1,23 +1,10 @@
 package algorithms.leecode.primary.linkedlist;
 
-import lombok.Data;
-
 /**
  * @author axin
  * @since 2019-09-29
  */
 public class PalindromeList {
-
-  @Data
-  static class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-      this.val = val;
-    }
-
-  }
 
   /**
    * 第一步找到中点
@@ -71,12 +58,12 @@ public class PalindromeList {
     ListNode node3 = new ListNode(3);
     ListNode node2 = new ListNode(2);
     ListNode node1 = new ListNode(1);
-    node6.setNext(node7);
-    node5.setNext(node6);
-    node4.setNext(node5);
-    node3.setNext(node4);
-    node2.setNext(node3);
-    node1.setNext(node2);
+    node6.next = node7;
+    node5.next = node6;
+    node4.next = node5;
+    node3.next = node4;
+    node2.next = node3;
+    node1.next = node2;
 
     System.out.println("====" + isPalindrome(node1));
   }
