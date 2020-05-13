@@ -29,7 +29,7 @@ public class ReverseList {
 //    System.out.println("循环方式原地反转输出：" + resultHead);
 //    ListNode resultHead2 = new ReverseList().reverseListByInsert(head);
 //    System.out.println("循环方式头结点插入法输出：" + resultHead2);
-    ListNode resultHead3 = new ReverseList().myRecursiveSolution(head);
+    ListNode resultHead3 = new ReverseList().secondLinkedList0427(head);
     System.out.println("循环方式原地反转输出：" + resultHead3);
   }
 
@@ -117,5 +117,21 @@ public class ReverseList {
     ListNode preHead = myRecursiveSolution(temp);
     temp.next = head;
     return preHead;
+  }
+
+  /**
+   * 今天完全是自己画图自己写出来的，用两个链表处理的方式基本掌握
+   * 2020/04/27
+   */
+  private ListNode secondLinkedList0427(ListNode head) {
+    ListNode result = new ListNode(-1);
+    ListNode temp;
+    while (head != null) {
+      temp = head.next;
+      head.next = result.next;
+      result.next = head;
+      head = temp;
+    }
+    return result.next;
   }
 }
