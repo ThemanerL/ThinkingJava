@@ -29,7 +29,7 @@ public class InterToByteArray {
   public static int byteArrayToInt(byte[] source) {
     int result = 0;
     for (int j = 0; j < INT_BINARY_LENGTH; j++) {
-      result += source[INT_BINARY_LENGTH - j - 1]& 0xff << (8 * j);
+      result += (source[INT_BINARY_LENGTH - j - 1] & 0xff) << (8 * j);
     }
     return result;
   }
