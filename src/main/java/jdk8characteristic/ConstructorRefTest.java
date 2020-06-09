@@ -44,8 +44,8 @@ public class ConstructorRefTest {
    */
   @Test
   public void test3() {
-    Function<Integer, String[]> functio = (x) -> new String[x];
-    String[] strings = functio.apply(2);
+    Function<Integer, String[]> function1 = (x) -> new String[x];
+    String[] strings = function1.apply(2);
     System.out.println(strings.length);
 
     Function<Integer, Double[]> function = Double[]::new;
