@@ -1,7 +1,13 @@
 package multithread;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 多线程可能有问题，待测试
@@ -35,5 +41,12 @@ public class AppStaticFileDefault {
 
   public boolean isStaticFile(String uri) {
     return SUFFIX.stream().anyMatch(uri::endsWith);
+  }
+
+  public static void main(String[] args) {
+    ThreadPoolExecutor threadPool = new ThreadPoolExecutor(99999, 99999, 100, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10), new UserThreadFactory("localhost"));
+    for (int i = 0; i < 99980; i++) {
+      threadPool.execute(() -> new AppStaticFileDefault().isStaticFile(RandomStringUtils.randomAlphanumeric(6) + SUFFIX.get(new Random().nextInt(SUFFIX.size()))));
+    }
   }
 }
