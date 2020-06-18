@@ -22,16 +22,6 @@ public class UserThreadFactory implements ThreadFactory {
     this.namePrefix = "From User ThreadFactory's " + whatFeatureOfGroup + "-Worker-";
   }
 
-//  @Override
-//  public Thread newThread(@NotNull Runnable r) {
-//    return new Thread(() -> {
-//      String name = namePrefix + nextId.getAndIncrement();
-//      Thread thread = new Thread(null, r, name, 0, false);
-//      thread.start();
-//      System.out.println("Thread Name：" + thread.getName() + "\n HashCode：" + r.hashCode());
-//    });
-//  }
-
   @Override
   public Thread newThread(@NotNull Runnable r) {
     String name = namePrefix + nextId.getAndIncrement();
