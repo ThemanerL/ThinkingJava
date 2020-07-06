@@ -15,7 +15,6 @@ public class ThrowGenericException {
   public static void main(String[] args) {
     testFailure1();
     testFailure2();
-
   }
 
   private static void testFailure1() {
